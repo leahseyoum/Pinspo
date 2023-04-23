@@ -22,4 +22,3 @@ const configureStore = (preloadedState) => {
 };
 
 export default configureStore;
-

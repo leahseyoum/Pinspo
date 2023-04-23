@@ -17,6 +17,12 @@ if (process.env.NODE_ENV !== "production") {
   window.sessionActions = sessionActions;
 }
 
+// const Carrot = () => (
+//   <div style={{ color: "orange", fontSize: "100px" }}>
+//     <i className="fa-solid fa-carrot"></i>
+//   </div>
+// );
+
 function Root() {
   return (
     <ModalProvider>
