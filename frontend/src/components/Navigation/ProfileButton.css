@@ -1,0 +1,21 @@
+.profile-button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: #e60023; /* set red color for icon */
+    cursor: pointer;
+  }
+
+  .profile-dropdown {
+    position: absolute;
+    top: 80px;
+    right: 5px;
+    height: 60px;
+    background-color: white;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }

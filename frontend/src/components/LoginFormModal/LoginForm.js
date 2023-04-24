@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import * as sessionActions from "../../store/session";
-import { useDispatch } from "react-redux";
+import { useDispatch} from "react-redux";
+import { NavLink } from 'react-router-dom';
 import "./LoginForm.css";
 
 function LoginForm() {
@@ -29,31 +30,41 @@ function LoginForm() {
 
   return (
     <>
-      <h1>Log In</h1>
-      <form onSubmit={handleSubmit}>
-        <ul>
+      <h1 className="login-header">Log In</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <ul className="login-errors">
           {errors.map(error => <li key={error}>{error}</li>)}
         </ul>
-        <label>
+        <label className="login-credentiallabel" htmlfor="credential">
           Username or Email
-          <input
+        </label>
+          <input className="login-credential"
             type="text"
+            id="credential"
             value={credential}
             onChange={(e) => setCredential(e.target.value)}
             required
           />
-        </label>
-        <label>
+        <label className="login-passwordlabel" htmlFor="password">
           Password
+        </label>
           <input
+            className="login-password"
+            id="password"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        </label>
-        <button type="submit">Log In</button>
+        <div className="login-buttons"> 
+          <button className="login-button" type="submit">Log In</button>
+            <h3 id="modal-or">OR</h3>
+            <button className="modal-demo-button" onClick={()=>{setCredential("Demouser");setPassword("demopassword")}}>Continue as Demo User</button>
+
+        </div>
       </form>
+
+      {/* <NavLink to="/signup">Sign Up</NavLink> */}
     </>
   );
 }
