@@ -3,11 +3,9 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import ProfileButton from './ProfileButton';
-import LoginFormModal from '../LoginFormModal';
-import AuthModal from '../LoginFormModal';
 import './Navigation.css';
-import SignupFormModal from '../SignupFormModal';
 import pinterestLogo from '../../assets/pinterestLogo.png';
+import LoginSignupModal from '../LoginSignupModal';
 
 
 function Navigation() {
@@ -21,8 +19,9 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        <LoginFormModal /> 
-        <SignupFormModal />
+        {/* <LoginFormModal /> 
+        <SignupFormModal /> */}
+        <LoginSignupModal />
                 {/* <NavLink to="/signup">Sign Up</NavLink> */}
       </>
     );

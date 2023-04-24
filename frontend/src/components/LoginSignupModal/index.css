@@ -1,0 +1,14 @@
+.switch-form-button {
+  background-color: transparent;
+  border: none;
+  color: #333;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  cursor: pointer;
+  padding-bottom: 20px;
+}
+
+.switch-form-button:hover{
+    color: #e60023;
+}

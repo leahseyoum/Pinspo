@@ -8,8 +8,8 @@
   justify-content: space-between;
   align-items: center;
   background-color: #fff;
-  height: 80px;
-  padding: 0 30px;
+  height: 60px;
+  padding: 0 10px;
 }
 
 .left-nav {
@@ -45,7 +45,8 @@
 
 .right-nav {
   display: flex;
-  align-items: center;
+  /* justify-content: space-between; */
+  /* align-items: center; */
 }
 
 .right-nav > * + * {
@@ -54,7 +55,7 @@
 
 .github-icon,
 .linkin-icon {
-  margin-right: 20px;
+  margin-right: 10px;
 }
 
 #github,
@@ -62,6 +63,7 @@
   font-size: 35px;
   color: #333;
   transition: all 0.3s ease;
+  padding-top: 5px;
 }
 
 #github:hover,
@@ -73,6 +75,8 @@
   background-color: #E60023;
   border: none;
   border-radius: 24px;
+  height: 40px;
+  width: 100%;
   cursor: pointer;
   color: white;
   font-size: 14px;
@@ -81,14 +85,17 @@
   text-transform: uppercase;
 }
 
+
 .signup-button {
   background-color: #fff;
   border: 1px solid #E60023;
   border-radius: 24px;
+  height: 40px;
+  width: 180px;
   cursor: pointer;
   color: #E60023;
-  font-size: 14px;
+  font-size: 12 px;
   font-weight: bold;
-  padding: 12px 24px;
+  padding: 2px 24px;
   text-transform: uppercase;
 }

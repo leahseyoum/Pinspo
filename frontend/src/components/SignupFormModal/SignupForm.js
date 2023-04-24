@@ -4,8 +4,9 @@ import { Redirect } from "react-router-dom";
 import * as sessionActions from "../../store/session";
 import { NavLink } from 'react-router-dom';
 import './SignupForm.css';
+import pinterestLogo from '../../assets/pinterestLogo.png'
 
-function SignupFormPage() {
+function SignupFormPage({ onClose }) {
   const dispatch = useDispatch();
   const sessionUser = useSelector(state => state.session.user);
   const [email, setEmail] = useState("");
@@ -38,45 +39,55 @@ function SignupFormPage() {
   };
 
   return (
-    <>
-      <h1 className="signup-header">Sign Up</h1>
+    <div className="signup-modal-content">
+      
+      <div className="logo">
+        <img className='pinterest-logo-modal' src={pinterestLogo} />
+        <h1 className="welcome-message">Welcome to Pinspo</h1>
+      </div>
+      <button class="close" onClick={onClose}>&times;</button>
       <form className="signup-form" onSubmit={handleSubmit}>
+        <h3 className="login-header">Sign Up</h3>
         <ul className="signup-errors">
           {errors.map((error) => <li key={error}>{error}</li>)}
         </ul>
-        <label className="signup-email" hmtlfor="email">
+        <label className="signup-email" hmtlFor="email">
           Email
         </label>
           <input
+            className="signup-input"
             id="email"
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-        <label className="signup-username" htmlfor="username">
+        <label className="signup-username" htmlFor="username">
           Username
         </label>
           <input
+            className="signup-input"
             id="username"
             type="text"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             required
           />
-        <label className="signup-password" htmlfor="password">
+        <label className="signup-password" htmlFor="password">
           Password
         </label>
           <input
+            className="signup-input"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-        <label className="signup-confirm-password" hmtlfor="confirm-password">
+        <label className="signup-confirm-password" hmtlFor="confirm-password">
           Confirm Password
         </label>
           <input
+            className="signup-input"
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
@@ -84,9 +95,7 @@ function SignupFormPage() {
           />
         <button className="signup-button" type="submit">Sign Up</button>
       </form>
-
-      {/* <NavLink to="/login">Log In</NavLink> */}
-    </>
+    </div>
   );
 }
 
