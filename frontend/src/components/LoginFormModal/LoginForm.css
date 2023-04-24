@@ -158,7 +158,8 @@ label {
 }
 
 .login-inputs {
-    height:300px;
+    /* height:300px; */
+    width: 90%;
 }
 
 /* .login-buttons {
