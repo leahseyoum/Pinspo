@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import pinterestLogo from '../../assets/pinterestLogo.png';
 import LoginSignupModal from '../LoginSignupModal';
+import { AiOutlineSearch } from 'react-icons/ai';
 
 
 function Navigation() {
@@ -36,8 +37,17 @@ function Navigation() {
               <h1 className="logo-header">Pinspo</h1>
             </div>
           </div>
-
+          {sessionUser ? 
+        <div className='searchbar-container'>
+          <div class="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>
+          <div className='search-icon'><AiOutlineSearch id="search-icon"/></div>
+        </div> : null}
       </ul>
+      {/* {sessionUser ? 
+      <div className='searchbar-container'>
+        <div class="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>
+        <div className='search-icon'><AiOutlineSearch id="search-icon"/></div>
+      </div> : null} */}
      
       <ul className ='right-nav'>
           <div className='github-icon'>

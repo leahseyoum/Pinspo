@@ -3,6 +3,7 @@ class Pin < ApplicationRecord
     validate :caption_too_long?
 
     belongs_to :user
+    has_one_attached :image
 
     def caption_too_long?
         if caption.length > 255

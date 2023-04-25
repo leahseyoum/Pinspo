@@ -99,3 +99,31 @@
   padding: 2px 20px;
   text-transform: uppercase;
 }
+
+ .searchbar {
+  background-color: #efefef;
+  border: none;
+  border-radius: 24px;
+  height: 20px;
+  width: 550px;
+  cursor: pointer;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+
+  padding: 10px 20px;
+}
+
+.searchbar-container {
+  position: relative;
+  padding: 90px;
+}
+
+
+#search-icon {
+  position: absolute;
+  padding-left: 10px;
+  height: 20px;
+  width: 20px;
+} 
