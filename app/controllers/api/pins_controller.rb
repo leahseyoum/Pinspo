@@ -24,12 +24,13 @@ class Api::PinsController < ApplicationController
   end
 
   def index
-      @pins = if params[:user_id]
-      Pin.where(user_id: params[:user_id])
-    else
-      Pin.all
-    end
-      render :index
+    #   @pins = if params[:user_id]
+    #   Pin.where(user_id: params[:user_id])
+    # else
+    #   Pin.all
+    # end
+      @pins = Pin.all
+      render json: @pins 
   end
 
   def edit 

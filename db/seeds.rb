@@ -98,54 +98,54 @@ pin13 = Pin.create!({title:"Health Inspiration: Tips and Motivation to Live a He
 image13 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/healthpin1.jpg")
 pin13.image.attach(io: image13, filename: 'healthpin1.jpg')
 
-pin14 = Pin.create!({title: "Adorable Kitten for Your Daily Dose of Cuteness" ,caption: "Need a pick-me-up? Look no further than these irresistible kitten photos.", user_id: uesr4.id })
+pin14 = Pin.create!({title: "Adorable Kitten for Your Daily Dose of Cuteness" ,caption: "Need a pick-me-up? Look no further than these irresistible kitten photos.", user_id: user4.id })
 image14 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/kitten.webp")
 pin14.image.attach(io: image14, filename: 'kitten.webp')
 
-pin15 = Pin.create!({title:"10 Cutest Puppy Breeds You Need to Follow on Instagram", caption:, user_id: user5.id })
+pin15 = Pin.create!({title:"10 Cutest Puppy Breeds You Need to Follow on Instagram", caption: "Cute puppies that will melt your heart", user_id: user5.id })
 image15 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/puppypin1.jpg")
 pin15.image.attach(io: image15, filename: 'puppypin1.jpg')
 
-pin16 = Pin.create!({title: ,caption:, user_id: user6.id })
+pin16 = Pin.create!({title:"Adorable Puppies That Will Melt Your Heart" ,caption: "From playful pups to snuggly companions, these adorable dogs are sure to brighten your day.", user_id: user6.id })
 image16 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/puppypin3.jpg")
 pin16.image.attach(io: image16, filename: 'puppypin3.jpg')
 
-pin17 = Pin.create!({title: ,caption:, user_id: user7.id })
+pin17 = Pin.create!({title:"Stylish and Affordable Interior Design Ideas for Your Home" ,caption:"Revamp your living space with these amazing interior design ideas that won't break the bank.", user_id: user7.id })
 image17 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/stlyepin2.jpg")
 pin17.image.attach(io: image17, filename: 'stlyepin2.jpg')
 
-pin18 = Pin.create!({title: ,caption:, user_id: demo_user.id })
+pin18 = Pin.create!({title:"Dream Kitchens: Inspiration for Your Next Renovation" ,caption: "Looking for ideas to transform your kitchen into a dream space? Check out our collection of stunning kitchens for inspiration on your next renovation project.", user_id: demo_user.id })
 image18 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/stylepin1.jpg")
 pin18.image.attach(io: image18, filename: 'stylepin1.jpg')
 
-pin19 = Pin.create!({title: ,caption:, user_id: user1.id })
+pin19 = Pin.create!({title: "Discover the Latest Tech Innovations and Gadgets | Stay Up-to-Date with Technology Trends" ,caption: "From cutting-edge gadgets to the latest in software, our technology boards have everything you need to stay ahead of the curve.", user_id: user1.id })
 image19 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/technologypin1.jpg")
 pin19.image.attach(io: image19, filename: 'technologypin1.jpg')
 
-pin20 = Pin.create!({title: ,caption:, user_id: user2.id })
+pin20 = Pin.create!({title: "Captivating Views of the Eiffel Tower: Explore the City of Love!", caption: "Fall in love with the city of love! From its charming streets to its captivating views of the Eiffel Tower, Paris has something for everyone.", user_id: user2.id })
 image20 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/travelpin1.jpg")
 pin20.image.attach(io: image20, filename: 'travelpin1.jpg')
 
-pin21 = Pin.create!({title: ,caption:, user_id: user3.is })
+pin21 = Pin.create!({title:"Jaw-Dropping Views: Exploring the Grand Canyon" ,caption:"The Grand Canyon is one of the most breathtaking natural wonders in the world. From hiking to rafting, there's something for everyone. Get ready to be blown away by the stunning views and majestic landscape.", user_id: user3.id })
 image21 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/travelpin2.jpg")
 pin21.image.attach(io: image21, filename: 'travelpin2.jpg')
 
-pin22 = Pin.create!({title: ,caption:, user_id: user4.id })
+pin22 = Pin.create!({title:"Get Your Motor Running: The Ultimate Road Trip Guide" ,caption: "Take to the open road with this ultimate guide to the best road trips across the country. Discover hidden gems, breathtaking views, and unforgettable experiences that will make your journey one to remember.", user_id: user4.id })
 image22 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/travelpin3.jpg")
 pin22.image.attach(io: image22, filename: 'travelpin3.jpg')
 
-pin23 = Pin.create!({title: ,caption:, user_id: user5.id })
+pin23 = Pin.create!({title: "Mesmerizing Sunset Views You Can't Miss",caption:"Take a moment to appreciate the stunning beauty of nature with these breathtaking sunset views.", user_id: user5.id })
 image23 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/travelpin4.jpg")
 pin23.image.attach(io: image23, filename: 'travelpin4.jpg')
 
-pin24 = Pin.create!({title: ,caption:, user_id: user6.id })
+pin24 = Pin.create!({title:"Exploring Europe: A Journey Through Time and Culture",caption: "Experience the beauty, history, and diversity of Europe through our travel guide.", user_id: user6.id })
 image24 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/travelpin5.jpg")
 pin24.image.attach(io: image24, filename: 'travelpin5.jpg')
 
-pin25 = Pin.create!({title: ,caption:, user_id: user7.id })
+pin25 = Pin.create!({title: "Unforgettable Wedding Inspiration to Make Your Special Day Perfect" ,caption:"From stunning floral arrangements to breathtaking venues, get inspired for your wedding with these beautiful ideas.", user_id: user7.id })
 image25 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/weddingpin1.jpg")
 pin25.image.attach(io: image25, filename: 'weddingpin1.jpg')
 
-pin26 = Pin.create!({title: ,caption:, user_id: demo_user.id })
+pin26 = Pin.create!({title: "Boost Your Wellness: Simple Tips for a Healthier You" ,caption: "Take charge of your well-being with these easy, yet effective tips for a healthier lifestyle.", user_id: demo_user.id })
 image26 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/wellnespin2.jpg")
 pin26.image.attach(io: image26, filename: 'wellnespin2.jpg')
