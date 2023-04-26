@@ -3,7 +3,6 @@ import { useState, useEffect } from 'react';
 import PinIndex from './PinView';
 import './index.css'
 
-
 function Pins() {
 
   const [pins, setPins] = useState([]);
@@ -24,15 +23,7 @@ function Pins() {
       {arrayPins.map(pin => (
           <PinIndex className="pin" key={pin.id} pin={pin}/>
       ))}
-       {/* {selectedPin && (
-        <Link to={`/pin/${selectedPin.id}`}>
-          <PinDetail pin={selectedPin} />
-        </Link>
-      )} */}
       </div>
-  
-      
-      
   )
 
 }

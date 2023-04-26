@@ -8,6 +8,7 @@ import pinterestLogo from '../../assets/pinterestLogo.png';
 import LoginSignupModal from '../LoginSignupModal';
 import Pins from '../PinIndex';
 import { AiOutlineSearch } from 'react-icons/ai';
+import { useHistory } from 'react-router-dom';
 
 
 function Navigation() {
@@ -21,14 +22,15 @@ function Navigation() {
   } else {
     sessionLinks = (
       <>
-        {/* <LoginFormModal /> 
-        <SignupFormModal /> */}
         <LoginSignupModal />
-                {/* <NavLink to="/signup">Sign Up</NavLink> */}
       </>
     );
   }
 
+  const history = useHistory();
+  const handleClick = () => {
+    history.push('/index');
+  };
 
   return (
     <div className='nav-bar'>
@@ -51,7 +53,7 @@ function Navigation() {
       {sessionUser ? 
       <>
        <div className="home-button-container">
-          <button className="home-button">Home</button>
+          <button className="home-button" onClick={handleClick}>Home</button>
         </div>
         <div className='searchbar-container'>
           <div class="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>

@@ -11,21 +11,24 @@ function PinIndex({ pin }) {
   const dispatch = useDispatch();
 
   const handleClick = () => {
-    dispatch(displayPin(pin));
+    dispatch(displayPin(pin.id));
   };
   
     return (
-      
-        <Link to={`/pins/${pin.id}`}  style={{ textDecoration: 'none', color: 'black' }} onClick={handleClick}>
+        <Link to={`/pins/${pin.id}`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleClick}>
           <div className="pin">
-          <div className="pin-image">
-            <img src={pin.image} alt={pin.title} />
-          </div>
-          <div className="pin-text">
-            <h3 className="pin-title">{pin.title}</h3>
-          </div>
+            <div className="pin-image">
+              <img src={pin.image} alt={pin.title} />
+              <div className="pin-hover">
+                <button className="save-button">Save</button>
+              </div>
+            </div>
+            <div className="pin-text">
+              <h3 className="pin-title">{pin.title}</h3>
+            </div>
           </div>
         </Link>
+
       
     );
   }

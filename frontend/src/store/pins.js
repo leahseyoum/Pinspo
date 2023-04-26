@@ -21,8 +21,8 @@ export const displayPins = () => async dispatch => {
     return response;
 }
 
-export const displayPin = (pin) => async dispatch => {
-    const response = await csrfFetch(`/api/pins/${pin.id}`)
+export const displayPin = (pinId) => async dispatch => {
+    const response = await csrfFetch(`/api/pins/${pinId}`)
     const data = await response.json();
     dispatch(retrieveSinglePin(data));
     return response;

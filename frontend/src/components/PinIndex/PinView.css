@@ -3,6 +3,9 @@
   margin: 5px 10px 5px 10px;
   width: 230px;
   overflow: hidden;
+  position: relative;
+  /* line-height: 0;
+  vertical-align: top; */
 }
 
 .pin img {
@@ -11,16 +14,59 @@
   object-fit: cover;
   margin-bottom: 0;
   border-radius: 15px;
+  min-height: 250px;
+  line-height: 0;
+  vertical-align: top;
+}
+
+.pin-image {
+  position: relative;
 }
 
 .pin-image:hover {
   cursor: pointer;
 }
 
+.pin-hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-end;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  border-radius: 16px;
+}
+
+.pin:hover .pin-hover {
+  opacity: 1;
+}
+
+.save-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  margin-top: 10px;
+  background-color: #E60023;;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 24px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
 .pin-title {
   font-family: Helvetica neue;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 13px;
   width: 220px;
+  margin-bottom: 10px;
+  /* margin-top: 10px;
+  margin-left: 20px; */
 }
 
