@@ -6,40 +6,38 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-# ApplicationRecord.transaction do 
-#     puts "Destroying tables..."
-#     User.destroy_all
-  
-#     puts "Resetting primary keys..."
-#     ApplicationRecord.connection.reset_pk_sequence!('users')
-  
-#     puts "Creating users..."
-    
-#     User.create!(
-#       username: 'Demouser', 
-#       email: 'demouser@gmail.com', 
-#       password: 'demopassword'
-#     )
-  
-#     # More users
-#     10.times do 
-#       User.create!({
-#         username: Faker::Internet.unique.username(specifier: 3),
-#         email: Faker::Internet.unique.email,
-#         password: 'password'
-#       }) 
-#     end
-  
-#     puts "Done!"
-#   end
-
-require 'open-uri'
+ApplicationRecord.transaction do 
+  puts "Destroying tables..."
   User.destroy_all
-  Pin.destroy_all
-
-
+  
+  puts "Resetting primary keys..."
+  ApplicationRecord.connection.reset_pk_sequence!('users')
+  
+  puts "Creating users..."
+  
+  User.create!(
+    username: 'Demouser', 
+    email: 'demouser@gmail.com', 
+    password: 'demopassword'
+    )
+    
+    # More users
+    # 10.times do 
+    #   User.create!({
+      #     username: Faker::Internet.unique.username(specifier: 3),
+      #     email: Faker::Internet.unique.email,
+      #     password: 'password'
+      #   }) 
+      # end
+      
+      puts "Done!"
+    end
+    
+    require 'open-uri'
+      Pin.destroy_all
+    
 #users
-demo_user = User.create!({username: 'DemoUser', email: 'demouser@gmail.com', password: 'demppassword'})
+
 user1 = User.create!({username: 'Avery', email:'avery@gmail.com', password: 'averypassword'})
 user2 = User.create!({username: 'Logan', email:'logan@gmail.com', password: 'loganpassword'})
 user3 = User.create!({username: 'Morgan', email:'margan@gmail.com', password: 'morganpassword'})
@@ -50,7 +48,7 @@ user7 = User.create!({username: 'Alex', email:'alex@gmail.com', password: 'alexp
 
 
 #pins
-pin1 = Pin.create!({title: 'Cute Puppy', caption: "My heart just doubled in size.", user_id: demo_user.id})
+pin1 = Pin.create!({title: 'Cute Puppy', caption: "My heart just doubled in size.", user_id: user1.id})
 image1 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/puppypin2.jpg")
 pin1.image.attach(io: image1, filename: 'puppypin2.jpg')
 
@@ -82,7 +80,7 @@ pin9 = Pin.create!({title: "10 Delicious and Healthy Snacks for Busy Days",capti
 image9 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/foodpin1.jpg")
 pin9.image.attach(io: image9, filename: 'foodpin1.jpg')
 
-pin10 = Pin.create!({title:"Indulge in these mouth-watering brownie recipes",caption: "Satisfy your sweet tooth with these delicious and easy-to-make brownies.", user_id: demo_user.id })
+pin10 = Pin.create!({title:"Indulge in these mouth-watering brownie recipes",caption: "Satisfy your sweet tooth with these delicious and easy-to-make brownies.", user_id: user1.id })
 image10 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/foodpin2.jpg")
 pin10.image.attach(io: image10, filename: 'foodpin2.jpg')
 
@@ -114,7 +112,7 @@ pin17 = Pin.create!({title:"Stylish and Affordable Interior Design Ideas for You
 image17 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/stlyepin2.jpg")
 pin17.image.attach(io: image17, filename: 'stlyepin2.jpg')
 
-pin18 = Pin.create!({title:"Dream Kitchens: Inspiration for Your Next Renovation" ,caption: "Looking for ideas to transform your kitchen into a dream space? Check out our collection of stunning kitchens for inspiration on your next renovation project.", user_id: demo_user.id })
+pin18 = Pin.create!({title:"Dream Kitchens: Inspiration for Your Next Renovation" ,caption: "Looking for ideas to transform your kitchen into a dream space? Check out our collection of stunning kitchens for inspiration on your next renovation project.", user_id: user1.id })
 image18 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/stylepin1.jpg")
 pin18.image.attach(io: image18, filename: 'stylepin1.jpg')
 
@@ -146,6 +144,6 @@ pin25 = Pin.create!({title: "Unforgettable Wedding Inspiration to Make Your Spec
 image25 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/weddingpin1.jpg")
 pin25.image.attach(io: image25, filename: 'weddingpin1.jpg')
 
-pin26 = Pin.create!({title: "Boost Your Wellness: Simple Tips for a Healthier You" ,caption: "Take charge of your well-being with these easy, yet effective tips for a healthier lifestyle.", user_id: demo_user.id })
+pin26 = Pin.create!({title: "Boost Your Wellness: Simple Tips for a Healthier You" ,caption: "Take charge of your well-being with these easy, yet effective tips for a healthier lifestyle.", user_id: user1.id })
 image26 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/wellnespin2.jpg")
 pin26.image.attach(io: image26, filename: 'wellnespin2.jpg')

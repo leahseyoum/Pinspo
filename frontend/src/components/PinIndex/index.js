@@ -1,6 +1,8 @@
 // Pins.js
 import { useState, useEffect } from 'react';
 import PinIndex from './PinView';
+import './index.css'
+
 
 function Pins() {
 
@@ -12,14 +14,27 @@ function Pins() {
       .then(data => setPins(data));
   }, []);
 
+  
+  const arrayPins = Object.values(pins)
+  
 
-   return (
-    <div className="pins">
-      {pins.map(pin => (
-        <PinIndex key={pin.id} pin={pin} />
+  return (
+
+     <div className="pins">
+      {arrayPins.map(pin => (
+          <PinIndex className="pin" key={pin.id} pin={pin}/>
       ))}
-    </div>
-  );
+       {/* {selectedPin && (
+        <Link to={`/pin/${selectedPin.id}`}>
+          <PinDetail pin={selectedPin} />
+        </Link>
+      )} */}
+      </div>
+  
+      
+      
+  )
+
 }
 
 export default Pins;

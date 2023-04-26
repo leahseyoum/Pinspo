@@ -6,6 +6,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import pinterestLogo from '../../assets/pinterestLogo.png';
 import LoginSignupModal from '../LoginSignupModal';
+import Pins from '../PinIndex';
 import { AiOutlineSearch } from 'react-icons/ai';
 
 
@@ -28,6 +29,7 @@ function Navigation() {
     );
   }
 
+
   return (
     <div className='nav-bar'>
       <ul className='left-nav'>
@@ -37,28 +39,37 @@ function Navigation() {
               <h1 className="logo-header">Pinspo</h1>
             </div>
           </div>
-          {sessionUser ? 
+          {/* {sessionUser ? 
+        <div className='searchbar-container'>
+          <div className="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>
+          <div className='search-icon'><AiOutlineSearch id="search-icon"/></div>
+        </div> : null} */}
+         {/* <div className="home-button">
+          <button>Home</button>
+        </div> */}
+      </ul>
+      {sessionUser ? 
+      <>
+       <div className="home-button-container">
+          <button className="home-button">Home</button>
+        </div>
         <div className='searchbar-container'>
           <div class="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>
-          <div className='search-icon'><AiOutlineSearch id="search-icon"/></div>
-        </div> : null}
-      </ul>
-      {/* {sessionUser ? 
-      <div className='searchbar-container'>
-        <div class="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>
-        <div className='search-icon'><AiOutlineSearch id="search-icon"/></div>
-      </div> : null} */}
+          {/* <div className='search-icon'><AiOutlineSearch id="search-icon"/></div> */}
+        </div>
+      </> : null}
+      
      
       <ul className ='right-nav'>
           <div className='github-icon'>
               <a target="_blank" href="https://github.com/leahseyoum">
-                  <i id="github" class="fab fa-github"></i>
+                  <i id="github" className="fab fa-github"></i>
               </a>
           </div>
 
           <div className='linkin-icon'>
             <a target="_blank" href="">
-              <i id="linkedIn" class="fab fa-linkedin"></i>
+              <i id="linkedIn" className="fab fa-linkedin"></i>
             </a> 
           </div>
           {sessionLinks}

@@ -1,0 +1,15 @@
+ .pins {
+    columns: 5;
+    column-gap: 5px;
+    padding: 40px;
+    width: 90%;
+    margin: 0 auto;
+    
+}
+
+.className {
+    padding: 10px;
+    margin-bottom: 10px;
+	break-inside: avoid;
+} 
+

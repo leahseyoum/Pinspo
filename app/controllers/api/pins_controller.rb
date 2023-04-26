@@ -30,7 +30,7 @@ class Api::PinsController < ApplicationController
     #   Pin.all
     # end
       @pins = Pin.all
-      render json: @pins 
+      render :index
   end
 
   def edit 
