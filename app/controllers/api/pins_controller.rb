@@ -1,4 +1,6 @@
 class Api::PinsController < ApplicationController
+  wrap_parameters include: Pin.attribute_names + [:image]
+
   def new
     @pin = Pin.new
     render :new
@@ -8,7 +10,7 @@ class Api::PinsController < ApplicationController
     @pin = Pin.new(pin_params)
     @pin.user_id = current_user.id
     if @pin.save
-      redirect_to api_pin_url(@pin)
+      render :show
     else
       render json: @pin.errors.full_messages, status: 422
     end
@@ -58,6 +60,6 @@ class Api::PinsController < ApplicationController
 
   private
   def pin_params
-    params.require(:pin).permit(:title, :caption, :user_id, :link)
+    params.require(:pin).permit(:title, :caption, :user_id, :link, :image)
   end
 end

@@ -130,31 +130,39 @@
   width: 20px;
 } 
 
-.home-button-container {
-   /* padding-left: 40px; */
-   padding-top: 10px;
-   text-align: center;
+.home-button-container, .create-button-container {
+   margin-top: 15px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 40px;
+   border-radius: 8px;
 }
 
-.home-button {
-  padding-top: 8px;
+.home-button, .create-button {
   border: none;
   background-color: transparent;
   font-size: 1.1rem;
   font-weight: 550;
   cursor: pointer;
-}
-
-/* button {
-  border: none;
-  background-color: transparent;
-  font-size: 1rem;
   font-family: Helvetica neue;
-  font-weight: 500;
+  transition: all 0.2s ease-in-out;
 }
 
-button:hover {
+
+.create-button:hover {
   cursor: pointer;
   color: #fff;
   background-color: #000;
-} */
+  border-radius: 16px;
+  padding: 15px 15px;
+  border-radius: 30px;
+} 
+
+.home-button:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  border-radius: 30px;
+  padding: 15px 15px;
+}

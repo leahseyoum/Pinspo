@@ -3,7 +3,8 @@
   margin: 5px 10px 5px 10px;
   width: 230px;
   overflow: hidden;
-  position: relative;
+  padding: 10px;
+  /* position: relative; */
   /* line-height: 0;
   vertical-align: top; */
 }

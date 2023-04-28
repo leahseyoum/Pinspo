@@ -8,6 +8,9 @@ import App from './App';
 import configureStore from './store';
 import csrfFetch from "./store/csrf";
 import * as sessionActions from './store/session';
+// import Amplify from 'aws-amplify';
+// import awsconfig from './aws-exports';
+// Amplify.configure(awsconfig);
 
 const store = configureStore();
 

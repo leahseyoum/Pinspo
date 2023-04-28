@@ -6,7 +6,7 @@ import ProfileButton from './ProfileButton';
 import './Navigation.css';
 import pinterestLogo from '../../assets/pinterestLogo.png';
 import LoginSignupModal from '../LoginSignupModal';
-import Pins from '../PinIndex';
+import Pins from '../Pin/PinIndex';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
 
@@ -32,6 +32,10 @@ function Navigation() {
     history.push('/index');
   };
 
+  const handleCreateClick = () => {
+    history.push('/create')
+  }
+
   return (
     <div className='nav-bar'>
       <ul className='left-nav'>
@@ -41,19 +45,14 @@ function Navigation() {
               <h1 className="logo-header">Pinspo</h1>
             </div>
           </div>
-          {/* {sessionUser ? 
-        <div className='searchbar-container'>
-          <div className="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>
-          <div className='search-icon'><AiOutlineSearch id="search-icon"/></div>
-        </div> : null} */}
-         {/* <div className="home-button">
-          <button>Home</button>
-        </div> */}
       </ul>
       {sessionUser ? 
       <>
        <div className="home-button-container">
           <button className="home-button" onClick={handleClick}>Home</button>
+        </div>
+        <div className="create-button-container" onClick={handleCreateClick}>
+          <button className="create-button">Create</button>
         </div>
         <div className='searchbar-container'>
           <div class="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>

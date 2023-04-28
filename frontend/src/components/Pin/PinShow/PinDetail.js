@@ -9,13 +9,12 @@ import './PinDetail.css';
 
 function PinDetail() {
     const pin = useSelector(state => state.pins.pin)
+    const { pinId } = useParams();
     
+    const dispatch = useDispatch();
   
     const [pin2, setPin2] = useState();
-    const dispatch = useDispatch();
-
-    const { pinId } = useParams();
-
+  
   useEffect(() => {
     fetch(`/api/pins/${pinId}`)  
       .then(response => response.json())
@@ -50,11 +49,16 @@ function PinDetail() {
         <FaArrowLeft className="arrow-icon"/>
       </div>
       <div className="pin-detail">
+
         <div className="show-image-container">
           <img className="show-image" src={pin?.image || pin2?.image} alt={pin?.title || pin2?.title} />
+          {/* <img className="show-image" src={pin.image } alt={pin.title} /> */}
         </div>
         <div className="show-details-container">
           <div className="show-details">
+            <div className="pin-owner-info">
+                        {/* <p>{user.username}</p> */}
+                    </div>
             <div className="show-pin-title">
               <h2 className="show-title">{pin?.title || pin2?.title}</h2>
             </div>
@@ -62,6 +66,9 @@ function PinDetail() {
               <p className="show-caption">{pin?.caption || pin2?.caption}</p>
             </div>
           </div>
+          <select className='show-pin-dropdown'>
+            <option value="" selected disabled>Board</option>
+          </select>
         <div class="save-button-container">
           <button className="show-save-button">Save</button>
         </div>

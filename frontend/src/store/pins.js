@@ -28,6 +28,29 @@ export const displayPin = (pinId) => async dispatch => {
     return response;
 }
 
+// export const createPin = pinFormData => async dispatch => {
+//     const response = await csrfFetch("/api/pins", {
+//       method: "POST",
+//       body: pinFormData
+//     });
+//     const data = await response.json();
+//     dispatch(retrieveSinglePin(data));
+//     return response;
+// };
+export const createPin = pin => async (dispatch) => {
+    const response = await fetch(`/api/pins/`, {
+        method: 'POST',
+        headers: {
+            "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
+        },
+        body: (pin)
+    });
+    if (response.ok) {
+        const pin = await response.json();
+        dispatch(retrieveSinglePin(pin));
+    }
+};
+
 const initialState = {
     pins: null,
     pin: null
