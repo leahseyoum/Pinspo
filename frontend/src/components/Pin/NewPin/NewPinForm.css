@@ -1,0 +1,215 @@
+ .new-pin-form-background {
+    /* width: 100vw;
+    height: 100vh; */
+    /* left: 0;
+    right: 0; */
+    background-color: #f2f2f2;
+    padding-top: 20px;
+    margin-top: 20px;
+    padding-bottom: 100px;
+}
+
+.pin-form-container {
+    width: 750px;
+    max-height: 825px;
+    margin: 0 auto;
+    margin-top: 70px;
+    padding: 50px;
+    background-color: white;
+    border-radius: 16px;
+    padding-bottom: 10px;
+    box-shadow: 0 1px 2px rgba(182, 170, 170, 0.1);
+    overflow: hidden;
+  }
+  
+ .new-pin-nav-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 20px;
+  }
+  
+  .new-pin-form-dropdown {
+    height: 40px;
+    width: 150px;
+    padding: 0 10px;
+    border: 1px solid #e1e1e1;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    font-family: Helvetica neue;
+    background-color: #fff;
+    font-size: 16px;
+    color: #333;
+    background-color: #f2f2f2;;
+  }
+  
+  .new-pin-save-button {
+    height: 40px;
+    padding: 0 16px;
+    border: none;
+    border-radius: 10px;
+    background-color: #bd081c;
+    font-size: 16px;
+    font-family: Helvetica neue;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    outline: none;
+    border-top-left-radius: 0px;
+    border-bottom-left-radius: 0px;
+  }
+
+  .new-pin-form-body-container {
+    display: flex;
+  }
+  
+/* #dropzone {
+    
+    height: 400px;
+    margin-bottom: 20px; */
+    /* border: 2px dashed #e1e1e1; */
+    /* font-family: Helvetica neue;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 18px;
+    line-height: 400px;
+    color: #999;
+    margin-right: 20px;
+    position: absolute;
+  } */
+  
+  .dropzone {
+    /* display: block; */
+    background-color: rgb(233, 231, 231);
+    /* border: dashed; */
+    border-color: rgb(113, 112, 112);
+    border-radius: 16px;
+    width: 350px;
+    height: 500px;
+    margin: auto;
+    align-items:center;
+    justify-content:center;
+    position: relative;
+    
+  }
+
+  .dashed {
+    height: 450px;
+    width: 300px;
+    border: 2px dashed #c6c6c6;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+
+  .preview-image {
+    height: 100%;
+    width: 100%;
+  }
+  
+
+ Input {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .new-pin-title-container {
+    margin-bottom: 16px;
+  }
+  
+  .new-pin-title {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+    font-family: Helvetica neue;
+    background-color: #fff;
+    font-size: 32px;
+    font-weight: 600;
+    color: #333;
+    width: 95%;
+    margin-bottom: 30px;
+  }
+  
+  .user-info {
+    margin-bottom: 16px;
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .new-pin-caption-container {
+    margin-bottom: 250px;
+    padding-top: 16px;
+  }
+  
+  .new-pin-caption {
+    width: 400px;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+    font-family: Helvetica neue;
+    background-color: #fff;
+    font-size: 18px;
+    color: #333;
+    width: 95%;
+    
+  }
+  
+  .new-pin-link-container {
+    margin-bottom: 36px;
+  }
+  
+  .new-link-caption {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-bottom: 2px solid #e1e1e1;
+    font-family: Helvetica neue;
+    background-color: #fff;
+    font-size: 18px;
+    color: #bd081c;
+    width: 95%;
+  }
+  
+  .new-pin-link-caption::placeholder {
+    color: #bd081c;
+  }
+
+  .user-info {
+    display: flex;
+    justify-content: flex-start;
+  }
+
+  .user-icon {
+    display: inline-block;
+    margin-top: 5px;
+    align-items: center;
+    width: 42px;
+    height: 42px;
+    line-height: 42px;
+    border-radius: 50%;
+    text-align: center;
+    font-family: Helvetica neue;
+    background-color: rgb(223, 222, 222);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    margin-right: 5px;
+  }
+
+  .user-icon-username {
+    font-family: Helvetica neue;
+    font-size: 16px;
+    color: #333;
+    font-weight: 600;
+  }
+
+  
+
+   

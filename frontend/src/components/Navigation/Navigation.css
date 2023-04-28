@@ -10,6 +10,13 @@
   background-color: #fff;
   height: 60px;
   padding: 0 10px;
+  position: fixed;
+  z-index: 5;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .left-nav {
@@ -98,4 +105,72 @@
   font-weight: bold;
   padding: 2px 20px;
   text-transform: uppercase;
+}
+
+ .searchbar {
+  background-color: #efefef;
+  border: none;
+  border-radius: 24px;
+  height: 30px;;
+  width: 100%;
+  cursor: text;
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  margin-top: 5px;
+
+  padding: 10px 20px;
+}
+
+.searchbar-container {
+  position: relative;
+  padding: 20px;
+  width: 800px;
+  height: 50px;
+}
+
+
+#search-icon {
+  position: absolute;
+  padding-left: 10px;
+  height: 20px;
+  width: 20px;
+} 
+
+.home-button-container, .create-button-container {
+   margin-top: 15px;
+   margin-left: 10px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   height: 40px;
+   border-radius: 8px;
+}
+
+.home-button, .create-button {
+  border: none;
+  background-color: transparent;
+  font-size: 1.1rem;
+  font-weight: 550;
+  cursor: pointer;
+  font-family: Helvetica neue;
+  transition: all 0.2s ease-in-out;
+}
+
+
+.create-button:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  border-radius: 16px;
+  padding: 15px 15px;
+  border-radius: 30px;
+} 
+
+.home-button:hover {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  border-radius: 30px;
+  padding: 15px 15px;
 }

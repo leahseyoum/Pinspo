@@ -11,6 +11,8 @@ function LoginSignupModal() {
         setShowModal(false);
     }
 
+
+
     return (
         <>
             <button className="login-button"  onClick={() => {setShowModal(true);setShowLoginModal(true)}}>Log in</button>
