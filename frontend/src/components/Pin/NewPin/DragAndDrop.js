@@ -113,20 +113,20 @@
 
 // export default DragDropFile;
 
-import React, {useState} from "react";
-const ImageUploader = () => {
-    // const[image, setImage] = useState(null);
-    const[previewUrl, setPreviewUrl] = useState(""); 
-    // const handleFile = file => {
-    //     //you can carry out any file validations here...
-    //     setImage(file);
-    //     setPreviewUrl(URL.createObjectURL(file));
-    // }
-    //other codes follows...
-    const handleOndrop = event => {
+// import React, {useState} from "react";
+// const ImageUploader = () => {
+//     // const[image, setImage] = useState(null);
+//     const[previewUrl, setPreviewUrl] = useState(""); 
+//     // const handleFile = file => {
+//     //     //you can carry out any file validations here...
+//     //     setImage(file);
+//     //     setPreviewUrl(URL.createObjectURL(file));
+//     // }
+//     //other codes follows...
+//     const handleOndrop = event => {
       
-      //let's grab the image file
-      let imageFile = event.dataTransfer.files[0];
-      // handleFile(imageFile);
-    }
-}
+//       //let's grab the image file
+//       let imageFile = event.dataTransfer.files[0];
+//       // handleFile(imageFile);
+//     }
+// }

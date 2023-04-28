@@ -1,54 +1,42 @@
 
-  .pin-show-container {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: calc(100vh - 60px);
-  }
+.pin-show-container {
+  margin-top: 100px;
+}
+   
   
   .pin-detail {
     position: relative;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
     width: 60%;
     height: 95%;
-    align-self: center;
     border-radius: 16px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
-    /* width: 90%; */
-    max-width: 1200px;
+    width: 90%;
+    max-width: 900px;
+    min-height: 600px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 30px;
   }
   
-  .show-image-container {
-    grid-column: 1 / 2;
-    grid-row: 1 / 3;
+  .show-image-container img {
+    /* grid-column: 1 / 2;
+    grid-row: 1 / 3; */
+    height: 100%;
+    width: 100%;
   }
   
   .show-image {
-    /* width: 100%;
-    height: auto;
-    object-fit: cover; */
+    /* width: auto;
+    height: 100%; */
+    object-fit: cover;
     border-top-left-radius: 16px;
     border-bottom-left-radius: 16px;
 
   }
   
-  .show-details-container {
-    grid-column: 2 / 3;
-    grid-row: 1 / 2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
-  .show-details {
-    width: 100%;
-    max-width: 600px;
-  }
-
   .show-pin-caption, .show-pin-title {
     font-family: Helvetica neue;
     padding-left: 10px;
@@ -57,16 +45,16 @@
 
   .show-title {
     position: relative; 
-     /* top: 30px; */
-    /* font-weight: 500; */
-    margin-top: 50px;
+    top: 30px;
+    font-weight: 500;
+    /* margin-top: 50px;*/
   } 
 
-  .show-pin-caption {
-    position: relative;
-    /* top: 20px;  */
-    margin-top: 10px;
-  }
+   .show-pin-caption {
+    position: relative; 
+     top: 20px;  
+     margin-top: 10px;
+  } 
 
   .show-save-button{
     background-color: #E60023;
@@ -111,7 +99,7 @@
     color: #333;
   }
 
-  .show-pin-dropdown {
+   .show-pin-dropdown {
     position: absolute;
     top: 30px;
     right: 110px;
@@ -119,4 +107,54 @@
     font-family: Helvetica neue;
     font-size: 16px;
     border:none;
+  }  
+
+  .show-container {
+    display: flex;
+    align-items: center;
   }
+  
+  .show-image-container {
+    flex: 1;
+    /* max-width: 50%; */
+    margin-right: 1rem;
+  }
+  
+  .show-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .show-details-container {
+    flex: 1;
+    max-width: 50%;
+  }
+
+  .user-info-display {
+    display: flex;
+
+  }
+
+  .pin-owner-info {
+    margin-top: 50px;
+    font-size: 16px;
+    font-family: Helvetica neue;
+    font-weight: 500;
+  }
+
+  .circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #ccc;
+    color: rgb(32, 31, 31);
+    font-size: 20px;
+    font-weight: 500;
+    margin-top: 50px;
+    margin-right: 5px;
+    font-family: Helvetica neue;
+  }
+  

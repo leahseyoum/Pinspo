@@ -33,7 +33,8 @@ function NewPinForm() {
             return createPin(formData);
         },
 
-        onSucess:() => history.push('/index')
+        // onSucess:() => history.push('/index')
+        onSucess: <Redirect to='/index'/>
     })
     
     
@@ -54,24 +55,24 @@ function NewPinForm() {
       const dropZoneRef = useRef(null);
         const [preview, setPreview] = useState('');
 
-      const handleDrop = (event) => {
-        event.preventDefault();
-        const file = event.dataTransfer.files[0];
-        const reader = new FileReader();
-        reader.onload = () => {
-          setPreview(reader.result);
-        };
-        reader.readAsDataURL(file);
-      };
+      // const handleDrop = (event) => {
+      //   event.preventDefault();
+      //   const file = event.dataTransfer.files[0];
+      //   const reader = new FileReader();
+      //   reader.onload = () => {
+      //     setPreview(reader.result);
+      //   };
+      //   reader.readAsDataURL(file);
+      // };
     
-      const handleDragOver = (event) => {
-        event.preventDefault();
-        dropZoneRef.current.classList.add('drag-over');
-      };
+      // const handleDragOver = (event) => {
+      //   event.preventDefault();
+      //   dropZoneRef.current.classList.add('drag-over');
+      // };
     
-      const handleDragLeave = () => {
-        dropZoneRef.current.classList.remove('drag-over');
-      };
+      // const handleDragLeave = () => {
+      //   dropZoneRef.current.classList.remove('drag-over');
+      // };
 
 
       
@@ -89,10 +90,9 @@ function NewPinForm() {
                     </div>
                     <div className='new-pin-form-body-container'>
                         <div class="dropzone">
-                            {/* <img id="image" src="" alt="Drag and drop or click to upload"/> */}
                             {/* <DragDropFile onChange={handleFileChange}/> */}
                             <div className='dashed'>
-
+                              {/* <DragDropFile onChange={handleFileChange}/> */}
                               <img className='preview-image' src={preview} alt='Preview' />
                                 <Input 
                                   label="Drag and drop or click to upload"

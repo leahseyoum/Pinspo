@@ -8,7 +8,8 @@ import './PinDetail.css';
 
 
 function PinDetail() {
-    const pin = useSelector(state => state.pins.pin)
+    const pin = useSelector(state => state.pins.pin);
+    const user = useSelector(state => state.session.user);
     const { pinId } = useParams();
     
     const dispatch = useDispatch();
@@ -56,14 +57,23 @@ function PinDetail() {
         </div>
         <div className="show-details-container">
           <div className="show-details">
-            <div className="pin-owner-info">
-                        {/* <p>{user.username}</p> */}
-                    </div>
+            {/* <div className="pin-owner-info">
+                        <p>{user.username}</p>
+                    </div> */}
             <div className="show-pin-title">
               <h2 className="show-title">{pin?.title || pin2?.title}</h2>
             </div>
             <div className="show-pin-caption">
               <p className="show-caption">{pin?.caption || pin2?.caption}</p>
+            </div>
+            
+            <div className='user-info-display'>
+
+                <div class="circle">{user.username[0].toUpperCase()}</div>
+
+                <div className="pin-owner-info">
+                    <p>{user.username}</p>
+                </div>
             </div>
           </div>
           <select className='show-pin-dropdown'>

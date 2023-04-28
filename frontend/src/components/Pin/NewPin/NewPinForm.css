@@ -1,6 +1,8 @@
  .new-pin-form-background {
-    width: 100vw;
-    height: 100vh;
+    /* width: 100vw;
+    height: 100vh; */
+    /* left: 0;
+    right: 0; */
     background-color: #f2f2f2;
     padding-top: 20px;
     margin-top: 20px;
@@ -8,13 +10,10 @@
 }
 
 .pin-form-container {
-    /* display: flex;
-    justify-content: space-between; */
-    /* box-sizing: border-box; */
     width: 750px;
     max-height: 825px;
     margin: 0 auto;
-    margin-top: 20px;
+    margin-top: 70px;
     padding: 50px;
     background-color: white;
     border-radius: 16px;
@@ -108,13 +107,11 @@
   }
 
 
-  /* .preview-image {
-    object-fit: cover;
+  .preview-image {
+    height: 100%;
+    width: 100%;
   }
-  .photo-input {
-   
-    
-  } */
+  
 
  Input {
     width: 100%;
@@ -212,5 +209,7 @@
     color: #333;
     font-weight: 600;
   }
+
+  
 
    

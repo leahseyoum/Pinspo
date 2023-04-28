@@ -1,11 +1,11 @@
 .pins { 
     columns: 5;
     column-gap: 2px; 
-    padding: 20px;
+    padding: 70px;
     width: 90%;
     margin: 0 auto; 
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
     width: 90%;
     position: absolute;
     left: 50%;
