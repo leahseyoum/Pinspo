@@ -7,6 +7,7 @@ import SplashPage from "./components/SplashPage";
 import NewPinForm from "./components/Pin/NewPin/NewPinForm";
 import CreatedPage from "./components/UserProfile/CreatedPage";
 import SavedPage from "./components/UserProfile/SavedPage";
+import SplashOrHome from "./components/SplashOrHome";
 
 function App() {
 
@@ -30,7 +31,7 @@ function App() {
           <Pins/>
         </Route>
         <Route path="/">
-          <SplashPage/>
+          <SplashOrHome/>
         </Route>
         </Switch>
     </>
