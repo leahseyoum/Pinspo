@@ -54,27 +54,6 @@ function NewPinForm() {
 
       const dropZoneRef = useRef(null);
         const [preview, setPreview] = useState('');
-
-      // const handleDrop = (event) => {
-      //   event.preventDefault();
-      //   const file = event.dataTransfer.files[0];
-      //   const reader = new FileReader();
-      //   reader.onload = () => {
-      //     setPreview(reader.result);
-      //   };
-      //   reader.readAsDataURL(file);
-      // };
-    
-      // const handleDragOver = (event) => {
-      //   event.preventDefault();
-      //   dropZoneRef.current.classList.add('drag-over');
-      // };
-    
-      // const handleDragLeave = () => {
-      //   dropZoneRef.current.classList.remove('drag-over');
-      // };
-
-
       
 
     return (

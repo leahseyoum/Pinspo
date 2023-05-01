@@ -57,7 +57,6 @@ export const destroyPin = pinId => async(dispatch) => {
         method: 'DELETE',
     });
     if (response.ok) {
-        const data = await response.json();
         dispatch(removePin(pinId))
     }
     return response;

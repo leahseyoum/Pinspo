@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { updatePin } from "../../store/pins";
 import { destroyPin } from "../../store/pins";
 import { useHistory } from "react-router-dom";
+import './EditPinForm.css';
 
 
 
@@ -45,7 +46,13 @@ function EditPinForm({pin, closeModal}) {
     
       return (
         <> 
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="edit-pin-form">
+                <div className="title-container">
+                    <h1>Edit Pin</h1>
+                </div>
+                <select className='edit-pin-board-dropdown'>
+                    <option value="" selected disabled>Board</option>
+                 </select>
             <label>
                 Title:
                 <input

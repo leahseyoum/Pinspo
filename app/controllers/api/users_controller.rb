@@ -3,6 +3,9 @@ class Api::UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    if params[:profile_photo]
+      @user.profile_photo.attach(params[:profile_photo])
+    end
 
     if @user.save
       login!(@user)
@@ -12,9 +15,21 @@ class Api::UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(user_params[:id])
+    if user_params[:profile_photo]
+      @user.profile_photo.attach(user_params[:profile_photo])
+    end
+    if @user.update(user_params)
+      render :show
+    else
+      render json: @user.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def user_params
-    params.require(:user).permit(:email, :username, :password)
+    params.require(:user).permit(:email, :username, :password, :profile_photo, :id)
   end
 end

@@ -5,7 +5,7 @@ import { IoIosArrowDown } from 'react-icons/io';
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css';
 import { Link } from "react-router-dom";
-
+import ProfilePicture from "../UserProfile/UserProfilePhoto";
 
 function ProfileButton({ user }) {
   const dispatch = useDispatch();
@@ -39,10 +39,16 @@ function ProfileButton({ user }) {
     history.push('/saved');
   }
 
+  console.log(user.profilePhoto)
   return (
     <>
        <div className="user-icon-container">
-          <button onClick={handleClick} className='user-icon-nav'>{user.username[0].toUpperCase()}</button>                  
+        {/* {user.profilePhoto ? <ProfilePicture user={user} s={true} /> 
+
+          : */}
+        
+         <button onClick={handleClick} className='user-icon-nav'>{user.username[0].toUpperCase()}</button>                  
+        {/* } */}
         </div>
       <button className="profile-dropdown-icon" onClick={openMenu}>
         {/* <i className="fa-solid fa-user-circle" /> */}

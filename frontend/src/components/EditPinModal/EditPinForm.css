@@ -1,0 +1,74 @@
+.title-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 10px;
+    font-family: Helvetica neue;
+}
+
+.edit-pin-board-dropdown {
+    height: 40px;
+    width: 40%;
+    border-radius: 12px;
+    font-size: 16px;
+}
+
+.edit-pin-form {
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    box-shadow: 0 1px 3px rgba(0,0,0,.05);
+    border-radius: 16px;
+  }
+  
+  .edit-pin-form label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+  }
+  
+  .edit-pin-form input[type="text"] {
+    border: none;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #222;
+    height: 30px;
+    width: 95%;
+  }
+  
+  .edit-pin-form input[type="submit"],
+  .edit-pin-form button {
+    background-color: #e60023;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+  }
+  
+  .edit-pin-form input[type="submit"]:hover,
+  .edit-pin-form button:hover {
+    background-color: #d1001f;
+  }
+  
+  .edit-pin-form button[type="button"] {
+    background-color: #fff;
+    color: #e60023;
+    border: 1px solid #e60023;
+    margin-right: 10px;
+  }
+  
+  .edit-pin-form button[type="button"]:hover {
+    background-color: #e60023;
+    color: #fff;
+  }
+  

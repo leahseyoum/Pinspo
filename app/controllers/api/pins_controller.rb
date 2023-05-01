@@ -52,8 +52,8 @@ class Api::PinsController < ApplicationController
   def destroy
     @pin = Pin.find(params[:id])
     if @pin.destroy
-      # redirect_to api_pins_url
-      render :index
+      #  redirect_to api_pins_url
+      # render :index
     else
       render json: @pin.errors.full_messages, status: 404
     end

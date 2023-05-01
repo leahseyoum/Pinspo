@@ -1,10 +1,4 @@
-.info-container {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    
-}
+
 
 /* .user-profile-info-container {
     position: relative;
@@ -13,10 +7,107 @@
     transform: translate(-50%, -50%);
 } */
 
-.profile-username {
+/* .profile-username {
     font-family: Helvetica neue;
     font-size: 50px;
     font-weight: 500;
+} */
+
+.info-container {
+    /* display: flex; */
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
 }
+
+.user-profile-header-container {
+
+    flex: 0 0 100px;
+    margin-left: 90px;
+    font-family: Helvetica neue;
+}
+
+.profile-picture-container {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.profile-picture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: auto;
+}
+
+.user-profile-info-container {
+    flex: 1;
+    font-family: Helvetica neue;
+}
+
+.username-container {
+    display: flex;
+    align-items: center;
+    margin-right: 50px;
+}
+
+.profile-username {
+    font-size: 28px;
+    font-weight: 600;
+    margin-right: 16px;
+}
+
+.edit-profile-button {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 8px 16px;
+    border: 1px solid #ddd;
+    border-radius: 9999px;
+    background-color: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
+.user-stats-container {
+    display: flex;
+    margin-top: 16px;
+}
+
+.stat {
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 16px;
+}
+
+.user-nav-links-container {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 25px;
+}
+
+.user-nav-link {
+    font-size: 16px;
+    font-weight: 600;
+    margin-right: 16px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.user-nav-link:hover {
+    text-decoration: underline;
+}
+
 
 

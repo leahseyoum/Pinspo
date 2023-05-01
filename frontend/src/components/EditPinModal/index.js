@@ -3,9 +3,6 @@ import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 
 function EditPinModal({pin}) {
-    console.log('IN EDITMODAL');
-
-
     const [showModal, setShowModal] = useState(false);
 
      const closeModal = () => {

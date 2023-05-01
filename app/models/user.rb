@@ -17,6 +17,8 @@ class User < ApplicationRecord
   has_many :pins,
     dependent: :destroy
 
+  has_one_attached :profile_photo
+
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
     user = User.find_by(field => credential)

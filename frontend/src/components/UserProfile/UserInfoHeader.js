@@ -1,26 +1,43 @@
 import React from "react";
 import { useSelector } from "react-redux"
+import { useHistory } from "react-router-dom";
 import "./UserInfoHeader.css"
+import ProfilePicture from "./UserProfilePhoto";
 
 function UserInfoHeader() {
     const currentUser = useSelector(state => state.session.user);
-    console.log(currentUser);
+    const history = useHistory();
+
+    const handleEditClick = (e) => {
+        e.preventDefault();
+        history.push('/edit-user');
+    }
+
     return (
        
-
         <div className="info-container">
-                <div className="user-profile-header-container">
-                    <div className="placeholder-circle"></div>
+            <div className="user-profile-header-container">
+            <div className="user-show-profile-pic">
+                    <ProfilePicture user={currentUser} big={true} />
                 </div>
+            </div>
 
-                <div className="user-profile-info-container">
+            <div className="user-profile-info-container">
+                <div className="username-container">
                     <h2 className="profile-username">{currentUser.username}</h2>
-                    <h3>X following</h3>
-                    <button>Edit Profile</button>
-                    <a href="/created">Created</a>
-                    <a href="/saved">Saved</a>
+                    <button className="edit-profile-button" onClick={handleEditClick}>Edit Profile</button>
                 </div>
-                
+                <div className="user-stats-container">
+                    <span className="stat">{currentUser.boards} boards</span>
+                    <span className="stat">{currentUser.pins} pins</span>
+                    <span className="stat">{currentUser.followers} followers</span>
+                    <span className="stat">{currentUser.following} following</span>
+                </div>
+                <div className="user-nav-links-container">
+                    <a href="/created" className="user-nav-link">Created</a>
+                    <a href="/saved" className="user-nav-link">Saved</a>
+                </div>
+            </div>
         </div>
         
     );
