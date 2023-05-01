@@ -4,18 +4,19 @@ import PinDetail from '../PinShow/PinDetail';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { displayPin } from '../../../store/pins'
+import { updatePin } from "../../../store/pins";
 
 
 
-function PinIndex({ pin, size }) {
+function PinIndex({ pin, create }) {
   const dispatch = useDispatch();
-  console.log(size);
+  
 
   const handleClick = () => {
     dispatch(displayPin(pin.id));
   };
 
-  // const className = `pin ${size}`
+  
   
     return (
         <Link to={`/pins/${pin.id}`} style={{ textDecoration: 'none', color: 'black' }} onClick={handleClick}>

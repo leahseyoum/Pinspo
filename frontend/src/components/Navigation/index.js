@@ -9,7 +9,7 @@ import LoginSignupModal from '../LoginSignupModal';
 import Pins from '../Pin/PinIndex';
 import { AiOutlineSearch } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);

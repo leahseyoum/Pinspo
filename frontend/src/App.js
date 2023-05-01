@@ -5,7 +5,8 @@ import Pins from "./components/Pin/PinIndex"
 import PinDetail from "./components/Pin/PinShow/PinDetail";
 import SplashPage from "./components/SplashPage";
 import NewPinForm from "./components/Pin/NewPin/NewPinForm";
-
+import CreatedPage from "./components/UserProfile/CreatedPage";
+import SavedPage from "./components/UserProfile/SavedPage";
 
 function App() {
 
@@ -16,11 +17,17 @@ function App() {
         <Route path="/pins/:pinId">
           <PinDetail />
         </Route>
-        <Route path="/index" >
-          <Pins/>
-        </Route>
         <Route path="/create">
           <NewPinForm/>
+        </Route>
+        <Route path="/created">
+          <CreatedPage/>
+        </Route>
+        <Route path="/saved">
+          <SavedPage/>
+        </Route>
+        <Route path="/index" >
+          <Pins/>
         </Route>
         <Route path="/">
           <SplashPage/>

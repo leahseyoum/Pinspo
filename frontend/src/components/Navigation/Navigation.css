@@ -52,8 +52,8 @@
 
 .right-nav {
   display: flex;
-  /* justify-content: space-between; */
-  /* align-items: center; */
+  justify-content: space-between;
+   align-items: center;
 }
 
 .right-nav > * + * {
@@ -125,7 +125,7 @@
 .searchbar-container {
   position: relative;
   padding: 20px;
-  width: 800px;
+  width: 750px;
   height: 50px;
 }
 
@@ -151,7 +151,7 @@
   border: none;
   background-color: transparent;
   font-size: 1.1rem;
-  font-weight: 550;
+  font-weight: 450;
   cursor: pointer;
   font-family: Helvetica neue;
   transition: all 0.2s ease-in-out;
@@ -174,3 +174,4 @@
   border-radius: 30px;
   padding: 15px 15px;
 }
+

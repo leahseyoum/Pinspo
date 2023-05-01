@@ -4,28 +4,43 @@ import {  useEffect, useState} from 'react'
 import { useParams } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import {FaArrowLeft} from 'react-icons/fa';
+import {SlOptions} from 'react-icons/sl';
+import EditPinModal from '../../EditPinModal';
 import './PinDetail.css';
 
 
 function PinDetail() {
     const pin = useSelector(state => state.pins.pin);
     const user = useSelector(state => state.session.user);
+    const [showMenu, setShowMenu] = useState(false);
+
+    const openMenu = () => {
+      if (showMenu) {
+        setShowMenu(false)
+        return
+      };
+      setShowMenu(true);
+    };
+
+    
     const { pinId } = useParams();
     
     const dispatch = useDispatch();
-  
+    
     const [pin2, setPin2] = useState();
-  
-  useEffect(() => {
-    fetch(`/api/pins/${pinId}`)  
+    
+    useEffect(() => {
+      fetch(`/api/pins/${pinId}`)  
       .then(response => response.json())
       .then(data => setPin2(data))
-  }, [dispatch, pinId]);
-
+    }, [dispatch, pinId]);
     
+    const isOwner = user.id === pin2?.userId;
+    
+
     const history = useHistory();
     const handleClick = () => {
-    history.push('/index');
+    history.goBack();
    };
     
    useEffect(() => {
@@ -43,7 +58,10 @@ function PinDetail() {
       document.removeEventListener('click', handleClickOutside);
     };
   }, [handleClick]);
+
+
   
+
   return (
     <div className="pin-show-container">
       <div className='arrow-container'>
@@ -80,6 +98,18 @@ function PinDetail() {
             <option value="" selected disabled>Board</option>
           </select>
         <div class="save-button-container">
+          {isOwner && (
+            <button className='edit-options-button' onClick={openMenu}>
+              <SlOptions className="edit-options" />
+            </button>
+          )}
+          {showMenu && (
+              <ul className="edit-link">
+                <li>
+                  <EditPinModal pin={pin2}/>
+                </li>
+              </ul>
+            )}
           <button className="show-save-button">Save</button>
         </div>
         </div>

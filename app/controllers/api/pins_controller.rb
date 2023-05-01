@@ -41,9 +41,9 @@ class Api::PinsController < ApplicationController
   end
 
   def update
-    @pin = Pin.find(params[:id])
+    @pin = Pin.find(pin_params[:id])
     if @pin.update(pin_params)
-      redirect_to api_pin_url(@pin)
+      render :show
     else
       render json: @pin.errors.full_messages, status: 422
     end
@@ -52,7 +52,8 @@ class Api::PinsController < ApplicationController
   def destroy
     @pin = Pin.find(params[:id])
     if @pin.destroy
-      redirect_to api_pins_url
+      # redirect_to api_pins_url
+      render :index
     else
       render json: @pin.errors.full_messages, status: 404
     end
@@ -60,6 +61,6 @@ class Api::PinsController < ApplicationController
 
   private
   def pin_params
-    params.require(:pin).permit(:title, :caption, :user_id, :link, :image)
+    params.require(:pin).permit(:title, :caption, :user_id, :link, :image, :id)
   end
 end

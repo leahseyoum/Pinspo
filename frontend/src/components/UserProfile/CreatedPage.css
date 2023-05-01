@@ -1,0 +1,17 @@
+.user-pins {
+    margin-top: 450px; 
+    justify-content: center;
+    align-items: center;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* grid-auto-rows: 0; */
+    /*padding: 450px;
+    width: 90%;
+    margin: 0 auto; 
+    margin: 0;
+    width: 90%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  */
+}
+

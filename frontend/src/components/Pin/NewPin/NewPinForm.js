@@ -26,16 +26,16 @@ function NewPinForm() {
             formData.append('pin[title]', title);
             formData.append('pin[caption]', caption);
             formData.append('pin[link]', link);
-
+            
             if (imageFile) {
                 formData.append('pin[image]', imageFile);
             }
             return createPin(formData);
         },
 
-        // onSucess:() => history.push('/index')
-        onSucess: <Redirect to='/index'/>
-    })
+        onSuccess:() => history.push('/created')
+        // onSucess: <Redirect to='/index'/>
+    });
     
     
     

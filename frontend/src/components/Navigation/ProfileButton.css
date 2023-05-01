@@ -1,8 +1,9 @@
-.profile-button {
+.profile-dropdown-icon {
     background-color: transparent;
     border: none;
-    font-size: 35px;
-    color: #e60023; /* set red color for icon */
+    margin-top: 15px;
+    font-size: 20px;
+    color: #323031; /* set red color for icon */
     cursor: pointer;
   }
 
@@ -19,3 +20,37 @@
     border-radius: 8px;
     z-index: 1;
   }
+
+  .user-icon-nav {
+    font-family: Helvetica neue;
+    margin-bottom: 3px;
+    font-weight: 400;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+
+  .user-icon-container {
+    padding-top: 5px;
+    border-radius: 50%;
+    background-color: rgb(223, 222, 222);
+    width: 40px;
+    height: 35px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .profile-link {
+    text-decoration: none;
+  }
+
+  .profile-link:hover, .profile-link:active {
+    color: rgb(46, 46, 46); /* set the link color on hover and active */
+  }
+  
+  .profile-link:visited {
+    color: rgb(46, 46, 46); /* set the link color after it's been visited */
+  }
+
+  

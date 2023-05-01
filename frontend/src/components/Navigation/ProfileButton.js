@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Redirect, useHistory } from 'react-router-dom';
+import { IoIosArrowDown } from 'react-icons/io';
 import * as sessionActions from '../../store/session';
 import './ProfileButton.css';
+import { Link } from "react-router-dom";
 
 
 function ProfileButton({ user }) {
@@ -33,10 +35,18 @@ function ProfileButton({ user }) {
     history.push('/');
   };
 
+  const handleClick = (e) => {
+    history.push('/saved');
+  }
+
   return (
     <>
-      <button className="profile-button" onClick={openMenu}>
-        <i className="fa-solid fa-user-circle" />
+       <div className="user-icon-container">
+          <button onClick={handleClick} className='user-icon-nav'>{user.username[0].toUpperCase()}</button>                  
+        </div>
+      <button className="profile-dropdown-icon" onClick={openMenu}>
+        {/* <i className="fa-solid fa-user-circle" /> */}
+        <IoIosArrowDown/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">

@@ -15,14 +15,14 @@ function Pins() {
 
   
   const arrayPins = Object.values(pins)
-  const sizes = ['small', 'medium', 'large'];
+  
 
   return (
   
 
      <div className="pins">
       {arrayPins.map(pin => (
-          <PinIndex className="pin" key={pin.id} pin={pin} size={sizes[Math.floor(Math.random() * sizes.length)]}/>
+          <PinIndex className="pin" key={pin.id} pin={pin} />
       ))}
       </div>
    
