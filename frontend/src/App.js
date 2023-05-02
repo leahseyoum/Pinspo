@@ -9,6 +9,8 @@ import CreatedPage from "./components/UserProfile/CreatedPage";
 import SavedPage from "./components/UserProfile/SavedPage";
 import SplashOrHome from "./components/SplashOrHome";
 import EditUserForm from "./components/UserProfile/EditUserForm";
+import BoardIndex from "./components/Boards/BoardsIndex";
+import BoardShow from "./components/Boards/BoardShow";
 
 function App() {
 
@@ -16,6 +18,12 @@ function App() {
     <>
       <Navigation />
         <Switch>
+        <Route path='/users/:userId/boards'>
+          <BoardIndex/>
+        </Route>
+        <Route path="/boards/:boardId">
+          <BoardShow />
+        </Route>
         <Route path='/edit-user'>
           <EditUserForm/>
         </Route>

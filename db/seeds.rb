@@ -35,6 +35,9 @@ ApplicationRecord.transaction do
     
     require 'open-uri'
       Pin.destroy_all
+      Board.destroy_all 
+      BoardPin.destroy_all
+      User.destroy_all
     
 #users
 
@@ -147,3 +150,34 @@ pin25.image.attach(io: image25, filename: 'weddingpin1.jpg')
 pin26 = Pin.create!({title: "Boost Your Wellness: Simple Tips for a Healthier You" ,caption: "Take charge of your well-being with these easy, yet effective tips for a healthier lifestyle.", user_id: user1.id })
 image26 = URI.open("https://pinspo-seeds.s3.us-west-1.amazonaws.com/Pinspo+images/wellnespin2.jpg")
 pin26.image.attach(io: image26, filename: 'wellnespin2.jpg')
+
+#boards
+board1 = Board.create({name: 'animals', description: 'rendering material', user_id: user1.id})
+board2 = Board.create({name: 'animals', user_id: user1.id})
+board3 = Board.create({name: 'wellness', user_id: user2.id})
+board4 = Board.create({name: 'nature', description: 'food I want to try', user_id: user3.id})
+board5 = Board.create({name: 'art', user_id: user5.id})
+
+
+#animals 
+board_pin1 = BoardPin.create({board_id: board1.id, pin_id: pin1.id})
+board_pin2 = BoardPin.create({board_id: board1.id, pin_id: pin14.id})
+board_pin3 = BoardPin.create({board_id: board1.id, pin_id: pin16.id})
+
+#food
+board_pin3 = BoardPin.create({board_id: board2.id, pin_id: pin9.id})
+board_pin4 = BoardPin.create({board_id: board2.id, pin_id: pin10.id})
+board_pin5 = BoardPin.create({board_id: board2.id, pin_id: pin11.id})
+
+#wellness
+board_pin6 = BoardPin.create({board_id: board3.id, pin_id: pin13.id})
+board_pin7 = BoardPin.create({board_id: board3.id, pin_id: pin26.id})
+
+#nature
+board_pin8 = BoardPin.create({board_id: board4.id, pin_id: pin21.id})
+board_pin9 = BoardPin.create({board_id: board4.id, pin_id: pin23.id})
+
+
+#art
+board_pin11 = BoardPin.create({board_id: board5.id, pin_id: pin2.id})
+board_pin12 = BoardPin.create({board_id: board5.id, pin_id: pin4.id})

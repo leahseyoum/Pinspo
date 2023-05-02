@@ -1,0 +1,15 @@
+.boards-container {
+    margin-top: 450px;
+
+}
+
+.edit-board-link {
+    position: absolute;
+    list-style: none;
+    margin-top: 70px;
+    margin-left: 45px;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+    background-color: white;
+}

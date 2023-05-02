@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {updateUser} from '../../store/users';
 import { useHistory } from "react-router-dom";
 import './EditUserForm.css';
+import ProfilePicture from "./UserProfilePhoto";
 
 function EditUserForm() {
     const currentUser = useSelector((state) => state.session.user);
@@ -12,6 +13,7 @@ function EditUserForm() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profilePhoto, setProfilePhoto] = useState("");
+  const [profilePhotoUrl, setProfilePhotoUrl] = useState("");
 
   const dispatch = useDispatch();
 
@@ -66,10 +68,12 @@ function EditUserForm() {
       fileReader.readAsDataURL(file);
       fileReader.onload = () => {
         setPreview(fileReader.result);
+        setProfilePhotoUrl(fileReader.result);
         setProfilePhoto(file);
       };
     }
   }
+
 
 
   return (
@@ -121,6 +125,7 @@ function EditUserForm() {
         <div className="preview-container">
             <img className='preview-image' src={preview} alt='Preview' />
         </div>
+        {/* <ProfilePicture profilePhotoUrl={profilePhotoUrl}/> */}
       </div>
       <button type="submit">Save Changes</button>
     </form>

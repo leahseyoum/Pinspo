@@ -189,6 +189,7 @@
     background-color: transparent;
     font-size: 16px;
     cursor: pointer;
+    font-family: Helvetica neue;
   }
 
   ul.edit-link {
@@ -201,6 +202,15 @@
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     background-color: white;
+  }
+
+  .arrow-link {
+    margin-right: 10px;
+  }
+
+  a:active {
+    text-decoration: none;
+    color: inherit;
   }
   
   

@@ -19,6 +19,11 @@ class User < ApplicationRecord
 
   has_one_attached :profile_photo
 
+  has_many :boards,
+    foreign_key: :user_id,
+    class_name: :Board,
+    dependent: :destroy
+
   def self.find_by_credentials(credential, password)
     field = credential =~ URI::MailTo::EMAIL_REGEXP ? :email : :username
     user = User.find_by(field => credential)

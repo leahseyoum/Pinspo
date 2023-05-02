@@ -1,0 +1,12 @@
+.edit-board-button {
+    background-color: transparent;
+    font-size: 16px;
+    border: none;
+    font-family: Helvetica neue;
+    cursor: pointer;
+}
+
+.edit-board-button-container {
+    border-radius: 26px;
+    
+}

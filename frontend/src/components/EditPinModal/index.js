@@ -13,7 +13,7 @@ function EditPinModal({pin}) {
 
     return (
         <>
-            <button className='edit-button' onClick={() => {setShowModal(true)}}>Edit</button>
+            <button className='edit-button' onClick={() => {setShowModal(true)}}>Edit Pin</button>
             {showModal && (
                 <Modal onClose={closeModal}>
                     <div className="edit-pin-modal-content" onClick={(e) => e.stopPropagation()}>

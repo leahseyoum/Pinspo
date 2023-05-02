@@ -1,0 +1,42 @@
+.board-show-header {
+    margin-top: 100px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    font-family: Helvetica neue;
+    
+}
+
+.board-show-header h2 {
+    font-size: 30px;
+}
+
+.board-show-header h4 {
+    font-size: 18px;
+    
+}
+
+.edit-board-title {
+    display: flex;
+}
+
+.edit-board-options {
+    border: none;
+    margin-left: 10px;
+    background-color: light rgb(212, 212, 212);
+    border-radius: 50%;
+    height: 35px;
+    margin-top: 25px;
+    cursor: pointer;
+}
+
+.edit-board {
+    margin-top: 2px;
+}
+
+
+.board__pins {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

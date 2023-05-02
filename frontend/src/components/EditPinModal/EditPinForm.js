@@ -11,7 +11,7 @@ function EditPinForm({pin, closeModal}) {
    
     const [title, setTitle] = useState(pin.title);
     const [caption, setCaption] = useState(pin.caption);
-    const [link, setLink] = useState(pin.link);
+    const [link, setLink] = useState("");
     
 
     const dispatch = useDispatch();

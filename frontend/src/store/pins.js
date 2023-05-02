@@ -20,7 +20,9 @@ const removePin = (pinId) => ({
     payload: pinId
 })
 
-
+export const getPins = state => {
+    return state?.pins ? Object.values(state.pins) : [];
+}
 
 export const displayPins = () => async dispatch => {
     const response = await csrfFetch('/api/pins');
@@ -30,7 +32,7 @@ export const displayPins = () => async dispatch => {
 }
 
 export const displayPin = (pinId) => async dispatch => {
-    const response = await csrfFetch(`/api/pins/${pinId}`)
+    const response = await csrfFetch(`/api/pins/${pinId}`);
     const data = await response.json();
     dispatch(retrieveSinglePin(data));
     return response;
@@ -87,14 +89,13 @@ const initialState = {
 const pinsReducer = (state = initialState, action) => {
     switch(action.type) {
         case RETRIEVE_PINS:{
-
-            return {...state, pins: action.payload}
+            return {...state, pins: action.payload};
         }
         case RETRIEVE_SINGLE_PIN: {
 
             const pin = action.payload;
-            let nextState = {...state, pin: pin}
-            return nextState
+            let nextState = {...state, pin: pin};
+            return nextState;
         }
         case REMOVE_PIN: {
             const pinId = action.payload;

@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import {FaArrowLeft} from 'react-icons/fa';
 import {SlOptions} from 'react-icons/sl';
 import EditPinModal from '../../EditPinModal';
+import {FiArrowUpRight} from 'react-icons/fi';
 import './PinDetail.css';
 
 
@@ -59,9 +60,9 @@ function PinDetail() {
     };
   }, [handleClick]);
 
-
-  
-
+  if (pin2) {
+    console.log(pin2)
+  }
   return (
     <div className="pin-show-container">
       <div className='arrow-container'>
@@ -98,6 +99,11 @@ function PinDetail() {
             <option value="" selected disabled>Board</option>
           </select>
         <div class="save-button-container">
+        {pin2 && pin2.link ? (
+            <a href={pin2.link}>
+              <FiArrowUpRight  className="arrow-link" size={20}/>
+            </a>
+          ) : null}
           {isOwner && (
             <button className='edit-options-button' onClick={openMenu}>
               <SlOptions className="edit-options" />

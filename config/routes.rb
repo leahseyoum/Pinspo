@@ -7,12 +7,17 @@ Rails.application.routes.draw do
   #  post 'api/test', to: 'application#test'
 
   namespace :api, defaults: { format: :json } do
-    resources :users, only: [:create, :update]
     resource :session, only: [:show, :create, :destroy]
     resources :pins, only: [:create, :index, :show, :update, :destroy]
+    resources :users, only: [:create, :update, :show] do
+      resources :boards, only: [:index, :show, :update]
+    end
+
+
+    resources :boards, only:  [:create, :destroy]
+    get '/boards/saved/:board_id', to: 'pins#find_board_saved_pins', as: 'find_board_saved_pins'
   end
 
 
   get '*path', to: "static_pages#frontend_index"
-
 end
