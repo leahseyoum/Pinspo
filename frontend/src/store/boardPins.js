@@ -7,13 +7,15 @@ export const REMOVE_PIN_FROM_BOARD = 'REMOVE_PIN_FROM_BOARD';
 // action creators
 export const addPinToBoard = (boardId, pinId) => ({
   type: ADD_PIN_TO_BOARD,
-  payload: { pinId, boardId },
+  payload: { pinId, boardId},
 });
 
-export const removePinFromBoard = (pinId, boardId) => ({
+export const removePinFromBoard = (boardPinId) => ({
   type: REMOVE_PIN_FROM_BOARD,
-  payload: { pinId, boardId },
+  payload: { boardPinId },
 });
+
+
 
 
 export const createSave = (boardId, pinId) => async (dispatch) => {
@@ -31,40 +33,53 @@ export const createSave = (boardId, pinId) => async (dispatch) => {
     }),
   });
   if (response.ok) {
-    dispatch(addPinToBoard(boardId, pinId));
+    const data = await response.json();
+    dispatch(addPinToBoard(boardId, pinId)); 
     }
     return response;
 
 };
 
+export const deleteSave =(boardPinId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/board_pins/${boardPinId}`, {
+    method : 'DELETE',
+  });
+  if (response.ok) {
+    dispatch(removePinFromBoard(boardPinId));
+  }
+}
 
-// reducer
-const initialState = {
-  boardPins: [],
-};
+
+// // reducer
+// const initialState = {
+//   // boardPins: [],
+// };
+
+// const boardPinReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case ADD_PIN_TO_BOARD:
+//       return { ...state, [action.payload.id]: action.payload };
+//     case REMOVE_PIN_FROM_BOARD:
+//       let newState = {...state};
+//       delete newState[action.boardPin]
+//       return newState
+//     default:
+//       return state;
+//   }
+// };
+
+// export default boardPinReducer;
+
+const initialState = {};
 
 const boardPinReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PIN_TO_BOARD:
-      return {
-        ...state,
-        boardPins: [
-          ...state.boardPins,
-          {
-            pinId: action.payload.pinId,
-            boardId: action.payload.boardId,
-          },
-        ],
-      };
+      return { ...state, [action.payload.boardPinId]: action.payload };
     case REMOVE_PIN_FROM_BOARD:
-      return {
-        ...state,
-        boardPins: state.boardPins.filter(
-          (boardPin) =>
-            boardPin.pinId !== action.payload.pinId ||
-            boardPin.boardId !== action.payload.boardId
-        ),
-      };
+      let newState = {...state};
+      delete newState[action.payload.boardPinId];
+      return newState;
     default:
       return state;
   }

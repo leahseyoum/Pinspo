@@ -3,6 +3,7 @@ import { useDispatch } from "react-redux";
 import { updatePin } from "../../store/pins";
 import { destroyPin } from "../../store/pins";
 import { useHistory } from "react-router-dom";
+import AddPinToBoardDropdown from "../AddPinBoard/AddPinBoard";
 import './EditPinForm.css';
 
 
@@ -11,8 +12,8 @@ function EditPinForm({pin, closeModal}) {
    
     const [title, setTitle] = useState(pin.title);
     const [caption, setCaption] = useState(pin.caption);
-    const [link, setLink] = useState("");
-    
+    const [link, setLink] = useState(pin.link);
+    const [board, setBoard] = useState()
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -25,6 +26,8 @@ function EditPinForm({pin, closeModal}) {
           formData.append("pin[link]" , link);
           formData.append('pin[id]', pin.id);
         const response = await dispatch(updatePin(formData));
+
+
         if (response.ok) {
             closeModal();
             // history.push(`/pins/${pin.id}`);

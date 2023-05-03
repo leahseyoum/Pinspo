@@ -10,7 +10,8 @@ class Pin < ApplicationRecord
 
     has_many :board_pin_connections,
         foreign_key: :pin_id,
-        class_name: :BoardPin
+        class_name: :BoardPin,
+        dependent: :destroy
 
     has_many :boards,
         through: :board_pin_connections,

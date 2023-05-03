@@ -99,7 +99,7 @@ function PinDetail() {
             { user.boards}
           </select> */}
           <div className="dropdown-container">
-              <AddPinToBoardDropdown user={user} pin={pin2} />
+              <AddPinToBoardDropdown user={user} pin={pin2 ? pin2 : pin} />
           </div>
 
         <div className="save-button-container">
