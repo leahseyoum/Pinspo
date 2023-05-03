@@ -127,7 +127,7 @@
   
   .show-details-container {
     flex: 1;
-    max-width: 50%;
+    max-width: 100%;
   }
 
   .user-info-display {
@@ -161,7 +161,7 @@
   .edit-options-button {
     width: 40px;
     margin-top: 5px;
-    margin-right: 280px;
+    margin-right: 350px;
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -174,15 +174,6 @@
     
   }
 
-  /* .edit-link {
-    position: absolute;
-    background-color: white;
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    border: 1px solid rgb(208, 204, 204);
-    border-radius: 8px;
-  } */
 
   .edit-button {
     border: none;
@@ -205,6 +196,7 @@
   }
 
   .arrow-link {
+    margin-top: 20px;
     margin-right: 10px;
   }
 
@@ -215,8 +207,26 @@
   
   .dropdown-container {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
+    display: flex;
+  }
+
+  .pin-detail-dropdown{
+    border: none;
+    background-color: transparent;
+    font-size: 16px;
+    font-family: Helvetica neue;
+    cursor: pointer;
+    position: relative;
+    margin-top: 5px;
+    border-radius: 16px;
+    
+  }
+
+
+  .show-details {
+    margin-top: 60px;
   }
   
 

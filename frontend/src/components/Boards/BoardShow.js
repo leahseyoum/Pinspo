@@ -71,7 +71,7 @@ function BoardShow() {
         </div>
       <div className="board__pins">
         {boardPins.map(pin => (
-            <PinIndex pin={pin} key={pin.id}/>
+            <PinIndex pin={pin} key={pin.id} board={board}/>
         ))}
       </div>
     </div>

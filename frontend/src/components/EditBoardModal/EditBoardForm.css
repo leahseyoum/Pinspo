@@ -1,0 +1,57 @@
+.edit-board-form {
+    overflow: hidden;
+    width: 700px;
+    height: 400px;
+}
+
+.edit-board-form button {
+    background-color: #e60023;
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 20px;
+    margin-top: 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    width: 95%;
+}
+  
+.edit-board-form label {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-left: 10px;
+  }
+
+  .edit-board-form input[type="text"] {
+    border: none;
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #222;
+    height: 30px;
+    width: 95%;
+    margin-left: 10px;
+  }
+  
+  .edit-board-form button:hover {
+    background-color: #d1001f;
+  }
+  
+  .edit-board-form button[type="button"] {
+    background-color: #fff;
+    color: #e60023;
+    margin-bottom: 10px;
+  }
+  
+  .edit-board-form button[type="button"]:hover {
+    background-color: #e60023;
+    color: #fff;
+  }
+
+    .edit-board-button-container {
+        transform: translateX(2.5%);
+    }

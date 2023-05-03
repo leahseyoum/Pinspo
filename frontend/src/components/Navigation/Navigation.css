@@ -175,3 +175,32 @@
   padding: 15px 15px;
 }
 
+.create-new-pin {
+  list-style: none;
+  position: fixed;
+  top: 80px;
+  left: 270px;
+  border: 1px solid rgb(208, 204, 204);
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.create-new-pin:hover {
+  background-color: rgb(224, 224, 224);
+  cursor: pointer;
+  
+}
+
+.create-new-pin-button {
+  border: none;
+  background-color: transparent;
+  font-weight: 550;
+  font-family: Helvetica neue;
+  cursor: pointer;
+  font-size: 14px;
+}
+

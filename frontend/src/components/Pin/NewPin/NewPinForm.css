@@ -199,7 +199,7 @@
     background-color: rgb(223, 222, 222);
     color: black;
     font-size: 16px;
-    font-weight: bold;
+    font-weight: 500;
     margin-right: 5px;
   }
 
@@ -210,6 +210,15 @@
     font-weight: 600;
   }
 
+  .dashed {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .photo-input {
+    margin-left: 60px;
+  }
   
 
    

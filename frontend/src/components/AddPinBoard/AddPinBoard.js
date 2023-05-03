@@ -2,12 +2,19 @@ import React, { useState, useEffect } from 'react';
 import { createSave } from '../../store/boardPins';
 import { useDispatch } from 'react-redux';
 import CreateBoardModal from '../CreateBoardModal';
+import { useLocation } from 'react-router-dom';
 
-function AddPinToBoardDropdown({ user, pin }) {
+function AddPinToBoardDropdown({ user, pin, board }) {
+
   const [boards, setBoards] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState('');
   const [message, setMessage] = useState('');
   const dispatch = useDispatch();
+
+  const location = useLocation();
+  const className = location.pathname === '/index' ? 'pin-view-dropdown' : 'pin-detail-dropdown';
+
+  
 
   // fetch boards data from the server when the component mounts
   useEffect(() => {
@@ -29,23 +36,7 @@ function AddPinToBoardDropdown({ user, pin }) {
     console.log(selectedBoardId);
   }, [selectedBoardId]);
 
-  // function to handle the form submission when a board is selected
-//   async function handleFormSubmit(event) {
-//         event.preventDefault();
-//         const response = await dispatch(createSave(selectedBoardId, pin.id));
-//         if (response.ok) {
-//             setMessage('Pin was successfully added to board.');
-//         } else {
-//             setMessage('Failed to add pin to board.');
-//         }
-
-      
-//         setTimeout(() => {
-//             console.log(message);
-//             setMessage('');
-//           }, 5000);
-//   }
-
+  
 async function handleFormSubmit(event) {
     event.preventDefault();
     try {
@@ -65,25 +56,31 @@ async function handleFormSubmit(event) {
   }
   
 
-  if (!pin) {
-    return null; // or render a loading spinner, etc.
-  }
+  // if (!pin) {
+  //   return null; // or render a loading spinner, etc.
+  // }
+
+
+
 
   return (
     <>
+    <div className='pin-dropdown'>
         <form className='select-board-form' onSubmit={handleFormSubmit}>
-        <div>
-        <select id="board-select" value={selectedBoardId} onChange={handleBoardChange}>
-            {userBoards.map(board => (
-            <option key={board.id} value={board.id}>{board.name}</option>
-            ))}
-        </select>
+          <div className="dropdown-container">
+          <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
+            {board ?  <option key={board.id} value={board.id}>{board.name}</option> :<option value="" disabled hidden>Select a Board</option>}
+              { userBoards.map(board => (
+              <option key={board.id} value={board.id}>{board.name}</option>
+              ))}
+          </select>
 
-            <button className="show-save-button">Save</button>
-            {message && <p className='response-message'>{message}</p>}
-        </div>
+              <button className="show-save-button">Save</button>
+              {message && <p className='response-message'>{message}</p>}
+          </div>
         </form>
-       
+        
+    </div>
     </>
   );
 }

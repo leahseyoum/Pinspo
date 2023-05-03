@@ -97,9 +97,9 @@ function NewPinForm() {
                             {/* <DragDropFile onChange={handleFileChange}/> */}
                             <div className='dashed'>
                               {/* <DragDropFile onChange={handleFileChange}/> */}
-                              <img className='preview-image' src={preview} alt='Preview' />
+                              { preview ? <img className='preview-image' src={preview} alt='Preview' /> : null}
                                 <Input 
-                                  label="Drag and drop or click to upload"
+                                  label="Click to upload"
                                   class= 'photo-input'
                                   type="file" 
                                   onChange={handleFileChange} 

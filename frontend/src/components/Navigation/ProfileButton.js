@@ -56,10 +56,17 @@ function ProfileButton({ user }) {
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
-          <li>{user.username}</li>
-          <li>{user.email}</li>
+          <li className="currently-in">Currently in</li>
+          <div className="carrot-dropdown">
+            <li className="user-icon-container-dropdown"> <button onClick={handleClick} className='user-icon-nav-dropdown'>{user.username[0].toUpperCase()}</button></li>
+           <div className="carrot-info">
+              <li className="username-top">{user.username}</li>
+              <li>{user.email}</li>
+           </div>
+
+          </div>
           <li>
-            <button onClick={logout}>Log Out</button>
+            <button className='logout-button' onClick={logout}>Log Out</button>
           </li>
         </ul>
       )}

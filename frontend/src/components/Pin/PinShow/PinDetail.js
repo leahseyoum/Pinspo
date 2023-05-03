@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import {FaArrowLeft} from 'react-icons/fa';
 import {SlOptions} from 'react-icons/sl';
 import EditPinModal from '../../EditPinModal';
-import {FiArrowUpRight} from 'react-icons/fi';
+import {GrLink} from 'react-icons/gr';
 import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
 import './PinDetail.css';
 
@@ -60,7 +60,7 @@ function PinDetail() {
       document.removeEventListener('click', handleClickOutside);
     };
   }, [handleClick]);
-
+  
   
   return (
     <div className="pin-show-container">
@@ -87,7 +87,7 @@ function PinDetail() {
             
             <div className='user-info-display'>
 
-                <div class="circle">{user.username[0].toUpperCase()}</div>
+                <div className="circle">{user.username[0].toUpperCase()}</div>
 
                 <div className="pin-owner-info">
                     <p>{user.username}</p>
@@ -99,14 +99,15 @@ function PinDetail() {
             { user.boards}
           </select> */}
           <div className="dropdown-container">
-            <AddPinToBoardDropdown user={user} pin={pin2} />
+              <AddPinToBoardDropdown user={user} pin={pin2} />
           </div>
-        <div class="save-button-container">
-        {pin2 && pin2.link ? (
-            <a href={pin2.link}>
-              <FiArrowUpRight  className="arrow-link" size={20}/>
-            </a>
-          ) : null}
+
+        <div className="save-button-container">
+          {pin2 && pin2.link ? (
+              <a href={pin2.link}>
+                <GrLink  className="arrow-link" size={20}/>
+              </a>
+            ) : null}
           {isOwner && (
             <button className='edit-options-button' onClick={openMenu}>
               <SlOptions className="edit-options" />

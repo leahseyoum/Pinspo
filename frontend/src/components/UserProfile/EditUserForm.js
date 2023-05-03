@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {updateUser} from '../../store/users';
 import { useHistory } from "react-router-dom";
@@ -14,6 +14,7 @@ function EditUserForm() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profilePhoto, setProfilePhoto] = useState("");
   // const [profilePhotoUrl, setProfilePhotoUrl] = useState("");
+  const formRef = useRef(null);
 
   const dispatch = useDispatch();
 
@@ -71,11 +72,27 @@ function EditUserForm() {
       }
   };
 
+  useEffect(() => {
+    const handleClickOutsideForm = (event) => {
+      if (formRef.current && !formRef.current.contains(event.target)) {
+        history.push("/saved");
+      }
+    };
+
+    document.addEventListener("click", handleClickOutsideForm);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutsideForm);
+    };
+  }, [history]);
 
 
 
   return (
-    <form onSubmit={handleSubmit} className="edit-user-form">
+    <form onSubmit={handleSubmit} className="edit-user-form" ref={formRef}>
+      <div className="edit-profile-title">
+        <h1 className="edit-profile-header">Edit Profile</h1>
+      </div>
       <div>
         <label htmlFor="username">Username:</label>
         <input
@@ -121,11 +138,11 @@ function EditUserForm() {
           onChange={handleFileChange}
         />
         <div className="preview-container">
-            <img className='preview-image' src={preview} alt='Preview' />
+            {preview ? <img className='preview-image' src={preview} alt='Preview' /> : null}
         </div>
         {/* <ProfilePicture profilePhotoUrl={profilePhotoUrl}/> */}
       </div>
-      <button type="submit">Save Changes</button>
+      <button className="save-edit-profile-button" type="submit">Save Changes</button>
     </form>
   );
 }

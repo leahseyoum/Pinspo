@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { updateBoard } from "../../store/boards";
 import { useHistory } from "react-router-dom";
 import { destroyBoard } from "../../store/boards";
-
+import './EditBoardForm.css';
 
 
 function EditBoardForm({board, closeModal}) {
@@ -60,8 +60,11 @@ function EditBoardForm({board, closeModal}) {
                 onChange={(event) => setDescription(event.target.value)}
                 />
             </label>
-            <button type="submit">Save</button>
-            <button onClick={handleDelete}>Delete</button>
+            <div className="edit-board-button-container">
+                <button type="submit">Save</button>
+                <button onClick={handleDelete}>Delete</button>
+
+            </div>
         </form>
     </>
   );

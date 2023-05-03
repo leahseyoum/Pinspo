@@ -70,3 +70,16 @@
   margin-left: 20px; */
 }
 
+.pin-view-dropdown {
+  font-size: 16px;
+  font-family: Helvetica neue;
+  background-color: transparent;
+  color: rgb(246, 243, 243);
+  font-weight: 400;
+  border: none;
+  margin-right: 7px;
+}
+
+
+
+
