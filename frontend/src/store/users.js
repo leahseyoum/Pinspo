@@ -2,19 +2,21 @@ import csrfFetch from "./csrf";
 
 const RETRIEVE_USER = 'users/retrieveUser';
 
-const retrieveUser = (user) => ({
-    type: RETRIEVE_USER,
-    payload: user
-});
+const retrieveUser = (user) => {
+    return {
+        type: RETRIEVE_USER,
+        payload: user
+    }
+};
 
-export const updateUser = (user, currentUser) => async(dispatch) => {
-    const { username, email, password, id, profilePhoto } = user;
-    const response = await csrfFetch(`/api/users/${currentUser.id}`, {
+export const updateUser = (formData) => async(dispatch) => {
+    const userId = formData.get('user[id]')
+    const response = await csrfFetch(`/api/users/${userId}`, {
         method: 'PATCH',
         headers: {
             "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token"),
         },
-        body: (user)
+        body: (formData)
     });
 
     if (response.ok) {

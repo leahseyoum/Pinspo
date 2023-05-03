@@ -13,7 +13,7 @@ function EditUserForm() {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [profilePhoto, setProfilePhoto] = useState("");
-  const [profilePhotoUrl, setProfilePhotoUrl] = useState("");
+  // const [profilePhotoUrl, setProfilePhotoUrl] = useState("");
 
   const dispatch = useDispatch();
 
@@ -33,10 +33,21 @@ function EditUserForm() {
     setConfirmPassword(e.target.value);
   };
 
-//   const handleProfilePhotoChange = (e) => {
-//     setProfilePhoto(e.target.files[0]);
-//   };
 
+
+  const [preview, setPreview] = useState('');
+  const handleFileChange = e => {
+    const file = e.target.files[0];
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        setPreview(fileReader.result);
+        // setProfilePhotoUrl(fileReader.result);
+        setProfilePhoto(file);
+      };
+    }
+  }
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -60,19 +71,6 @@ function EditUserForm() {
       }
   };
 
-  const [preview, setPreview] = useState('');
-  const handleFileChange = e => {
-    const file = e.target.files[0];
-    if (file) {
-      const fileReader = new FileReader();
-      fileReader.readAsDataURL(file);
-      fileReader.onload = () => {
-        setPreview(fileReader.result);
-        setProfilePhotoUrl(fileReader.result);
-        setProfilePhoto(file);
-      };
-    }
-  }
 
 
 

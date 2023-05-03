@@ -6,6 +6,8 @@ import ProfilePicture from "./UserProfilePhoto";
 
 function UserInfoHeader() {
     const currentUser = useSelector(state => state.session.user);
+    console.log(currentUser.boards)
+    console.log(currentUser.pins)
     const history = useHistory();
 
     const handleEditClick = (e) => {
@@ -18,7 +20,7 @@ function UserInfoHeader() {
         <div className="info-container">
             <div className="user-profile-header-container">
             <div className="user-show-profile-pic">
-                    <ProfilePicture user={currentUser} big={true} />
+                    <ProfilePicture user={currentUser}/>
                 </div>
             </div>
 
@@ -26,12 +28,6 @@ function UserInfoHeader() {
                 <div className="username-container">
                     <h2 className="profile-username">{currentUser.username}</h2>
                     <button className="edit-profile-button" onClick={handleEditClick}>Edit Profile</button>
-                </div>
-                <div className="user-stats-container">
-                    <span className="stat">{currentUser.boards} boards</span>
-                    <span className="stat">{currentUser.pins} pins</span>
-                    <span className="stat">{currentUser.followers} followers</span>
-                    <span className="stat">{currentUser.following} following</span>
                 </div>
                 <div className="user-nav-links-container">
                     <a href="/created" className="user-nav-link">Created</a>

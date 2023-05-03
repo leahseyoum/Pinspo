@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./CreatedPage.css";
 import PinIndex from "../Pin/PinIndex/PinView";
+import CreateBoardModal from "../CreateBoardModal";
 
 function CreatedPage() {
     
@@ -30,6 +31,9 @@ function CreatedPage() {
                     {userPins.map((pin) => (
                             <PinIndex className="pin" key={pin.id} pin={pin} create={'create'}/>
                     ))}
+                </div>
+                <div className='create-board-pin-container'>
+                    <CreateBoardModal className='create-board-pin'/>
                 </div>
             </div>
         </>

@@ -16,6 +16,7 @@ function Pins() {
   
   const arrayPins = Object.values(pins)
   
+  
 
   return (
   

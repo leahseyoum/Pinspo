@@ -7,6 +7,7 @@ import {FaArrowLeft} from 'react-icons/fa';
 import {SlOptions} from 'react-icons/sl';
 import EditPinModal from '../../EditPinModal';
 import {FiArrowUpRight} from 'react-icons/fi';
+import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
 import './PinDetail.css';
 
 
@@ -60,9 +61,7 @@ function PinDetail() {
     };
   }, [handleClick]);
 
-  if (pin2) {
-    console.log(pin2)
-  }
+  
   return (
     <div className="pin-show-container">
       <div className='arrow-container'>
@@ -95,9 +94,13 @@ function PinDetail() {
                 </div>
             </div>
           </div>
-          <select className='show-pin-dropdown'>
-            <option value="" selected disabled>Board</option>
-          </select>
+          {/* <select className='show-pin-dropdown'>
+            <option selected disabled> Select a Board</option>
+            { user.boards}
+          </select> */}
+          <div className="dropdown-container">
+            <AddPinToBoardDropdown user={user} pin={pin2} />
+          </div>
         <div class="save-button-container">
         {pin2 && pin2.link ? (
             <a href={pin2.link}>
@@ -116,7 +119,7 @@ function PinDetail() {
                 </li>
               </ul>
             )}
-          <button className="show-save-button">Save</button>
+          {/* <button className="show-save-button">Save</button> */}
         </div>
         </div>
       </div>

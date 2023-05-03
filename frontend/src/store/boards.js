@@ -35,6 +35,21 @@ export const displayBoard = (boardId) => async dispatch => {
     return response;
 }
 
+export const createBoard = board => async (dispatch) => {
+    const response = await csrfFetch(`/api/boards/`, {
+        method: 'POST',
+        headers: {
+            "X-CSRF-Token": sessionStorage.getItem("X-CSRF-Token")
+        },
+        body: (board)
+    });
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(retrieveBoard(data));
+    }
+    return response;
+};
+
 export const updateBoard = formData => async(dispatch) => {
     const boardId = formData.get("board[id]");
     const userId = formData.get("board[userId");

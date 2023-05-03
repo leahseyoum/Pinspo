@@ -1,0 +1,1 @@
+json.message 'Pin was successfully added to board.'

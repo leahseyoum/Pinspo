@@ -37,7 +37,7 @@ ApplicationRecord.transaction do
       Pin.destroy_all
       Board.destroy_all 
       BoardPin.destroy_all
-      User.destroy_all
+     
     
 #users
 

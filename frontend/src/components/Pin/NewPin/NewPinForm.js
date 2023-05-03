@@ -1,17 +1,20 @@
 import './NewPinForm.css';
-import React, { useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
 import { createPin } from "../../../store/pins"
 import DragDropFile from './DragAndDrop';
 import { useInput, useSubmit } from '../../../hooks';
 import { useHistory } from 'react-router-dom';
+import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
 import { FormErrors, Input, TextArea } from '../../Forms';
+import BoardShow from '../../Boards/BoardShow';
+import { createSave } from '../../../store/boardPins';
 
 
 
 function NewPinForm() {
-    // const dispatch = useDispatch();
+    const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const history = useHistory();
     const [title, setTitle] = useState("");
@@ -19,6 +22,20 @@ function NewPinForm() {
     const [link, setLink] = useState("");
     const [imageFile, setImageFile] = useState(null)
     const [imageUrl, setImageUrl] = useState(null);
+    const [selectedBoard, setSelectedBoard] = useState('');
+    const[boards, setBoards] = useState([])
+    
+    useEffect(() => {
+        if (user) {
+            fetch(`/api/users/${user.id}/boards`)
+            .then(response => response.json())
+            .then(data => setBoards(data));
+        }
+    }, [user, dispatch]);
+    
+    const arrayBoards = boards ? Object.values(boards) : [];
+    const userBoards = arrayBoards.filter((board) => board.userId === user.id)
+   
     
     const [errors, onSubmit] = useSubmit({
         createAction: () => {
@@ -33,8 +50,12 @@ function NewPinForm() {
             return createPin(formData);
         },
 
-        onSuccess:() => history.push('/created')
-        // onSucess: <Redirect to='/index'/>
+        onSuccess:(pin) => {
+            console.log(pin, "PIN")
+            console.log(selectedBoard, "BOARD")
+            dispatch(createSave(selectedBoard, pin.payload.id))
+            history.push('/created')},
+        
     });
     
     
@@ -52,7 +73,7 @@ function NewPinForm() {
         }
       }
 
-      const dropZoneRef = useRef(null);
+    //   const dropZoneRef = useRef(null);
         const [preview, setPreview] = useState('');
       
 
@@ -62,10 +83,14 @@ function NewPinForm() {
             <div className='new-pin-form-background'>
                 <form className="pin-form-container" onSubmit={onSubmit}>
                     <div className='new-pin-nav-container'>
-                        <select className='new-pin-form-dropdown'>
-                        <option value="" selected disabled>Select a board</option>
+                        <select defaultValue="Select a board" className='new-pin-form-dropdown' onChange={(e) => setSelectedBoard(e.target.value)}>
+                            <option value="Select a board">Select a board</option>
+                            {userBoards.map(board => (
+                                    <option key={board.id} value={board.id}>{board.name}</option>)
+                            )}
                         </select>
                         <button className='new-pin-save-button'>Save</button>
+                        {/* <AddPinToBoardDropdown/> */}
                     </div>
                     <div className='new-pin-form-body-container'>
                         <div class="dropzone">

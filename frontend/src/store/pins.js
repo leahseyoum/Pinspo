@@ -49,9 +49,9 @@ export const createPin = pin => async (dispatch) => {
     });
     if (response.ok) {
         const pin = await response.json();
-        dispatch(retrieveSinglePin(pin));
+        return dispatch(retrieveSinglePin(pin));
     }
-    return response;
+    // return response;
 };
 
 export const destroyPin = pinId => async(dispatch) => {

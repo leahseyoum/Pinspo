@@ -17,7 +17,7 @@ function BoardIndex() {
           }
         }, [currentUser, dispatch]);
         
-        const arrayBoards = Object.values(boards);
+        const arrayBoards = boards ? Object.values(boards) : [];
         const userBoards = arrayBoards.filter((board) => board.userId === currentUser.id)
         
         console.log(arrayBoards)
