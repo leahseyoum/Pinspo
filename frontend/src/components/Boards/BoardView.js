@@ -52,6 +52,8 @@ const BoardView = ({board}) => {
             </div>
         </>
     )
+
+    
 }
 
 export default BoardView;

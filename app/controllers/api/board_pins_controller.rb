@@ -37,7 +37,7 @@ class Api::BoardPinsController < ApplicationController
     end
       
     def show 
-      @board_pin = BoardPin.where(pin_id: params[:pin_id], board_id: params[:board_id])
+      @board_pin = BoardPin.where(pin_id: board_pin_params[:pin_id], board_id: board_pin_params[:board_id])
       render :show
     end
 

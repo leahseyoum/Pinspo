@@ -8,7 +8,9 @@ function SavedPage() {
     return (
         <>
             <UserInfoHeader/>
-            <BoardIndex/>
+            <div className="save-page-boards-container">
+                <BoardIndex/>
+            </div>
             <div className='create-board-pin-container'>
                 <CreateBoardModal className='create-board-pin'/>
             </div>

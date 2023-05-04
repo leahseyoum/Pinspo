@@ -71,7 +71,7 @@ function NewPinForm() {
         }
       }
 
-    //   const dropZoneRef = useRef(null);
+    
         const [preview, setPreview] = useState('');
       
 
@@ -106,6 +106,9 @@ function NewPinForm() {
                          </div> 
                          
                     <div className='new-pin-text-inputs'>
+                    <ul className="login-errors">
+                    {errors.map(error => <li key={error}>{error}</li>)}
+                    </ul>
                             <div className='new-pin-title-container'>
                                 <input className='new-pin-title' type="text" placeholder="Add your title" onChange={(e) => setTitle(e.target.value)}></input>
                             </div>

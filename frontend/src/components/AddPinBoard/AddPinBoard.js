@@ -53,7 +53,7 @@ function AddPinToBoardDropdown({ user, pin}) {
   
   const getBoardPinId = async (selectedBoardId, pinId) => {
     try {
-      const response = await fetch(`/api/board_pins/${selectedBoardId}/${pinId}`);
+      const response = await fetch(`/api/board_pins?board_pin[board_id]=${selectedBoardId}&board_pin[pin_id]=${pinId}`);
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
@@ -70,7 +70,8 @@ function AddPinToBoardDropdown({ user, pin}) {
   async function handleFormSubmit(event) {
     event.preventDefault();
     try {
-      const boardPin = await getBoardPinId(selectedBoardId, pinId);
+      console.log(selectedBoardId, pinId)
+      const boardPin = await getBoardPinId({boardId: selectedBoardId, pinId: pinId});
       if (!boardPin) {
         const response = await dispatch(createSave(selectedBoardId, pinId));
         if (response.ok) {

@@ -29,11 +29,11 @@ const SearchBar = () => {
         return history.push(`/search/${query}`)
     }
 
-    const handleKeyDown = (e) => {
-        if (e.key === "Enter") {
-            handleSubmit();
-        }
-    };
+    // const handleKeyDown = (e) => {
+    //     if (e.key === "Enter") {
+    //         handleSubmit();
+    //     }
+    // };
 
     const update = (e) =>{
         e.preventDefault();

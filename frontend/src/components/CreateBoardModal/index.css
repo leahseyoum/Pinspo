@@ -6,7 +6,7 @@
 }
 
   ul.dropdown-menu {
-    position: absolute;
+    position: fixed;
     right: 15px;
     top: 415px;
     cursor: pointer;

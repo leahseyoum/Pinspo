@@ -8,6 +8,7 @@ function BoardIndex() {
     const currentUser = useSelector(state => state.session.user);
     const [boards, setBoards] = useState([]);
     const [numBoards, setNumBoards] = useState(0);
+    const newBoard = useSelector(state => state.boards.board);
    
 
     useEffect(() => {
@@ -18,7 +19,7 @@ function BoardIndex() {
             setBoards(data);
             setNumBoards(data.length)});
           }
-        }, [currentUser, dispatch, numBoards]);
+        }, [currentUser, dispatch, numBoards, newBoard]);
         
         const arrayBoards = boards ? Object.values(boards) : [];
         const userBoards = arrayBoards.filter((board) => board.userId === currentUser.id)
@@ -26,11 +27,13 @@ function BoardIndex() {
         
     return (
         <div className='boards-container'>
-          {userBoards.length > 0 ? (
-            userBoards.map(board => (
+         {userBoards.length > 0 ? (
+          <div className='boards-grid'>
+            {userBoards.map(board => (
               <BoardView board={board} className="board" key={board.id} />
-            ))
-          ) : (
+            ))}
+          </div>
+        ) : (
             null
           )}
         </div>

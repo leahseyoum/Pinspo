@@ -1,7 +1,3 @@
-.boards-container {
-    display: flex
-  }
-
 .board {
     display: flex;
     flex-direction: column;
@@ -57,5 +53,19 @@
     font-weight: 500;
     margin-left: 20px;
   }
+
+  .board-container {
+  width: 25%;
+  margin-bottom: 20px;
+  padding: 10px;
+  box-sizing: border-box;
+  float: left;
+}
+
+.board-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
 
   

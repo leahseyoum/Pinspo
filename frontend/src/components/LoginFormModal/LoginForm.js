@@ -35,7 +35,6 @@ function LoginForm({ onClose }) {
         <img className='pinterest-logo-modal' src={pinterestLogo} />
         <h1 className="welcome-message">Welcome to Pinspo</h1>
       </div>
-      {/* <h3 className="login-header">Log In</h3> */}
       <button class="close" onClick={onClose}>&times;</button>
       <form className="login-form" onSubmit={handleSubmit}>
         <h3 className="login-header">Log In</h3>

@@ -22,4 +22,5 @@ class Pin < ApplicationRecord
             errors[:body] << "Caption is too long (maximum is 255 characters)"
         end
     end
+
 end

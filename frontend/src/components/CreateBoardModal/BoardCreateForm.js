@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 function CreateBoardForm({closeModal}) {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
+    const [errors, setErrors] = useState([]);
     const currentUser = useSelector(state => state.session.user);
    
     const dispatch = useDispatch();
@@ -24,7 +25,12 @@ function CreateBoardForm({closeModal}) {
         const response = await dispatch(createBoard(formData));
         if (response.ok) {
             closeModal();
-            // window.location.reload();
+            history.push('/saved');
+        } else {
+            const data = await response.json();
+            if (data.errors) {
+                setErrors(data.errors);
+            }
         }
       };
 
@@ -41,6 +47,7 @@ function CreateBoardForm({closeModal}) {
                 <div className="create-title-container">
                     <h1>Create Board</h1>
                 </div>
+                {errors.map(error => <li key={error}>{error}</li>)}
             <label className='create-board-label'>
                 Name:
                 <input
