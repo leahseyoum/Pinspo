@@ -8,7 +8,11 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: :json } do
     resource :session, only: [:show, :create, :destroy]
-    resources :pins, only: [:create, :index, :show, :update, :destroy]
+    resources :pins, only: [:create, :index, :show, :update, :destroy] do 
+      collection do
+        get :search, to: "pins#search", as:"search"
+      end
+    end
     resources :users, only: [:create, :update, :show] do
       resources :boards, only: [:index, :show, :update]
     end

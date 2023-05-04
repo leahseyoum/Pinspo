@@ -59,6 +59,17 @@ class Api::PinsController < ApplicationController
     end
   end
 
+  def search
+    query=params[:query]
+    @pins = Pin.where('title ILIKE ? OR caption ILIKE ?', "%#{query}%", "%#{query}%")
+    if @pins.length > 0
+        render :index
+    else
+        render json: ["Sorry, we did not find any results for #{query}, try another search"], status: 404
+    end
+    
+  end
+
   private
   def pin_params
     params.require(:pin).permit(:title, :caption, :user_id, :link, :image, :id)

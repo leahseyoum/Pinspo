@@ -51,8 +51,8 @@ function PinDetail() {
     
 
     const history = useHistory();
-    const handleClick = () => {
-    history.goBack();
+      const handleClick = () => {
+      history.goBack();
    };
     
    useEffect(() => {

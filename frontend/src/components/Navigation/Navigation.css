@@ -107,7 +107,7 @@
   text-transform: uppercase;
 }
 
- .searchbar {
+ #search-input {
   background-color: #efefef;
   border: none;
   border-radius: 24px;
@@ -117,7 +117,7 @@
   color: #333;
   font-size: 14px;
   font-weight: bold;
-  margin-top: 5px;
+ 
 
   padding: 10px 20px;
 }
@@ -125,17 +125,11 @@
 .searchbar-container {
   position: relative;
   padding: 20px;
+  margin-top: 30px;
   width: 750px;
   height: 50px;
 }
 
-
-#search-icon {
-  position: absolute;
-  padding-left: 10px;
-  height: 20px;
-  width: 20px;
-} 
 
 .home-button-container, .create-button-container {
    margin-top: 15px;

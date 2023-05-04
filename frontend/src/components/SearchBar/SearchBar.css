@@ -1,0 +1,15 @@
+.search-bar-background {
+    position: relative;
+  }
+  
+  .magnifying-glass {
+    position: absolute;
+    top: 50%;
+    left: 10px;
+    transform: translateY(-50%);
+  }
+
+  #search-input {
+    padding-left: 30px;
+    height: 40px;
+  }

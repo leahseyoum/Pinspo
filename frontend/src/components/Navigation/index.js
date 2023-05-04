@@ -11,6 +11,7 @@ import { AiOutlineSearch } from 'react-icons/ai';
 import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import SearchBar from '../SearchBar/SearchBar';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -79,7 +80,8 @@ function Navigation() {
         </ul>)}
         </div>
         <div className='searchbar-container'>
-          <div className="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div>
+          <SearchBar/>
+          {/* <div className="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div> */}
           {/* <div className='search-icon'><AiOutlineSearch id="search-icon"/></div> */}
         </div>
       </> : null}

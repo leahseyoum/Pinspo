@@ -81,6 +81,19 @@ export const updatePin = pin => async(dispatch) => {
     return response;
 }
 
+export const getSearchPins = (query) => async(dispatch) => {
+    const response = await fetch(`/api/pins/search?query=${query}`,{
+        data: {
+            query: (query)
+        }
+    });
+    if (response.ok){
+        const pins = await response.json();
+        console.log(pins,"search")
+        dispatch(retrievePins(pins))
+    }
+}
+
 const initialState = {
     pins: null,
     pin: null

@@ -11,6 +11,7 @@ import SplashOrHome from "./components/SplashOrHome";
 import EditUserForm from "./components/UserProfile/EditUserForm";
 import BoardIndex from "./components/Boards/BoardsIndex";
 import BoardShow from "./components/Boards/BoardShow";
+import SearchPins from "./components/SearchBar/SearchIndex";
 
 function App() {
 
@@ -18,33 +19,36 @@ function App() {
     <>
       <Navigation />
         <Switch>
-        <Route path='/users/:userId/boards'>
-          <BoardIndex/>
-        </Route>
-        <Route path="/boards/:boardId">
-          <BoardShow />
-        </Route>
-        <Route path='/edit-user'>
-          <EditUserForm/>
-        </Route>
-        <Route path="/pins/:pinId">
-          <PinDetail />
-        </Route>
-        <Route path="/create">
-          <NewPinForm/>
-        </Route>
-        <Route path="/created">
-          <CreatedPage/>
-        </Route>
-        <Route path="/saved">
-          <SavedPage/>
-        </Route>
-        <Route path="/index" >
-          <Pins/>
-        </Route>
-        <Route path="/">
-          <SplashOrHome/>
-        </Route>
+          <Route path='/search/:query'>
+            <SearchPins/>
+          </Route>
+          <Route path='/users/:userId/boards'>
+            <BoardIndex/>
+          </Route>
+          <Route path="/boards/:boardId">
+            <BoardShow />
+          </Route>
+          <Route path='/edit-user'>
+            <EditUserForm/>
+          </Route>
+          <Route path="/pins/:pinId">
+            <PinDetail />
+          </Route>
+          <Route path="/create">
+            <NewPinForm/>
+          </Route>
+          <Route path="/created">
+            <CreatedPage/>
+          </Route>
+          <Route path="/saved">
+            <SavedPage/>
+          </Route>
+          <Route path="/index" >
+            <Pins/>
+          </Route>
+          <Route path="/">
+            <SplashOrHome/>
+          </Route>
         </Switch>
     </>
   );
