@@ -6,7 +6,7 @@ databases:
 
 services:
   - type: web
-    name: mysite
+    name: pinspo
     plan: free
     region: oregon
     branch: main
