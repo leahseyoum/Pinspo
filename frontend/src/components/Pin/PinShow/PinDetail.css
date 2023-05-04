@@ -169,7 +169,7 @@
   .edit-options-button {
     width: 40px;
     margin-top: 30px;
-    margin-right: 250px;
+    margin-right: 100px;
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -200,7 +200,6 @@
     position: absolute;
     /* top: calc(100% + 10px); */
     /* left: -10px; */
-    margin-right: 300px;
     margin-top: 100px;
     z-index: 1;
     list-style: none;
@@ -208,6 +207,7 @@
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     background-color: white;
+    margin-right: 250px;
   }
 
   .arrow-link {

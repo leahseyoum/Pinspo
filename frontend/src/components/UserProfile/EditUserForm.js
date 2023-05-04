@@ -129,16 +129,16 @@ function EditUserForm() {
         />
       </div>
       <div>
-        <label htmlFor="profile_photo">Profile Photo:</label>
+        {/* <label htmlFor="profile_photo">Profile Photo:</label>
         <input
           type="file"
           name="profile_photo"
           accept="image/*"
           onChange={handleFileChange}
-        />
-        <div className="preview-container">
+        /> */}
+        {/* <div className="preview-container">
             {preview ? <img className='preview-image' src={preview} alt='Preview' /> : null}
-        </div>
+        </div> */}
         {/* <ProfilePicture profilePhotoUrl={profilePhotoUrl}/> */}
       </div>
       <button className="save-edit-profile-button" type="submit">Save Changes</button>

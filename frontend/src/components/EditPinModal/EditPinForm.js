@@ -41,9 +41,11 @@ function EditPinForm({pin, closeModal}) {
 
       };
 
+      console.log(pinId)
+
     const handleDelete = async (event) => {
         event.preventDefault();
-        const response = await dispatch(destroyPin(pin.id));
+        const response = await dispatch(destroyPin(pinId.pinId));
         
         if (response.ok) {
 

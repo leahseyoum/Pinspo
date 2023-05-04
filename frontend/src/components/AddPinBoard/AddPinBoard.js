@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { createSave, deleteSave } from '../../store/boardPins';
+import { createBoard } from '../../store/boards';
 import { useDispatch, useSelector } from 'react-redux';
 import CreateBoardModal from '../CreateBoardModal';
 import { useLocation } from 'react-router-dom';
@@ -99,21 +100,6 @@ function AddPinToBoardDropdown({ user, pin}) {
 
   return (
     <>
-    {/* <div className='pin-dropdown'>
-        <form className='select-board-form' onSubmit={handleFormSubmit}>
-          <div className="dropdown-container">
-          <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
-            {pin.board ?  <option key={pin.board.id} value={pin.board.id}>{pin.board.name}</option> :<option value="" disabled hidden>Select a Board</option>}
-              { finalBoards.map(board => (
-              <option key={board.id} value={board.id}>{board.name}</option>
-              ))}
-              </select>
-
-              <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>{saved ? "Saved" : "Save"}</button>
-          </div>
-        </form>
-        
-    </div> */}
        <form className='select-board-form' onSubmit={handleFormSubmit}>
           <div className='new-pin-nav-container'>
           <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
@@ -130,3 +116,5 @@ function AddPinToBoardDropdown({ user, pin}) {
 }
 
 export default AddPinToBoardDropdown;
+
+

@@ -7,15 +7,18 @@ function BoardIndex() {
     const dispatch = useDispatch();
     const currentUser = useSelector(state => state.session.user);
     const [boards, setBoards] = useState([]);
+    const [numBoards, setNumBoards] = useState(0);
    
 
     useEffect(() => {
         if (currentUser) {
           fetch(`/api/users/${currentUser.id}/boards`)
           .then(response => response.json())
-          .then(data => setBoards(data));
+          .then(data => {
+            setBoards(data);
+            setNumBoards(data.length)});
           }
-        }, [currentUser, dispatch]);
+        }, [currentUser, dispatch, numBoards]);
         
         const arrayBoards = boards ? Object.values(boards) : [];
         const userBoards = arrayBoards.filter((board) => board.userId === currentUser.id)
