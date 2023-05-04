@@ -90,7 +90,6 @@ function NewPinForm() {
                             )}
                         </select>
                         <button className='new-pin-save-button'>Save</button>
-                        {/* <AddPinToBoardDropdown/> */}
                     </div>
                     <div className='new-pin-form-body-container'>
                         <div class="dropzone">

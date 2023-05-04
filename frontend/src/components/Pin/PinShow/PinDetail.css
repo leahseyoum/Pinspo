@@ -67,6 +67,11 @@
     font-family: Helvetica neue;
   }
 
+  .show-save-button.saved-mode {
+    background-color: black;
+    font-size: 1.2em;
+  }
+
   .save-button-container {
     position: absolute;
     top: 20px;

@@ -13,7 +13,7 @@ class Api::BoardPinsController < ApplicationController
     def create
       begin
         @board_pin = BoardPin.new(board_pin_params)
-        @board_pin.save
+        @board_pin.save!
         
         render json: { message: 'Pin was successfully added to board.' }, status: :ok
       rescue ActiveRecord::RecordInvalid => e
@@ -30,7 +30,16 @@ class Api::BoardPinsController < ApplicationController
         @board_pin.destroy
         redirect_to board_path(@board_pin.board)
     end
+
+    def index 
+      @board_pins = BoardPin.all
+      render :index
+    end
       
+    def show 
+      @board_pin = BoardPin.where(pin_id: params[:pin_id], board_id: params[:board_id])
+      render :show
+    end
 
     private
      def board_pin_params

@@ -8,11 +8,13 @@ import {SlOptions} from 'react-icons/sl';
 import EditPinModal from '../../EditPinModal';
 import {GrLink} from 'react-icons/gr';
 import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
+import { displayPin } from '../../../store/pins';
 import './PinDetail.css';
 
 
 function PinDetail() {
     const pin = useSelector(state => state.pins.pin);
+    
     const user = useSelector(state => state.session.user);
     const [showMenu, setShowMenu] = useState(false);
 
@@ -26,17 +28,25 @@ function PinDetail() {
 
     
     const { pinId } = useParams();
+    console.log(pinId, 'pinId')
     
     const dispatch = useDispatch();
     
     const [pin2, setPin2] = useState();
     
+    // useEffect(() => {
+    //   fetch(`/api/pins/${pinId}`)  
+    //   .then(response => response.json())
+    //   .then(data => setPin2(data))
+    // }, [dispatch, pinId]);
+
     useEffect(() => {
-      fetch(`/api/pins/${pinId}`)  
-      .then(response => response.json())
-      .then(data => setPin2(data))
+      dispatch(displayPin(pinId)).then((response) => {
+        setPin2(response);
+      });
     }, [dispatch, pinId]);
     
+   
     const isOwner = user.id === pin2?.userId;
     
 
@@ -94,13 +104,10 @@ function PinDetail() {
                 </div>
             </div>
           </div>
-          {/* <select className='show-pin-dropdown'>
-            <option selected disabled> Select a Board</option>
-            { user.boards}
-          </select> */}
-          <div className="dropdown-container">
+          {/* <div className="dropdown-container">
               <AddPinToBoardDropdown user={user} pin={pin2 ? pin2 : pin} />
-          </div>
+          </div> */}
+          
 
         <div className="save-button-container">
           {pin2 && pin2.link ? (
@@ -120,6 +127,8 @@ function PinDetail() {
                 </li>
               </ul>
             )}
+            {pin? <AddPinToBoardDropdown user={user} pin={pin} /> : null}
+          
           {/* <button className="show-save-button">Save</button> */}
         </div>
         </div>

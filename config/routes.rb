@@ -16,7 +16,8 @@ Rails.application.routes.draw do
 
     resources :boards, only:  [:create, :destroy]
     get '/boards/saved/:board_id', to: 'pins#find_board_saved_pins', as: 'find_board_saved_pins'
-    resources :board_pins, only: [:create, :destroy]
+    resources :board_pins, only: [:create, :destroy, :index]
+    get '/board_pins/:board_id/:pin_id', to: 'board_pins#show'
 
   end
 

@@ -5,17 +5,13 @@ import CreateBoardModal from '../CreateBoardModal';
 import { useLocation } from 'react-router-dom';
 import SavePinButton from './SaveButton';
 
-function AddPinToBoardDropdown({ user, pin, board }) {
+function AddPinToBoardDropdown({ user, pin}) {
   
   const [boards, setBoards] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState('');
-  const [saved, setSaved] = useState(false);
+  const [saved, setSaved] = useState(localStorage.getItem('isSaved') === 'true' || false);
   const dispatch = useDispatch();
 
-  const location = useLocation();
-  const className = location.pathname.includes('pin')  ?  'pin-detail-dropdown': 'pin-view-dropdown' ;
-  console.log(location.pathname)
-  console.log(className)
   // fetch boards data from the server when the component mounts
   useEffect(() => {
     fetch(`/api/users/${user.id}/boards`)
@@ -36,27 +32,52 @@ function AddPinToBoardDropdown({ user, pin, board }) {
         finalBoards.push(board)
       }
     }
-  })
+  });
+
+  const pinId = pin.id;
+
+  
+
+
+
+  // useEffect(() => {
+  //   getBoardPinId(selectedBoardId, pinId);
+  // }, [dispatch])
+
+
   
   function handleBoardChange(event) {
+    console.log('IN HANDLE BOARD CHANGE')
     setSelectedBoardId(event.target.value);
   }
   
-  useEffect(() => {
-    console.log(selectedBoardId);
-  }, [selectedBoardId]);
+  const getBoardPinId = async (selectedBoardId, pinId) => {
+    try {
+      const response = await fetch(`/api/board_pins/${selectedBoardId}/${pinId}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data[0];
+    } catch (error) {
+      console.error(error);
+    }
+  };
   
   
+ console.log(selectedBoardId, "selectedBoardId");
+
   async function handleFormSubmit(event) {
     event.preventDefault();
     try {
-      if (!saved) {
-        const response = await dispatch(createSave(selectedBoardId, pin.id));
+      const boardPin = await getBoardPinId(selectedBoardId, pinId);
+      if (!boardPin) {
+        const response = await dispatch(createSave(selectedBoardId, pinId));
         if (response.ok) {
-          setSaved(true)
+          setSaved(true);
         }
       } else {
-        const response = await dispatch(deleteSave(selectedBoardId, pin.id))
+        const response = await dispatch(deleteSave(boardPin.id));
         if (response.ok) {
           setSaved(false);
         }
@@ -64,18 +85,22 @@ function AddPinToBoardDropdown({ user, pin, board }) {
     } catch (error) {
       console.error(error);
     }
-   
   }
   
-
   
-if (!pin) {
-  return null;
-}
+  
+  const location = useLocation();
+  const className = location.pathname.includes('pin')  ?  'pin-detail-dropdown': 'pin-view-dropdown' ;
+  
+  
+  
+  if (!pin) {
+    return null;
+  }
 
   return (
     <>
-    <div className='pin-dropdown'>
+    {/* <div className='pin-dropdown'>
         <form className='select-board-form' onSubmit={handleFormSubmit}>
           <div className="dropdown-container">
           <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
@@ -89,7 +114,18 @@ if (!pin) {
           </div>
         </form>
         
-    </div>
+    </div> */}
+       <form className='select-board-form' onSubmit={handleFormSubmit}>
+          <div className='new-pin-nav-container'>
+          <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
+              {pin.board ?  <option key={pin.board.id} value={pin.board.id}>{pin.board.name}</option> :<option value="" disabled hidden>Select a Board</option>}
+                { finalBoards.map(board => (
+                <option key={board.id} value={board.id}>{board.name}</option>
+                ))}
+                </select>
+                <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>{saved ? "Saved" : "Save"}</button>
+            </div>
+          </form>
     </>
   );
 }

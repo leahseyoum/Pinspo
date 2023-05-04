@@ -75,7 +75,7 @@ const initialState = {};
 const boardPinReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PIN_TO_BOARD:
-      return { ...state, [action.payload.boardPinId]: action.payload };
+      return { ...state, [action.payload.pinId]: action.payload.boardId};
     case REMOVE_PIN_FROM_BOARD:
       let newState = {...state};
       delete newState[action.payload.boardPinId];
