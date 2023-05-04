@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updatePin } from "../../store/pins";
 import { destroyPin } from "../../store/pins";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import AddPinToBoardDropdown from "../AddPinBoard/AddPinBoard";
 import './EditPinForm.css';
 
@@ -17,22 +18,27 @@ function EditPinForm({pin, closeModal}) {
 
     const dispatch = useDispatch();
     const history = useHistory();
+    const pinId = useParams()
+    console.log(pinId.pinId)
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = new FormData();
-          formData.append('pin[title]', title);
-          formData.append("pin[caption]" , caption);
-          formData.append("pin[link]" , link);
-          formData.append('pin[id]', pin.id);
-        const response = await dispatch(updatePin(formData));
+        if (pin) {
+            const formData = new FormData();
+              formData.append('pin[title]', title);
+              formData.append("pin[caption]" , caption);
+              formData.append("pin[link]" , link);
+              formData.append('pin[id]', pinId.pinId);
+            const response = await dispatch(updatePin(formData));
 
-
-        if (response.ok) {
-            closeModal();
-            // history.push(`/pins/${pin.id}`);
-            window.location.reload();
+            if (response.ok) {
+                closeModal();
+                // history.push(`/pins/${pin.id}`);
+                window.location.reload();
+            }
         }
+
+
       };
 
     const handleDelete = async (event) => {
@@ -46,16 +52,13 @@ function EditPinForm({pin, closeModal}) {
         }
     }
 
-    
+   
       return (
         <> 
             <form onSubmit={handleSubmit} className="edit-pin-form">
                 <div className="title-container">
                     <h1>Edit Pin</h1>
                 </div>
-                <select className='edit-pin-board-dropdown'>
-                    <option value="" selected disabled>Board</option>
-                 </select>
             <label>
                 Title:
                 <input

@@ -74,6 +74,8 @@
 
   .save-button-container {
     position: absolute;
+    display: flex;
+    
     top: 20px;
     right: 10px;
   }
@@ -174,7 +176,7 @@
   }
 
   .edit-options {
-    /* margin-bottom: 100px; */
+    margin-left: 200px;
     font-size: 20px;
     
   }
@@ -191,7 +193,9 @@
   ul.edit-link {
     position: absolute;
     /* top: calc(100% + 10px); */
-    left: -10px;
+    /* left: -10px; */
+    margin-left: 170px;
+    margin-top: 50px;
     z-index: 1;
     list-style: none;
     padding: 10px;
@@ -202,7 +206,7 @@
 
   .arrow-link {
     margin-top: 20px;
-    margin-right: 10px;
+    margin-left: 50px;
   }
 
   a:active {
@@ -233,6 +237,7 @@
   .show-details {
     margin-top: 60px;
   }
+  
   
 
   

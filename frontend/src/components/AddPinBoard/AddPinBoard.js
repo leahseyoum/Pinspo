@@ -47,7 +47,6 @@ function AddPinToBoardDropdown({ user, pin}) {
 
   
   function handleBoardChange(event) {
-    console.log('IN HANDLE BOARD CHANGE')
     setSelectedBoardId(event.target.value);
   }
   

@@ -28,7 +28,6 @@ function PinDetail() {
 
     
     const { pinId } = useParams();
-    console.log(pinId, 'pinId')
     
     const dispatch = useDispatch();
     
@@ -47,7 +46,8 @@ function PinDetail() {
     }, [dispatch, pinId]);
     
    
-    const isOwner = user.id === pin2?.userId;
+    const isOwner = user.id === pin?.userId;
+    const link = pin?.link
     
 
     const history = useHistory();
@@ -110,8 +110,8 @@ function PinDetail() {
           
 
         <div className="save-button-container">
-          {pin2 && pin2.link ? (
-              <a href={pin2.link}>
+          {link ? (
+              <a href={pin.link}>
                 <GrLink  className="arrow-link" size={20}/>
               </a>
             ) : null}
