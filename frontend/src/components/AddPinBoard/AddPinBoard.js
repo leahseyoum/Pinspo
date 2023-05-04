@@ -64,7 +64,7 @@ function AddPinToBoardDropdown({ user, pin}) {
   };
   
   
- console.log(selectedBoardId, "selectedBoardId");
+ 
 
   async function handleFormSubmit(event) {
     event.preventDefault();

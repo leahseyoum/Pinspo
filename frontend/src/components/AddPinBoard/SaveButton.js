@@ -8,8 +8,7 @@ const SavePinButton = (props) => {
     const [loading, setLoading] = useState(true);
     const [board, setBoard] = useState('');
     
-    // console.log(pin)
-    // console.log(userBoards)
+    
     
 
     // userBoards.forEach(board => {
@@ -41,7 +40,7 @@ const SavePinButton = (props) => {
 
    
     
-    console.log(board.id, 'boardId')
+    
     const handleClick = (e) => {
         e.preventDefault();
         if (saved){

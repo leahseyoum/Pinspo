@@ -67,7 +67,6 @@ function EditUserForm() {
         const response = await dispatch(updateUser(formData, currentUser));
         history.push("/saved");
       } catch (error) {
-        console.log(error);
         // Display an error message to the user
       }
   };

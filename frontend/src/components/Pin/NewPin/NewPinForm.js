@@ -51,8 +51,6 @@ function NewPinForm() {
         },
 
         onSuccess:(pin) => {
-            console.log(pin, "PIN")
-            console.log(selectedBoard, "BOARD")
             dispatch(createSave(selectedBoard, pin.payload.id))
             history.push('/created')},
         

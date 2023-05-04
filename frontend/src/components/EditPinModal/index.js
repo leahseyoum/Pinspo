@@ -9,7 +9,6 @@ function EditPinModal({pin}) {
         setShowModal(false);
      };
 
-     console.log(showModal);
 
     return (
         <>

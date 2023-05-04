@@ -64,7 +64,6 @@ export const updateBoard = formData => async(dispatch) => {
     if (response.ok) {
         const data = await response.json();
         dispatch(retrieveBoard(data));
-        console.log('dispatched')
     };
 
     return response;

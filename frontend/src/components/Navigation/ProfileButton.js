@@ -39,7 +39,6 @@ function ProfileButton({ user }) {
     history.push('/saved');
   }
 
-  console.log(user.profilePhoto)
   return (
     <>
        <div className="user-icon-container">

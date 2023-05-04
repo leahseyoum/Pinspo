@@ -81,6 +81,4 @@ test:
 #
 production:
   <<: *default
-  database: pinterest_clone_production
-  username: pinterest_clone
-  password: <%= ENV["PINTEREST_CLONE_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

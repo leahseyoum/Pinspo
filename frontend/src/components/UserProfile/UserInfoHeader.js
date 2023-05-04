@@ -6,8 +6,6 @@ import ProfilePicture from "./UserProfilePhoto";
 
 function UserInfoHeader() {
     const currentUser = useSelector(state => state.session.user);
-    console.log(currentUser.boards)
-    console.log(currentUser.pins)
     const history = useHistory();
 
     const handleEditClick = (e) => {

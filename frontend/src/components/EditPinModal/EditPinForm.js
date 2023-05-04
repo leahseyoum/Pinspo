@@ -19,7 +19,7 @@ function EditPinForm({pin, closeModal}) {
     const dispatch = useDispatch();
     const history = useHistory();
     const pinId = useParams()
-    console.log(pinId.pinId)
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault();

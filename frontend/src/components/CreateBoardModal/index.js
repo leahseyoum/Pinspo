@@ -8,7 +8,7 @@ import './index.css';
 function CreateBoardModal() {
     const [showModal, setShowModal] = useState(false);
     const [dropDown, setDropDown] = useState(false);
-     console.log(dropDown);
+     
     const closeModal = () => {
         setShowModal(false);
      };
