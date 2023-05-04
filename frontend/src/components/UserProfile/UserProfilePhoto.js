@@ -1,11 +1,9 @@
 import React from 'react'
 import './UserProfilePhoto.css'
-const ProfilePicture = (imageUrl, size) => {
-
-    const profileSizeClass = size === 'large' ? 'user-profile-picture-large' : 'user-profile-picture-small';
-
+const ProfilePicture = (imageUrl) => {
+    console.log(imageUrl)
     return (
-      <div className={`${profileSizeClass}`}>
+      <div className='profile-image-container'>
         <img src={imageUrl} alt="user profile" />
       </div>
     );

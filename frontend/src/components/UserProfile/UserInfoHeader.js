@@ -18,8 +18,8 @@ function UserInfoHeader() {
         <div className="info-container">
             <div className="user-profile-header-container">
             <div className="user-show-profile-pic">
-                    <ProfilePicture user={currentUser}/>
-                </div>
+                    <p className="user-initial">{currentUser.username[0].toUpperCase()}</p>
+            </div>
             </div>
 
             <div className="user-profile-info-container">

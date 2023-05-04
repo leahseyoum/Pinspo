@@ -41,24 +41,26 @@ function CreateBoardForm({closeModal}) {
                 <div className="create-title-container">
                     <h1>Create Board</h1>
                 </div>
-            <label>
+            <label className='create-board-label'>
                 Name:
                 <input
+                className='create-board-input'
                 type="text"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 />
             </label>
-            <label>
+            <label className='create-board-label'>
                 Description:
                 <input
                 type="text"
+                className='create-board-input'
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}
                 />
             </label>
-            <button type="submit">Save</button>
-            <button onClick={handleCancel}>cancel</button>
+            <button className='create-board-button' type="submit">Save</button>
+            <button className='create-board-button' onClick={handleCancel}>cancel</button>
         </form>
     </>
   );

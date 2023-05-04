@@ -5,25 +5,87 @@
     cursor: pointer;
 }
 
-/* .Create-board-button {
-    color: #000;
-    font-size: 24px;
-    border: none;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.2s;
-  }
-  
-  .Create-board-button:hover {
-    color: #fff;
-    background-color: #000;
-    border-radius: 50%;
-  } */
-
   ul.dropdown-menu {
     position: absolute;
     right: 15px;
     top: 415px;
     cursor: pointer;
     list-style: none;
+  }
+
+  .plus-icon-container.modal-open {
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    margin-top: 40px;
+    right: 0;
+    background-color: #fff;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    border-radius: 16px;
+    padding: 10px;
+    z-index: 1;
+  }
+  
+  .dropdown-menu li {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .dropdown-menu li:last-child {
+    margin-bottom: 0;
+  }
+  
+  .dropdown-menu a,
+  .dropdown-menu button {
+    display: block;
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+  }
+  
+  .dropdown-menu a:hover,
+  .dropdown-menu button:hover {
+    background-color: #f2f2f2;
+    border-radius: 16px;
+  }
+  
+  .dropdown-menu a.create-pin,
+  .dropdown-menu button.create-board {
+    background-color: #e60023;
+    color: #fff;
+    border: none;
+  }
+  
+  .dropdown-menu a.create-pin:hover,
+  .dropdown-menu button.create-board:hover {
+    background-color: #cc001a;
+  }
+
+  .dropdown-create-board-button {
+    border: none;
+    background-color: transparent;
+    font-family: Helvetica neue;
+    font-weight: 500;
+  }
+  
+  .dropdown-create-pin-button {
+    font-family: Helvetica neue;
+    font-weight: 500;
+  }
+
+  .dropdown-open {
+    color: white;
   }

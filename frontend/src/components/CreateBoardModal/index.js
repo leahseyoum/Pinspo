@@ -1,5 +1,5 @@
 import CreateBoardForm from './BoardCreateForm';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Modal } from '../../context/Modal';
 import {AiOutlinePlus} from 'react-icons/ai';
 import { Link } from 'react-router-dom';
@@ -16,8 +16,8 @@ function CreateBoardModal() {
 
     return (
         <>
-        <div className='plus-icon-container'>
-            <AiOutlinePlus onClick={() => setDropDown(!dropDown)} size={30}/>
+        <div className={`plus-icon-container ${dropDown ? 'modal-open' : ''}`}>
+            <AiOutlinePlus className={`${dropDown ? 'dropdown-open' : ''}`} onClick={() => setDropDown(!dropDown)} size={30}/>
         </div>
             {dropDown && (
                 <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton">
