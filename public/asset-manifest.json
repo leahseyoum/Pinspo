@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a7fbe7d7.css",
+    "main.js": "/static/js/main.cea913d7.js",
+    "static/media/pinterestLogo.png": "/static/media/pinterestLogo.c0bf18f998816d009ce9.png",
+    "index.html": "/index.html",
+    "main.a7fbe7d7.css.map": "/static/css/main.a7fbe7d7.css.map",
+    "main.cea913d7.js.map": "/static/js/main.cea913d7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.a7fbe7d7.css",
+    "static/js/main.cea913d7.js"
+  ]
+}
