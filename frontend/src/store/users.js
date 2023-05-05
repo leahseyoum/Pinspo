@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf";
+import { setCurrentUser } from "./session";
 
 const RETRIEVE_USER = 'users/retrieveUser';
 
@@ -29,9 +30,8 @@ export const updateUser = (formData) => async(dispatch) => {
 
 const usersReducer = (state = {}, action) => {
     switch(action.type) {
-        case RETRIEVE_USER:{
+        case RETRIEVE_USER:
             return {...state, user: action.payload}
-        }
         default: 
             return state;
     }

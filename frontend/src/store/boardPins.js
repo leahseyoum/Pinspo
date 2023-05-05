@@ -10,9 +10,9 @@ export const addPinToBoard = (boardId, pinId) => ({
   payload: { pinId, boardId},
 });
 
-export const removePinFromBoard = (boardPinId) => ({
+export const removePinFromBoard = (boardId, pinId) => ({
   type: REMOVE_PIN_FROM_BOARD,
-  payload: { boardPinId },
+  payload: { boardId, pinId },
 });
 
 
@@ -40,13 +40,19 @@ export const createSave = (boardId, pinId) => async (dispatch) => {
 
 };
 
-export const deleteSave =(boardPinId) => async(dispatch) => {
-  const response = await csrfFetch(`/api/board_pins/${boardPinId}`, {
+export const deleteSave =(boardId, pinId) => async(dispatch) => {
+  const response = await csrfFetch(`/api/board_pins/${boardId}/${pinId}`, {
     method : 'DELETE',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ board_pin: { board_id: boardId, pin_id: pinId } }),
   });
   if (response.ok) {
-    dispatch(removePinFromBoard(boardPinId));
+    dispatch(removePinFromBoard(boardId, pinId));
   }
+
+  return response;
 }
 
 
@@ -70,16 +76,18 @@ export const deleteSave =(boardPinId) => async(dispatch) => {
 
 // export default boardPinReducer;
 
-const initialState = {};
+const initialState = {
+  boardPins: [],
+};
 
 const boardPinReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_PIN_TO_BOARD:
-      return { ...state, [action.payload.pinId]: action.payload.boardId};
+      return { ...state, [action.payload.id]: action.payload};
     case REMOVE_PIN_FROM_BOARD:
       let newState = {...state};
-      delete newState[action.payload.boardPinId];
-      return newState;
+      delete newState[action.boardPin]
+      return newState
     default:
       return state;
   }

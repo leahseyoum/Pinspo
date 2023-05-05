@@ -21,10 +21,11 @@ const SearchBar = () => {
                     data = await res.clone().json();
                 } catch {
                     data = await res.text(); 
+                    if (data?.errors) setErrors(data.errors);
+                    else if (data) setErrors([data]);
+                    else setErrors([res.statusText]);
+                    console.log(errors)
                 }
-                if (data?.errors) setErrors(data.errors);
-                else if (data) setErrors([data]);
-                else setErrors([res.statusText]);
             });
         return history.push(`/search/${query}`)
     }
@@ -45,6 +46,11 @@ const SearchBar = () => {
             <div className='search-bar-background'>
                 <div className='magnifying-glass'><RxMagnifyingGlass id="mag-glass" size={20}/></div>
                 <form className='search-input-box' onSubmit={handleSubmit}><input id='search-input' type="search" placeholder='Search' onChange={update} /></form>
+                <div className="search-errors">
+                    {errors.map((error, idx) => (
+                        <div key={idx} className="error">{error}</div>
+                    ))}
+                </div>
             </div>
         </div>
    

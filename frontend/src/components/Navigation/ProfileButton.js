@@ -6,8 +6,10 @@ import * as sessionActions from '../../store/session';
 import './ProfileButton.css';
 import { Link } from "react-router-dom";
 import ProfilePicture from "../UserProfile/UserProfilePhoto";
+import { useSelector } from "react-redux";
 
-function ProfileButton({ user }) {
+function ProfileButton() {
+  const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
   const history = useHistory();

@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { createSave, deleteSave } from '../../store/boardPins';
-import { createBoard } from '../../store/boards';
 import { useDispatch, useSelector } from 'react-redux';
-import CreateBoardModal from '../CreateBoardModal';
 import { useLocation } from 'react-router-dom';
-import SavePinButton from './SaveButton';
+import './AddPinBoard.css';
+
 
 function AddPinToBoardDropdown({ user, pin}) {
   
   const [boards, setBoards] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState('');
-  const [saved, setSaved] = useState(localStorage.getItem('isSaved') === 'true' || false);
+  const [saved, setSaved] = useState(pin.board? true : false);
   const dispatch = useDispatch();
 
   // fetch boards data from the server when the component mounts
@@ -37,48 +36,41 @@ function AddPinToBoardDropdown({ user, pin}) {
 
   const pinId = pin.id;
 
-  
-
-
-
-  // useEffect(() => {
-  //   getBoardPinId(selectedBoardId, pinId);
-  // }, [dispatch])
-
-
-  
   function handleBoardChange(event) {
     setSelectedBoardId(event.target.value);
   }
   
-  const getBoardPinId = async (selectedBoardId, pinId) => {
-    try {
-      const response = await fetch(`/api/board_pins?board_pin[board_id]=${selectedBoardId}&board_pin[pin_id]=${pinId}`);
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      const data = await response.json();
-      return data[0];
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  // const getBoardPinId = async (selectedBoardId, pinId) => {
+  //   try {
+  //     const response = await fetch(`/api/board_pins?board_pin[board_id]=${selectedBoardId}&board_pin[pin_id]=${pinId}`);
+  //     if (!response.ok) {
+  //       throw new Error('Network response was not ok');
+  //     }
+  //     const data = await response.json();
+  //     console.log(data)
+  //     return data[0];
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
   
   
  
 
   async function handleFormSubmit(event) {
     event.preventDefault();
+    console.log(saved)
     try {
       console.log(selectedBoardId, pinId)
-      const boardPin = await getBoardPinId({boardId: selectedBoardId, pinId: pinId});
-      if (!boardPin) {
+      if (!saved) {
         const response = await dispatch(createSave(selectedBoardId, pinId));
         if (response.ok) {
           setSaved(true);
         }
       } else {
-        const response = await dispatch(deleteSave(boardPin.id));
+        // const boardPin = await getBoardPinId({boardId: selectedBoardId, pinId: pinId});
+        // console.log(boardPin)
+        const response = await dispatch(deleteSave(selectedBoardId, pinId));
         if (response.ok) {
           setSaved(false);
         }
@@ -101,7 +93,7 @@ function AddPinToBoardDropdown({ user, pin}) {
 
   return (
     <>
-       <form className='select-board-form' onSubmit={handleFormSubmit}>
+       <form className='select-board-form' id="hihi" onSubmit={handleFormSubmit}>
           <div className='new-pin-nav-container'>
           <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
               {pin.board ?  <option key={pin.board.id} value={pin.board.id}>{pin.board.name}</option> :<option value="" disabled hidden>Select a Board</option>}

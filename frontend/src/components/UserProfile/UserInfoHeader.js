@@ -1,17 +1,29 @@
 import React from "react";
 import { useSelector } from "react-redux"
 import { useHistory } from "react-router-dom";
+import { useEffect, useState } from "react";
 import "./UserInfoHeader.css"
 import ProfilePicture from "./UserProfilePhoto";
 
 function UserInfoHeader() {
-    const currentUser = useSelector(state => state.session.user);
+    const currentUser = useSelector(state => state.session.user)
+    const [username, setUsername] = useState(currentUser.username);
+    const [email, setEmail] = useState(currentUser.email)
+    console.log(currentUser);
     const history = useHistory();
 
     const handleEditClick = (e) => {
         e.preventDefault();
         history.push('/edit-user');
     }
+
+    useEffect(() => {
+        setUsername(currentUser.username);
+        console.log(username)
+        setEmail(currentUser.email);
+        console.log(email)
+      }, [currentUser]);
+    
 
     return (
        
