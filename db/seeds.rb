@@ -8,7 +8,6 @@
 
 ApplicationRecord.transaction do 
   puts "Destroying tables..."
-  User.destroy_all
   
   puts "Resetting primary keys..."
   ApplicationRecord.connection.reset_pk_sequence!('users')
@@ -16,17 +15,18 @@ ApplicationRecord.transaction do
   puts "Creating users..."
   
   # demo_user= User.create!(
-  #   username: 'Demouser', 
-  #   email: 'demouser@gmail.com', 
-  #   password: 'demopassword'
-  #   )
+    #   username: 'Demouser', 
+    #   email: 'demouser@gmail.com', 
+    #   password: 'demopassword'
+    #   )
     
     
-      
-      # puts "Done!"
-    end
     
-    require 'open-uri'
+    # puts "Done!"
+  end
+  
+  require 'open-uri'
+      User.destroy_all
       Pin.destroy_all
       Board.destroy_all 
       BoardPin.destroy_all
