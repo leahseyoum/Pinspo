@@ -29,6 +29,10 @@
   align-items: center;
 }
 
+.nav-logo:hover {
+  cursor: pointer;
+}
+
 .pinterest-logo {
   height: 40px;
   margin-right: 5px;

@@ -103,7 +103,7 @@ function AddPinToBoardDropdown({ user, pin}) {
                 </select>
                 <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>{saved ? "Saved" : "Save"}</button>
             </div>
-          </form>
+        </form>
     </>
   );
 }

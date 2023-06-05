@@ -25,7 +25,7 @@
  .new-pin-nav-container {
     margin-top: 20px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: flex-end;
     /* margin-bottom: 100px; */
   }
   

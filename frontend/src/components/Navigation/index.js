@@ -60,7 +60,8 @@ function Navigation() {
   return (
     <div className='nav-bar'>
       <ul className='left-nav'>
-          <div className='nav-logo'>
+
+          <div className='nav-logo' onClick={handleClick}>
             <img className='pinterest-logo' src={pinterestLogo} />
             <div className="logo-name">
               <h1 className="logo-header">Pinspo</h1>
