@@ -28,7 +28,7 @@ function PinIndex({ pin, board }) {
   
   
     return (
-        <Link to={{pathname:`/pins/${pin.id}`, state: { board }}} style={{ textDecoration: 'none', color: 'black' }} className="pin-wrapper" onClick={handleClick} >
+        // <Link to={{pathname:`/pins/${pin.id}`, state: { board }}} style={{ textDecoration: 'none', color: 'black' }} className="pin-wrapper" onClick={handleClick} >
           <div className='pin' >
             <div className="pin-image" >
               <img src={pin.image} alt={pin.title}  onClick={()=> history.push(`pins/${pin.id}`) }/>
@@ -36,11 +36,11 @@ function PinIndex({ pin, board }) {
                 <AddPinToBoardDropdown className="pin-view-dropdown" pin={pin} user={user} board={board}/>
               </div>
             </div>
-            <div className="pin-text">
+            <div className="pin-text" onClick={()=> history.push(`pins/${pin.id}`) }>
               <h3 className="pin-title" >{pin.title}</h3>
             </div>
           </div>
-        </Link>
+        // </Link>
     );
   }
   
