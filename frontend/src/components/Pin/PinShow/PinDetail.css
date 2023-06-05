@@ -69,7 +69,7 @@
 
   .show-save-button.saved-mode {
     background-color: black;
-    font-size: 1.2em;
+    /* font-size: 1.2em; */
   }
 
   .save-button-container {

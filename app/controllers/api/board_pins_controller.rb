@@ -15,9 +15,12 @@ class Api::BoardPinsController < ApplicationController
     end
 
     def destroy
-        @board_pin = BoardPin.where(pin_id: board_pin_params[:pin_id], board_id: board_pin_params[:board_id])
-        @board_pin.destroy
+        @board_pin = BoardPin.find_by(pin_id: board_pin_params[:pin_id], board_id: board_pin_params[:board_id])
+        @board_pin.destroy if @board_pin
         # redirect_to board_path(@board_pin.board)
+        # @board_pin = BoardPin.find_by( id: board_pin_params[:id])
+        # @board_pin.destroy if @board_pin
+
     end
 
     def index 

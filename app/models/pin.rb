@@ -1,6 +1,6 @@
 class Pin < ApplicationRecord
     validates :title, :user_id, presence: true
-    # validate :caption_too_long?
+    validate :caption_too_long?
 
     belongs_to :user,
         foreign_key: :user_id,
