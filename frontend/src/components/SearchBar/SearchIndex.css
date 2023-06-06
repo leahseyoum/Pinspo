@@ -1,0 +1,9 @@
+.search-no-results-message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 60vw;
+    font-family: Helvetica neue;
+    font-weight: 500;
+}

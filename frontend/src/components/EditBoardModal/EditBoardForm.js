@@ -1,14 +1,16 @@
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { updateBoard } from "../../store/boards";
 import { useHistory } from "react-router-dom";
 import { destroyBoard } from "../../store/boards";
+import { displayBoards } from "../../store/boards";
 import './EditBoardForm.css';
 
 
 function EditBoardForm({board, closeModal}) {
     const [name, setName] = useState(board.name);
     const [description, setDescription] = useState(board.description ? board.description : "");
+    const currentUser = useSelector(state => state.session.user);
    
     const dispatch = useDispatch();
     const history = useHistory();
@@ -22,6 +24,7 @@ function EditBoardForm({board, closeModal}) {
           formData.append('board[userId]', board.userId)
         const response = await dispatch(updateBoard(formData));
         if (response.ok) {
+            dispatch(displayBoards(currentUser.id))
             closeModal();
             window.location.reload();
         }

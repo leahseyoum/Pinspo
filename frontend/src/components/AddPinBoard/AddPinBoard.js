@@ -2,26 +2,25 @@ import React, { useState, useEffect } from 'react';
 import { createSave, deleteSave } from '../../store/boardPins';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import { displayBoard } from '../../store/boards';
+import { displayBoards } from '../../store/boards';
 import './AddPinBoard.css';
 
 
 function AddPinToBoardDropdown({ user, pin }) {
-  
+  const currentUser = useSelector(state => state.session.user)
   const [boards, setBoards] = useState([]);
-  const [selectedBoardId, setSelectedBoardId] = useState('');
+  const [selectedBoardId, setSelectedBoardId] = useState(pin.board ? pin.board.id : '');
   const [saved, setSaved] = useState(pin.boards && selectedBoardId === pin.board.id ? true : false);
   const dispatch = useDispatch();
+  const boardsObj = useSelector(state => state.boards);
+  const finalBoards = Object.values(boardsObj);
 
   // fetch boards data from the server when the component mounts
   useEffect(() => {
-    fetch(`/api/users/${user.id}/boards`)
-    .then(response => response.json())
-    .then(data => setBoards(data));
-  }, [user.id]);
+    dispatch(displayBoards(currentUser.id));
+  }, [dispatch, currentUser.id]);
+
   
-  
-  const finalBoards = useSelector(state => state.session.user.boards);
 
   const pinId = pin.id;
 
@@ -45,7 +44,7 @@ function AddPinToBoardDropdown({ user, pin }) {
           console.error(error);
         });
     }
-  }, [selectedBoardId, pin.id]);
+}, [selectedBoardId, pin.id]);
   
   
   async function handleFormSubmit(event) {
@@ -81,23 +80,16 @@ function AddPinToBoardDropdown({ user, pin }) {
   }
   
   
-  
   return (
     <>
        <form className='select-board-form' id="hihi" onSubmit={handleFormSubmit}>
           <div className='new-pin-nav-container'>
           <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
-          {/* {defaultBoardId ? (
-            <option key={defaultBoardId} value={defaultBoardId}>
-              {pin.boards.find(board => board.id === defaultBoardId)?.name}
-            </option>
-          ) : ( */}
             <option value="" disabled hidden>Select a Board</option>
-          {/* )} */}
                 { finalBoards.map(board => (
                 <option key={board.id} value={board.id}>{board.name}</option>
                 ))}
-                </select>
+            </select>
                 <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>{saved ? "Saved" : "Save"}</button>
             </div>
         </form>

@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createBoard } from '../../store/boards';
 import { useSelector } from 'react-redux';
-
+import { displayBoards } from "../../store/boards";
 
 
 function CreateBoardForm({closeModal}) {
@@ -24,6 +24,7 @@ function CreateBoardForm({closeModal}) {
           formData.append('board[userId]', currentUser.id)
         const response = await dispatch(createBoard(formData));
         if (response.ok) {
+            dispatch(displayBoards(currentUser.id))
             closeModal();
             history.push('/saved');
         } else {

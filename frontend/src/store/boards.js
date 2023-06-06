@@ -84,7 +84,7 @@ export const destroyBoard = boardId => async(dispatch) => {
 const boardsReducer = (state={}, action) => {
     switch (action.type){
         case RETRIEVE_BOARDS:
-            return { ...action.boards };
+            return { ...action.payload };
         case RETRIEVE_BOARD:
             const board = action.payload;
             let nextState = {...state, board: board};

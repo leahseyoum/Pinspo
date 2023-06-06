@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import { getSearchPins } from "../../store/pins";
 import { RxMagnifyingGlass } from 'react-icons/rx';
 import './SearchBar.css';
+import { removePins } from "../../store/pins";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
@@ -13,6 +14,7 @@ const SearchBar = () => {
 
     const handleSubmit = (e) =>{
         e.preventDefault();
+        dispatch(removePins());
         dispatch(getSearchPins(query))
             .catch(async (res) => {
                 let data;
@@ -46,11 +48,6 @@ const SearchBar = () => {
             <div className='search-bar-background'>
                 <div className='magnifying-glass'><RxMagnifyingGlass id="mag-glass" size={20}/></div>
                 <form className='search-input-box' onSubmit={handleSubmit}><input id='search-input' type="search" placeholder='Search' onChange={update} /></form>
-                <div className="search-errors">
-                    {errors.map((error, idx) => (
-                        <div key={idx} className="error">{error}</div>
-                    ))}
-                </div>
             </div>
         </div>
    

@@ -3,7 +3,11 @@ import csrfFetch from "./csrf";
 const RETRIEVE_PINS = 'pins/retrievePins';
 const RETRIEVE_SINGLE_PIN = 'pins/retrieveSinglePin';
 const REMOVE_PIN = 'pins/removePin';
+const REMOVE_PINS = 'pins/removePins';
 
+export const removePins = () => ({
+    type: REMOVE_PINS
+})
 
 const retrievePins = (pins) => ({
     type: RETRIEVE_PINS,
@@ -116,7 +120,9 @@ const pinsReducer = (state = initialState, action) => {
             delete newState[pinId];
             return newState;
         }
-            
+        case REMOVE_PINS: {
+            return {};
+        } 
         default: 
             return state;
     }
