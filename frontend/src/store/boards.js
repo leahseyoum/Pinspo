@@ -52,7 +52,7 @@ export const createBoard = board => async (dispatch) => {
 
 export const updateBoard = formData => async(dispatch) => {
     const boardId = formData.get("board[id]");
-    const userId = formData.get("board[userId");
+    const userId = formData.get("board[userId]");
     const response = await csrfFetch(`/api/users/${userId}/boards/${boardId}`, {
         method: 'PATCH',
         headers: {
@@ -87,7 +87,7 @@ const boardsReducer = (state={}, action) => {
             return { ...action.payload };
         case RETRIEVE_BOARD:
             const board = action.payload;
-            let nextState = {...state, board: board};
+            let nextState = {[board.id]: {...board}};
             return nextState;
         case REMOVE_BOARD:
             const boardId = action.payload;

@@ -1,6 +1,7 @@
 import './BoardsIndex.css';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { displayBoards } from '../../store/boards';
 import BoardView from './BoardView';
 
 function BoardIndex() {
@@ -20,6 +21,10 @@ function BoardIndex() {
             setNumBoards(data.length)});
           }
         }, [currentUser, dispatch, numBoards, newBoard]);
+
+    useEffect(() => {
+      dispatch(displayBoards(currentUser.id))
+    }, [])
         
         const arrayBoards = boards ? Object.values(boards) : [];
         const userBoards = arrayBoards.filter((board) => board.userId === currentUser.id)
