@@ -16,24 +16,48 @@ function CreateBoardForm({closeModal}) {
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     const formData = new FormData();
+    //       formData.append('board[name]', name);
+    //       formData.append("board[description]" , description);
+    //       formData.append('board[userId]', currentUser.id)
+    //       const response = await dispatch(createBoard(formData));
+    //     if (response.ok) {
+    //         dispatch(displayBoards(currentUser.id))
+    //         closeModal();
+    //         history.push('/saved');
+    //     } else {
+    //         // const data = await response.json();
+    //         // if (data) {
+    //             setErrors(["Title must be between 3 and 30 characters.", "description must be less than 150 characters."]);
+    //         // }
+    //     }
+    //   };
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-          formData.append('board[name]', name);
-          formData.append("board[description]" , description);
-          formData.append('board[userId]', currentUser.id)
-        const response = await dispatch(createBoard(formData));
-        if (response.ok) {
-            dispatch(displayBoards(currentUser.id))
+        formData.append('board[name]', name);
+        formData.append('board[description]', description);
+        formData.append('board[userId]', currentUser.id);
+      
+        try {
+          const response = await dispatch(createBoard(formData));
+          if (response.ok) {
+            dispatch(displayBoards(currentUser.id));
             closeModal();
             history.push('/saved');
-        } else {
+          } else {
             const data = await response.json();
-            if (data.errors) {
-                setErrors(data.errors);
+            if (data) {
+              setErrors(data);
             }
+          }
+        } catch (error) {
+          setErrors(['Title must be between 3 and 30 characters.', 'Description must be under 150 characters.']);
         }
       };
+      
 
     const handleCancel = async (event) => {
         event.preventDefault();
@@ -41,14 +65,16 @@ function CreateBoardForm({closeModal}) {
           
     }
 
-    
+    console.log(errors)
       return (
         <> 
             <form onSubmit={handleSubmit} className="create-board-form">
                 <div className="create-title-container">
                     <h1>Create Board</h1>
                 </div>
-                {errors.map(error => <li key={error}>{error}</li>)}
+                    <ul className='board-errors'>
+                        {errors.map(error => <li className='board-li' key={error}>{error}</li>)}
+                    </ul>
             <label className='create-board-label'>
                 Name:
                 <input

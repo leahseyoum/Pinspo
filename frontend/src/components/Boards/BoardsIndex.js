@@ -9,7 +9,7 @@ function BoardIndex() {
     const currentUser = useSelector(state => state.session.user);
     const [boards, setBoards] = useState([]);
     const [numBoards, setNumBoards] = useState(0);
-    const newBoard = useSelector(state => state.boards.board);
+    const newBoard = useSelector(state => state.boards);
    
 
     useEffect(() => {
@@ -18,9 +18,15 @@ function BoardIndex() {
           .then(response => response.json())
           .then(data => {
             setBoards(data);
-            setNumBoards(data.length)});
+            setNumBoards(data.length)})
+            console.log(boards, 'boards')
+            console.log(numBoards, 'numboards')
+            
           }
-        }, [currentUser, dispatch, numBoards, newBoard]);
+        }, [dispatch, numBoards, newBoard]);
+    
+  
+        
 
     useEffect(() => {
       dispatch(displayBoards(currentUser.id))

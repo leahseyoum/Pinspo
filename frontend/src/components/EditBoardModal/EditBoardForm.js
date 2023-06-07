@@ -8,28 +8,52 @@ import './EditBoardForm.css';
 
 function EditBoardForm({ board, closeModal}) {
     const currentUser = useSelector(state => state.session.user);
-    const [description, setDescription] = useState(board.description ? board.description : "");
-    const [name, setName] = useState(board.name);
-    
-    
-      
+    const [description, setDescription] = useState(board?.description ? board.description : "");
+    const [name, setName] = useState(board?.name);
+    const [errors, setErrors] = useState([]);
 
     const dispatch = useDispatch();
     const history = useHistory();
 
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     const formData = new FormData();
+    //       formData.append('board[name]', name);
+    //       formData.append("board[description]" , description);
+    //       formData.append('board[id]', board.id);
+    //       formData.append('board[userId]', board.userId)
+    //     const response = await dispatch(updateBoard(formData));
+    //     if (response.ok) {
+    //         // console.log('in if')
+    //         // dispatch(displayBoards(currentUser.id))
+    //         closeModal();
+    //         // history.push({pathname: `/boards/${board.id}`, state: { board: board }})
+    //     }
+    //   };
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-          formData.append('board[name]', name);
-          formData.append("board[description]" , description);
-          formData.append('board[id]', board.id);
-          formData.append('board[userId]', board.userId)
-        const response = await dispatch(updateBoard(formData));
-        if (response.ok) {
-            // console.log('in if')
-            // dispatch(displayBoards(currentUser.id))
+        formData.append("board[name]", name);
+        formData.append("board[description]", description);
+        formData.append("board[id]", board.id);
+        formData.append("board[userId]", board.userId);
+    
+        try {
+          const response = await dispatch(updateBoard(formData));
+          if (response.ok) {
             closeModal();
-            // history.push({pathname: `/boards/${board.id}`, state: { board: board }})
+            // history.push({ pathname: `/boards/${board.id}`, state: { board: board } });
+          } else {
+            const data = await response.json();
+            if (data) {
+              setErrors(data);
+            }
+          }
+        } catch (error) {
+          setErrors([
+            "Title must be between 3 and 30 characters.",
+            "Description must be under 150 characters.",
+          ]);
         }
       };
 
@@ -50,6 +74,11 @@ function EditBoardForm({ board, closeModal}) {
                 <div className="title-container">
                     <h1>Edit Board</h1>
                 </div>
+                <ul className="board-edit-errors">
+                {errors.map((error, index) => (
+                    <li key={index}>{error}</li>
+                ))}
+                </ul>
             <label>
                 Name:
                 <input

@@ -2,6 +2,7 @@
     overflow: hidden;
     width: 700px;
     height: 400px;
+    position: relative
 }
 
 .edit-board-form button {
@@ -54,4 +55,14 @@
 
     .edit-board-button-container {
         transform: translateX(2.5%);
+    }
+
+    .board-edit-errors {
+      font-family:  Helvetica neue;
+      font-size: 14px;
+      position: absolute;
+      list-style-type: none;
+      margin-bottom: 200px;
+      margin-left: 190px;
+      color: #bc343f;
     }

@@ -24,7 +24,7 @@ class Api::BoardsController < ApplicationController
     end
 
     def create
-        @board =Board.new(board_params)
+        @board = Board.new(board_params)
         if current_user
             @board.user_id = current_user.id
         else
@@ -34,14 +34,16 @@ class Api::BoardsController < ApplicationController
         if @board.save
             render :show
         else
-            render json:@board.errors.full_messages, status:422
+            render json: { errors: @board.errors.full_messages }, status:422
         end
     end
+   
 
     def destroy
         # @board = current_user.boards.find(params[:id])
         @board = Board.find(params[:id])
         if @board && @board.delete
+            @board.board_pin_connections.destroy_all
             @user = current_user
             render "api/users/show"
         end
