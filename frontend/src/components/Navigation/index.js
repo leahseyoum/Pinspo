@@ -74,7 +74,7 @@ function Navigation() {
           <button className="home-button" onClick={handleClick}>Home</button>
         </div>
         <div className="create-button-container">
-          <button className="create-button" onClick={openMenu}>Create</button>
+          <button className="create-button" onClick={handleCreateClick}>Create</button>
           {showMenu && (
         <ul className="create-dropdown-ul">
           <li className='create-new-pin'><button className='create-new-pin-button'onClick={handleCreateClick}>Create New Pin</button></li>
