@@ -52,7 +52,7 @@ function EditBoardForm({ board, closeModal}) {
         } catch (error) {
           setErrors([
             "Title must be between 3 and 30 characters.",
-            "Description must be under 150 characters.",
+            "Description must be under 200 characters.",
           ]);
         }
       };
@@ -74,11 +74,14 @@ function EditBoardForm({ board, closeModal}) {
                 <div className="title-container">
                     <h1>Edit Board</h1>
                 </div>
-                <ul className="board-edit-errors">
-                {errors.map((error, index) => (
-                    <li key={index}>{error}</li>
-                ))}
-                </ul>
+                <div className="board-edit-errors-container">
+                    <ul className="board-edit-errors">
+                    {errors.map((error, index) => (
+                        <li key={index}>{error}</li>
+                    ))}
+                    </ul>
+
+                </div>
             <label>
                 Name:
                 <input

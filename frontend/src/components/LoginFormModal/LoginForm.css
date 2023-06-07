@@ -82,18 +82,20 @@ label {
     border-radius: 24px;
 }
 
+
 .login-errors {
     list-style-type: none;
     font-family: Helvetica neue;
-    padding-left: 10px;
+    /* padding-left: 10px; */
     font-size: 14px;
     font-weight: bold;
     text-align: center;
     color: red;
+    
   }
-  .login-errors li {
+  /* .login-errors li {
     margin-bottom: 5px;
-  }
+  } */
 
 #modal-or {
     font-size: 15px;

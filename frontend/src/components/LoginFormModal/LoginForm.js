@@ -38,9 +38,11 @@ function LoginForm({ onClose }) {
       <button class="close" onClick={onClose}>&times;</button>
       <form className="login-form" onSubmit={handleSubmit}>
         <h3 className="login-header">Log In</h3>
-        <ul className="login-errors">
-          {errors.map(error => <li key={error}>{error}</li>)}
-        </ul>
+        
+          <ul className="login-errors">
+            {errors.map(error => <li key={error}>{error}</li>)}
+          </ul>
+      
         <div className="login-inputs">
 
           <label className="login-credentiallabel" htmlfor="credential">

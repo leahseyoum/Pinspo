@@ -27,8 +27,6 @@ class Api::BoardsController < ApplicationController
         @board = Board.new(board_params)
         if current_user
             @board.user_id = current_user.id
-        else
-            render json:["You must be logged in to create board"], status:401
         end
 
         if @board.save

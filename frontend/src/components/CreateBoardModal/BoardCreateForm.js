@@ -54,7 +54,7 @@ function CreateBoardForm({closeModal}) {
             }
           }
         } catch (error) {
-          setErrors(['Title must be between 3 and 30 characters.', 'Description must be under 150 characters.']);
+          setErrors(['Title must be between 3 and 30 characters.', 'Description must be under 200 characters.']);
         }
       };
       

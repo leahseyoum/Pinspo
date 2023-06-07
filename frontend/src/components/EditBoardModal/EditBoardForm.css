@@ -57,6 +57,14 @@
         transform: translateX(2.5%);
     }
 
+    .board-edit-errors-container {
+      /* margin-bottom: 50px; */
+      position: relative;
+    
+    top: -40px;
+      
+    }
+
     .board-edit-errors {
       font-family:  Helvetica neue;
       font-size: 14px;

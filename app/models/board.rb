@@ -1,8 +1,8 @@
 class Board < ApplicationRecord
     validates :name, :user_id, presence: true
-    validates :name, uniqueness: { scope: :user_id }
+    # validates :name, uniqueness: { scope: :user_id }
     validates :name, length: { in: 3..30 }
-    validates :description, length: {in: 0..150}, allow_nil: true
+    validates :description, length: {in: 0..200}, allow_nil: true
 
     belongs_to :user,
         foreign_key: :user_id,
