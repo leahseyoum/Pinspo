@@ -19,8 +19,7 @@ function BoardIndex() {
           .then(data => {
             setBoards(data);
             setNumBoards(data.length)})
-            console.log(boards, 'boards')
-            console.log(numBoards, 'numboards')
+           
             
           }
         }, [dispatch, numBoards, newBoard]);

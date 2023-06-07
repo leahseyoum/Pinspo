@@ -1,0 +1,27 @@
+.profile-tag-container {
+    display: flex;
+    /* justify-content: center; */
+    align-items: center;
+}
+
+.profile-tag-username {
+    font-family: Helvetica neue;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.image-wrapper {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+}
+
+.user-tag-icon-nav {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    overflow: hidden;
+    border: none;
+}
+

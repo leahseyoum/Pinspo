@@ -65,7 +65,7 @@ function CreateBoardForm({closeModal}) {
           
     }
 
-    console.log(errors)
+  
       return (
         <> 
             <form onSubmit={handleSubmit} className="create-board-form">

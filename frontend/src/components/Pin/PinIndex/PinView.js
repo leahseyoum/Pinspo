@@ -4,6 +4,7 @@ import PinDetail from '../PinShow/PinDetail';
 import { Link , useHistory} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { displayPin } from '../../../store/pins'
+import UserProfileImage from "../../UserProfile/UserProfileImage";
 import { updatePin } from "../../../store/pins";
 import AddPinToBoardDropdown from "../../AddPinBoard/AddPinBoard";
 
@@ -12,6 +13,7 @@ import AddPinToBoardDropdown from "../../AddPinBoard/AddPinBoard";
 function PinIndex({ pin, board }) {
   const dispatch = useDispatch();
   const history = useHistory();
+
   
   const handleClick = (e) => {
    
@@ -38,6 +40,7 @@ function PinIndex({ pin, board }) {
             </div>
             <div className="pin-text" onClick={()=> history.push(`pins/${pin.id}`) }>
               <h3 className="pin-title" >{pin.title}</h3>
+              <UserProfileImage pin={pin}/>
             </div>
           </div>
         // </Link>

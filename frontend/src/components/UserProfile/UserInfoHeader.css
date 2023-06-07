@@ -1,4 +1,4 @@
-.user-show-profile-pic {
+/* .user-show-profile-pic {
     height: 100px;
     width: 100px;
     border-radius: 50%;
@@ -7,7 +7,18 @@
     align-items: center;
     margin-left: 40px;
     background-color:  rgb(223, 222, 222);
-}
+    overflow: hidden;
+} */
+.user-profile-header-container {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:  rgb(223, 222, 222);
+    overflow: hidden;
+  }
 
 .user-initial {
     font-size: 48px;
@@ -28,8 +39,9 @@
 } */
 
 .info-container {
-    /* display: flex; */
-    justify-content: space-between;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
     padding: 24px;
     position: absolute;
@@ -40,10 +52,12 @@
 }
 
 .user-profile-header-container {
-
-    flex: 0 0 100px;
-    margin-left: 60px;
+    /* flex: 0 0 100px; */
+    /* margin-left: 60px; */
     font-family: Helvetica neue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .profile-picture-container {
@@ -54,14 +68,20 @@
     overflow: hidden;
 }
 
-.profile-picture {
+ .profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* .profile-photo {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 100%;
-    height: auto;
-}
+    height: 100%;
+} */
 
 .user-profile-info-container {
     flex: 1;
@@ -72,7 +92,7 @@
 .username-container {
     display: flex;
     align-items: center;
-    margin-right: 50px;
+    /* margin-right: 50px; */
 }
 
 .profile-username {
@@ -108,7 +128,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-right: 25px;
+    /* padding-right: 25px; */
 }
 
 .user-nav-link {

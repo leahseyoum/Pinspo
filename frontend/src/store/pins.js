@@ -93,7 +93,6 @@ export const getSearchPins = (query) => async(dispatch) => {
     });
     if (response.ok){
         const pins = await response.json();
-        console.log(pins,"search")
         dispatch(retrievePins(pins))
     }
 }

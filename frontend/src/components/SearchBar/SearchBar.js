@@ -26,7 +26,6 @@ const SearchBar = () => {
                     if (data?.errors) setErrors(data.errors);
                     else if (data) setErrors([data]);
                     else setErrors([res.statusText]);
-                    console.log(errors)
                 }
             });
         return history.push(`/search/${query}`)

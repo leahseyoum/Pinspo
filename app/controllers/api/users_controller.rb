@@ -5,7 +5,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if params[:profile_photo]
-      @user.profile_photo.attach(params[:profile_photo])
+      @user.profile_photo.attach(user_params[:profile_photo])
     end
 
     if @user.save
@@ -18,7 +18,7 @@ class Api::UsersController < ApplicationController
 
   def update
     @user = User.find(user_params[:id])
-    if user_params[:profile_photo]
+    if params[:profile_photo]
       @user.profile_photo.attach(user_params[:profile_photo])
     end
     if @user.update(user_params)

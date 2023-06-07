@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import {updateUser} from '../../store/users';
 import { useHistory } from "react-router-dom";
 import './EditUserForm.css';
+import { useSubmit } from "../../hooks";
 import ProfilePicture from "./UserProfilePhoto";
 
 function EditUserForm() {
@@ -20,10 +21,9 @@ function EditUserForm() {
 
   useEffect(() => {
     setUsername(currentUser.username);
-    console.log(username)
     setEmail(currentUser.email);
-    console.log(email)
-  }, [currentUser.username, currentUser.email]);
+    setProfilePhoto(currentUser.profilePhoto);
+  }, [currentUser.username, currentUser.email, currentUser.profilePhoto]);
 
   // useEffect(() => {
   //   if (response && response.user) {
@@ -51,41 +51,60 @@ function EditUserForm() {
 
 
 
-  // const [preview, setPreview] = useState('');
-  // const handleFileChange = e => {
-  //   const file = e.target.files[0];
-  //   if (file) {
-  //     const fileReader = new FileReader();
-  //     fileReader.readAsDataURL(file);
-  //     fileReader.onload = () => {
-  //       setPreview(fileReader.result);
-  //       // setProfilePhotoUrl(fileReader.result);
-  //       setProfilePhoto(file);
-  //     };
+  const [preview, setPreview] = useState('');
+  const handleFileChange = e => {
+    const file = e.target.files[0];
+    if (file) {
+      const fileReader = new FileReader();
+      fileReader.readAsDataURL(file);
+      fileReader.onload = () => {
+        setPreview(fileReader.result);
+        setProfilePhoto(file);
+      };
+    }
+  }
+  // const handleSubmit = async (e) => {
+  //   e.preventDefault();
+  //   const formData = new FormData();
+  //   formData.append("user[username]", username);
+  //   formData.append("user[email]", email);
+  //   formData.append("user[id]", currentUser.id)
+  //   if (newPassword.length > 6 && newPassword === confirmPassword) {
+  //       formData.append("user[password]", newPassword);
   //   }
-  // }
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("user[username]", username);
-    formData.append("user[email]", email);
-    formData.append("user[id]", currentUser.id)
-    if (newPassword.length > 6 && newPassword === confirmPassword) {
-        formData.append("user[password]", newPassword);
-    }
 
-    if (profilePhoto) {
-        formData.append("user[profile_photo]", profilePhoto);
-    }
+  //   if (profilePhoto) {
+  //       formData.append("user[profile_photo]", profilePhoto);
+  //   }
 
-    try {
-        const response = await dispatch(updateUser(formData, currentUser));
-        console.log(response)
-        history.push("/saved");
-      } catch (error) {
-        // Display an error message to the user
+  //   try {
+  //       const response = await dispatch(updateUser(formData, currentUser));
+  //       history.push("/saved");
+  //     } catch (error) {
+  //       // Display an error message to the user
+  //     }
+  // };
+
+  const [errors, onSubmit] = useSubmit({
+    createAction: () => {
+        const formData = new FormData();
+        formData.append("user[username]", username);
+        formData.append("user[email]", email);
+        formData.append("user[id]", currentUser.id)
+        if (profilePhoto) {
+            formData.append('user[profile_photo]', profilePhoto);
+        }
+
+        if (newPassword.length > 6 && newPassword === confirmPassword) {
+          formData.append("user[password]", newPassword);
       }
-  };
+        return updateUser(formData);
+    },
+
+    onSuccess:() => {
+        history.push('/saved')},
+    
+});
 
   useEffect(() => {
     const handleClickOutsideForm = (event) => {
@@ -102,9 +121,9 @@ function EditUserForm() {
   }, [history]);
 
 
-
+  console.log(currentUser)
   return (
-    <form onSubmit={handleSubmit} className="edit-user-form" ref={formRef}>
+    <form onSubmit={onSubmit} className="edit-user-form" ref={formRef}>
       <div className="edit-profile-title">
         <h1 className="edit-profile-header">Edit Profile</h1>
       </div>
@@ -145,16 +164,16 @@ function EditUserForm() {
         />
       </div>
       <div>
-        {/* <label htmlFor="profile_photo">Profile Photo:</label>
+        <label htmlFor="profile_photo">Profile Photo:</label>
         <input
           type="file"
           name="profile_photo"
           accept="image/*"
           onChange={handleFileChange}
-        /> */}
-        {/* <div className="preview-container">
+        />
+        <div className="preview-container">
             {preview ? <img className='preview-image' src={preview} alt='Preview' /> : null}
-        </div> */}
+        </div>
         {/* <ProfilePicture profilePhotoUrl={profilePhotoUrl}/> */}
       </div>
       <button className="save-edit-profile-button" type="submit">Save Changes</button>

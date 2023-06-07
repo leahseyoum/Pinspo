@@ -71,7 +71,6 @@ function PinDetail() {
     };
   }, [handleClick]);
   
-  
   return (
     <div className="pin-show-container">
       <div className='arrow-container'>
