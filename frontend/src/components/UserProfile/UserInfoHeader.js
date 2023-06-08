@@ -41,8 +41,7 @@ function UserInfoHeader() {
         }
       }, [currentUser, user]);
     
-      console.log(profilePhoto)
-      console.log(currentUser)
+      
       return (
         <div className="info-container">
           {user ? (

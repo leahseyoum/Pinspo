@@ -13,7 +13,7 @@ function EditUserForm() {
   const [email, setEmail] = useState(currentUser.email)
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
-  const [profilePhoto, setProfilePhoto] = useState("");
+  const [profilePhoto, setProfilePhoto] = useState();
   
   
   const formRef = useRef(null);
@@ -51,7 +51,7 @@ function EditUserForm() {
 
 
 
-  const [preview, setPreview] = useState('');
+  const [preview, setPreview] = useState(currentUser.profilePhoto);
   const handleFileChange = e => {
     const file = e.target.files[0];
     if (file) {
@@ -121,7 +121,7 @@ function EditUserForm() {
   }, [history]);
 
 
-  console.log(currentUser)
+  
   return (
     <form onSubmit={onSubmit} className="edit-user-form" ref={formRef}>
       <div className="edit-profile-title">
