@@ -94,12 +94,14 @@ function NewPinForm() {
                             <div className='dashed'>
                               {/* <DragDropFile onChange={handleFileChange}/> */}
                               { preview ? <img className='preview-image' src={preview} alt='Preview' /> : null}
+                              
                                 <Input 
                                   label="Click to upload"
                                   class= 'photo-input'
                                   type="file" 
                                   onChange={handleFileChange} 
                               />
+                              {/* <input id="imageInput" type="file" onChange={handleFileChange} /> */}
                             </div>
 
                          </div> 
@@ -114,8 +116,20 @@ function NewPinForm() {
                                 <input className='new-pin-title' type="text" placeholder="Add your title" onChange={(e) => setTitle(e.target.value)}></input>
                             </div>
                             <div className="user-info">
-                                <div className='user-icon'>{user.username[0].toUpperCase()}</div>
-                                <p className='user-icon-username'>{user.username}</p>
+                                {user.profilePhoto ? 
+                                    (<>
+                                        <div className="image-wrapper-circle">
+                                            <img className="profile-tag-image-show" src={user.profilePhoto} alt="profile photo" />
+                                        </div>
+                                        <div className="pin-owner-info">
+                                            <p className='username-pin-new'>{user.username}</p>
+                                        </div>
+                                    </>) 
+                                : 
+                                    (<>
+                                        <div className='user-icon'>{user.username[0].toUpperCase()}</div>
+                                        <p className='user-icon-username'>{user.username}</p>
+                                    </>)} 
                             </div>
                             <div className='new-pin-caption-container'>
                                 <input className='new-pin-caption' type="text" placeholder="Tell everyone what your pin is about!" onChange={(e) => setCaption(e.target.value)}></input>

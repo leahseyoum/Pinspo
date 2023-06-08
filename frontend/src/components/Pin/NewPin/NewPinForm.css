@@ -1,8 +1,4 @@
  .new-pin-form-background {
-    /* width: 100vw;
-    height: 100vh; */
-    /* left: 0;
-    right: 0; */
     background-color: #f2f2f2;
     padding-top: 20px;
     margin-top: 20px;
@@ -114,9 +110,11 @@
   .preview-image {
     height: 100%;
     width: 100%;
+    position: absolute;
   }
   
 
+  
  Input {
     width: 100%;
     height: 100%;
@@ -230,9 +228,12 @@
   .photo-input {
     margin-left: 60px;
     cursor: pointer;
+    position: relative;
   }
 
-  
+  .username-pin-new {
+    margin-left: 5px;
+  }
 
   
 

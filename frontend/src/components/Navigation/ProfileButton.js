@@ -9,17 +9,20 @@ import { useSelector } from "react-redux";
 
 function ProfileButton() {
   const currentUser = useSelector(state => state.session.user);
+  const currentUserProfilePhoto = currentUser.profilePhoto;
   const userId = currentUser.id;
   const [user, setUser] = useState(null);
   const [profilePhoto, setProfilePhoto] = useState(currentUser.profilePhoto);
 
   useEffect(() => {
+    console.log('in fethc profile')
     const fetchProfilePhoto = async () => {
       if (currentUser) {
         try {
-          const response = await fetch(`api/users/${currentUser.id}`);
+          const response = await fetch(`api/users/${userId}`);
           const data = await response.json();
-          setProfilePhoto(data.profilePhoto);
+          setUser(data.user);
+          setProfilePhoto(data.user.profilePhoto);
         } catch (error) {
           console.error('Error fetching profile photo:', error);
         }
@@ -27,7 +30,13 @@ function ProfileButton() {
     };
 
     fetchProfilePhoto();
-  }, []);
+  }, [currentUserProfilePhoto]);
+  
+  
+  useEffect(() => {
+    console.log(user, 'user')
+    console.log(profilePhoto, 'profile photo')
+  }, [user])
 
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);
@@ -62,15 +71,15 @@ function ProfileButton() {
 
   return (
     <>
-      {currentUser.profilePhoto ? (
+      {profilePhoto ? (
         <Link to='/saved'>
           <div className="image-wrapper-nav">
-            <img className='nav-profile-image' src={currentUser.profilePhoto} alt='profile-photo' />
+            <img className='nav-profile-image' src={profilePhoto} alt='profile-photo' />
           </div>
         </Link>
       ) : (
         <div className="user-icon-container">
-          <button onClick={handleClick} className='user-icon-nav'>{currentUser.username[0].toUpperCase()}</button>
+          <button onClick={handleClick} className='user-icon-nav'>{user.username[0].toUpperCase()}</button>
         </div>
       )}
       <button className="profile-dropdown-icon" onClick={openMenu}>
@@ -81,11 +90,11 @@ function ProfileButton() {
           <li className="currently-in">Currently in</li>
           <div className="carrot-dropdown">
             <li className="user-icon-container-dropdown">
-              <button onClick={handleClick} className='user-icon-nav-dropdown'>{currentUser.username[0].toUpperCase()}</button>
+              <button onClick={handleClick} className='user-icon-nav-dropdown'>{user.username[0].toUpperCase()}</button>
             </li>
             <div className="carrot-info">
-              <li className="username-top">{currentUser.username}</li>
-              <li>{currentUser.email}</li>
+              <li className="username-top">{user.username}</li>
+              <li>{user.email}</li>
             </div>
           </div>
           <li>

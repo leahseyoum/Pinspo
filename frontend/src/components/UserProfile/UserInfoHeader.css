@@ -144,5 +144,9 @@
     text-decoration: underline;
 }
 
+.user-nav-link.active {
+    text-decoration: underline;
+  }
+
 
 

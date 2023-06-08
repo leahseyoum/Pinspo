@@ -5,8 +5,8 @@
     height: 300px;
     margin-bottom: 20px;
     background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    border-radius: 16px;
+    /* box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2); */
     overflow: hidden;
     margin-left: 30px;
     cursor: pointer;
@@ -16,28 +16,33 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.25rem;
+    overflow: hidden;
+    border-radius: 16px;
   }
   
   .board-grid-item:first-child {
     grid-column: 1 / 2;
     grid-row: 1 / span 2;
+    object-fit: cover;
+    background-color: rgb(224, 223, 223)
   }
   
   .board-grid-item:nth-child(2) {
     grid-column: 2 / 3;
     grid-row: 1 / 2;
-    
+    object-fit: cover;
+    height: 140px;
+    background-color: rgb(224, 223, 223)
   }
   
   .board-grid-item:nth-child(3) {
     grid-column: 2 / 3;
     grid-row: 2 / 3;
-    height: 200px;
+    height: 140px;
+    object-fit: cover;
+    background-color: rgb(224, 223, 223)
   } 
 
-  
-  
-  
 .board-image {
     height: 100%;
     width: 100%;
@@ -64,7 +69,7 @@
 
 .board-container img {
   width: 100%;
-  height: auto;
+  height: 100%;
   display: block;
 }
 

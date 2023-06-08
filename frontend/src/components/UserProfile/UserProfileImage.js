@@ -5,8 +5,6 @@ import './UserProfileImage.css';
 
 function UserProfileImage({pin}) {
   const userId = pin?.userId;
-  console.log(userId, 'userId')
-  console.log(pin, 'pin')
   const [user, setUser] = useState(null);
     useEffect(() => {
         if (userId) {

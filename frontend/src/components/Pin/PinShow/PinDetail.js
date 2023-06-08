@@ -111,14 +111,13 @@ function PinDetail() {
             
            
             <div className='user-info-display'>
-              {console.log(pinAuthor)}
               {pinAuthor && pinAuthor.profilePhoto ? (
                 <div className='user-info-detail-1'>
                   <div className="image-wrapper-circle">
                     <img className="profile-tag-image-show" src={pinAuthor.profilePhoto} alt="profile photo" />
                   </div>
                   <div className="pin-owner-info">
-                    <p>{pinAuthor && pinAuthor.username ? pinAuthor.username : ''}</p>
+                    <p className='username-pin-new'>{pinAuthor && pinAuthor.username ? pinAuthor.username : ''}</p>
                   </div>
                 </div>
               ) : (

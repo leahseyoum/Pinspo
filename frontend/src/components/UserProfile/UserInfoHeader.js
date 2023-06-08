@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux"
-import { useHistory } from "react-router-dom";
+import { useHistory, Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import "./UserInfoHeader.css"
 import ProfilePicture from "./UserProfilePhoto";
@@ -17,6 +17,8 @@ function UserInfoHeader() {
     const history = useHistory();
     const dispatch = useDispatch();
     const [user, setUser] = useState(null);
+    const location = useLocation();
+    
     useEffect(() => {
         fetch(`api/users/${currentUser.id}`)
         .then(res => res.json())
@@ -64,12 +66,18 @@ function UserInfoHeader() {
                   </button>
                 </div>
                 <div className="user-nav-links-container">
-                  <a href="/created" className="user-nav-link">
+                  {/* <a href="/created" className="user-nav-link">
                     Created
                   </a>
                   <a href="/saved" className="user-nav-link">
                     Saved
-                  </a>
+                  </a> */}
+                  <Link to="/created" className={`user-nav-link ${location.pathname === '/created' ? 'active' : ''}`}>
+                Created
+              </Link>
+              <Link to="/saved" className={`user-nav-link ${location.pathname === '/saved' ? 'active' : ''}`}>
+                Saved
+              </Link>
                 </div>
               </div>
             </>

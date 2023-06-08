@@ -15,3 +15,27 @@
     transform: translateX(-50%);  */
 }
 
+@media screen and (max-width: 1300px) {
+    .user-pins {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .user-pins {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .user-pins {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .user-pins {
+      grid-template-columns: 1fr;
+    }
+  }
+
