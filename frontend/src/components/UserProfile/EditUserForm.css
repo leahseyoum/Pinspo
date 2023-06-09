@@ -8,11 +8,6 @@
     transform: translateX(25%);
 }
 
-.preview-container {
-    /* max-height: 200px;
-    overflow: hidden;
-    border: 1px solid #ccc; */
-}
 
 .edit-preview-image {
     max-height: 200px;
