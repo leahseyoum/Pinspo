@@ -67,7 +67,7 @@ function PinDetail() {
     
     const history = useHistory();
       const handleClick = () => {
-      history.goBack();
+      history.replace('/index');
    };
     
    useEffect(() => {

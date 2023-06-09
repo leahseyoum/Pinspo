@@ -22,14 +22,11 @@ function EditUserForm() {
   useEffect(() => {
     setUsername(currentUser.username);
     setEmail(currentUser.email);
-    setProfilePhoto(currentUser.profilePhoto);
   }, [currentUser.username, currentUser.email, currentUser.profilePhoto]);
 
-  // useEffect(() => {
-  //   if (response && response.user) {
-  //     console.log(response);
-  //   }
-  // }, [response, dispatch]);
+  useEffect(() => {
+    console.log(profilePhoto)
+  }, [profilePhoto]);
 
   const dispatch = useDispatch();
 
@@ -63,27 +60,6 @@ function EditUserForm() {
       };
     }
   }
-  // const handleSubmit = async (e) => {
-  //   e.preventDefault();
-  //   const formData = new FormData();
-  //   formData.append("user[username]", username);
-  //   formData.append("user[email]", email);
-  //   formData.append("user[id]", currentUser.id)
-  //   if (newPassword.length > 6 && newPassword === confirmPassword) {
-  //       formData.append("user[password]", newPassword);
-  //   }
-
-  //   if (profilePhoto) {
-  //       formData.append("user[profile_photo]", profilePhoto);
-  //   }
-
-  //   try {
-  //       const response = await dispatch(updateUser(formData, currentUser));
-  //       history.push("/saved");
-  //     } catch (error) {
-  //       // Display an error message to the user
-  //     }
-  // };
 
   const [errors, onSubmit] = useSubmit({
     createAction: () => {
@@ -121,12 +97,29 @@ function EditUserForm() {
   }, [history]);
 
 
-  
+    
   return (
     <form onSubmit={onSubmit} className="edit-user-form" ref={formRef}>
       <div className="edit-profile-title">
         <h1 className="edit-profile-header">Edit Profile</h1>
+      
+      <div className='edit-errors-container'>
+        <ul className="edit-errors">
+          {console.log(errors[0])}
+         { errors[0] && 
+            errors[0].map((error, index) => (
+              <>
+              {console.log.error}
+              <li key={index}>{error}</li>
+              </>
+            ))}
+         
+        </ul>
       </div>
+
+      </div>
+      
+      
       <div>
         <label htmlFor="username">Username:</label>
         <input

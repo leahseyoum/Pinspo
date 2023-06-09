@@ -80,21 +80,44 @@ function AddPinToBoardDropdown({ user, pin }) {
   }
   
   
+  // return (
+  //   <>
+  //      <form className='select-board-form' id="hihi" onSubmit={handleFormSubmit}>
+  //         <div className='new-pin-nav-container'>
+  //         <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
+  //           <option value="" disabled hidden>Select a Board</option>
+  //               { finalBoards.map(board => (
+  //                 {if (board.userId === currentUser.id) {
+  //                   <option key={board.id} value={board.id}>{board.name}</option>
+  //                 }}
+  //               ))}
+  //           </select>
+  //               <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>{saved ? "Saved" : "Save"}</button>
+  //           </div>
+  //       </form>
+  //   </>
+  // );
   return (
     <>
-       <form className='select-board-form' id="hihi" onSubmit={handleFormSubmit}>
-          <div className='new-pin-nav-container'>
+      <form className='select-board-form' id="hihi" onSubmit={handleFormSubmit}>
+        <div className='new-pin-nav-container'>
           <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
             <option value="" disabled hidden>Select a Board</option>
-                { finalBoards.map(board => (
-                <option key={board.id} value={board.id}>{board.name}</option>
-                ))}
-            </select>
-                <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>{saved ? "Saved" : "Save"}</button>
-            </div>
-        </form>
+            {finalBoards.map(board => {
+              if (board.userId === currentUser.id) {
+                return <option key={board.id} value={board.id}>{board.name}</option>;
+              }
+              return null;
+            })}
+          </select>
+          <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>
+            {saved ? "Saved" : "Save"}
+          </button>
+        </div>
+      </form>
     </>
   );
+  
 }
 
 export default AddPinToBoardDropdown;

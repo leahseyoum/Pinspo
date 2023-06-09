@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import { getSearchPins } from "../../store/pins";
 import { RxMagnifyingGlass } from 'react-icons/rx';
 import './SearchBar.css';
@@ -8,7 +8,7 @@ import { removePins } from "../../store/pins";
 
 const SearchBar = () => {
     const dispatch = useDispatch();
-    const [query, setQuery] = useState("")
+    const [query, setQuery] = useState('')
     const history = useHistory();
     const [errors, setErrors] = useState([]);
 
@@ -31,11 +31,7 @@ const SearchBar = () => {
         return history.push(`/search/${query}`)
     }
 
-    // const handleKeyDown = (e) => {
-    //     if (e.key === "Enter") {
-    //         handleSubmit();
-    //     }
-    // };
+   
 
     const update = (e) =>{
         e.preventDefault();

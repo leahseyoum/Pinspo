@@ -2,12 +2,12 @@
     height: 150px;
     width: 150px;
     border-radius: 50%;
-    /* display: flex;
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 40px;
-    background-color:  rgb(223, 222, 222);
-    overflow: hidden; */
+    /* margin-left: 40px; */
+    /* background-color:  rgb(223, 222, 222); */
+    /* overflow: hidden;  */
 }
 .user-profile-header-container {
     height: 150px;

@@ -73,7 +73,7 @@ function ProfileButton() {
         </Link>
       ) : (
         <div className="user-icon-container">
-          <button onClick={handleClick} className='user-icon-nav'>{user.username[0].toUpperCase()}</button>
+          <button onClick={handleClick} className='user-icon-nav'>{user?.username[0].toUpperCase()}</button>
         </div>
       )}
       <button className="profile-dropdown-icon" onClick={openMenu}>
@@ -84,11 +84,11 @@ function ProfileButton() {
           <li className="currently-in">Currently in</li>
           <div className="carrot-dropdown">
             <li className="user-icon-container-dropdown">
-              <button onClick={handleClick} className='user-icon-nav-dropdown'>{user.username[0].toUpperCase()}</button>
+              <button onClick={handleClick} className='user-icon-nav-dropdown'>{user?.username[0].toUpperCase()}</button>
             </li>
             <div className="carrot-info">
-              <li className="username-top">{user.username}</li>
-              <li>{user.email}</li>
+              <li className="username-top">{user?.username}</li>
+              <li>{user?.email}</li>
             </div>
           </div>
           <li>

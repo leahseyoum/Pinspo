@@ -9,8 +9,8 @@
 }
 
 .preview-container {
-    width: 250px;
-    height: 250px;
+    /* width: 250px; */
+    height: 150px;
     overflow: hidden;
 }
 
@@ -33,13 +33,16 @@
 
 .edit-profile-title {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     font-family: Helvetica neue;
     font-size: 20px;
 }
 
 .edit-profile-header {
     font-weight: 500;
+    margin-bottom: 0px;
 }
 
 .save-edit-profile-button {
@@ -55,4 +58,19 @@
     cursor: pointer;
 }
   
+.edit-errors-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    font-family: Helvetica neue;
+    font-size: 14px; 
+}
+
+.edit-errors {
+    list-style-type: none;
+    font-size: 14px;
+    color: #bd081c;
+}
   

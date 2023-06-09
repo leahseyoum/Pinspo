@@ -7,12 +7,28 @@ import { getSearchPins } from '../../store/pins';
 import './SearchIndex.css';
 function SearchPins() {
     const pins = useSelector(state => state.pins.pins);
+    const [searchPins, setSearchPins] = useState(null);
     const dispatch = useDispatch();
     const query = useParams();
+    console.log(query)
 
     useEffect(() => {
-        dispatch(getSearchPins(query));
+        if (query.query) {
+          dispatch(getSearchPins(query.query));
+        } else {
+          dispatch(getSearchPins(query));
+        }
       }, [dispatch, query]);
+
+      // useEffect(() => {
+      //   fetch(`/api/pins/search?query=${query}`)
+      //   .then(res => res.json())
+      //   .then(data => setSearchPins(data) )
+      // }, [])
+
+      // useEffect(() => {
+      //   console.log(searchPins)
+      // }, [])
     
     const arrayPins = pins ? Object.values(pins) : null;
    

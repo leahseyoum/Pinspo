@@ -1,8 +1,8 @@
 class Pin < ApplicationRecord
     validates :title, :user_id, presence: true
-    validates :title, length: { minimum: 3, maximum: 30 }
+    # validates :title, length: { minimum: 3, maximum: 60 }
     validates :caption, length: { maximum: 200 }
-    validate :image_attached?
+    # validate :image_attached?
     # validate :caption_too_long?
 
     belongs_to :user,

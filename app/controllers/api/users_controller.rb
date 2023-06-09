@@ -17,7 +17,7 @@ class Api::UsersController < ApplicationController
   end
 
   def update
-    @user = User.find(user_params[:id])
+    @user = User.find(params[:id])
     if params[:profile_photo]
       @user.profile_photo.attach(user_params[:profile_photo])
     end
