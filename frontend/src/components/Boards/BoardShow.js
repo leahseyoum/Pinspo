@@ -79,7 +79,6 @@ function BoardShow() {
             <div className='edit-board-title'>
 
                 <h2>{updatedBoard?.name[0].toUpperCase() + updatedBoard?.name.slice(1)}</h2>
-                {console.log(isOwner)}
                 {isOwner && (
                   <button className='edit-board-options' onClick={openMenu}>
                     <SlOptions className="edit-board" style={{fontSize: "22px"}}/>

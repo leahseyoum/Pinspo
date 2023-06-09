@@ -172,7 +172,7 @@ function EditUserForm() {
           onChange={handleFileChange}
         />
         <div className="preview-container">
-            {preview ? <img className='preview-image' src={preview} alt='Preview' /> : null}
+            {preview ? <img className='edit-preview-image' src={preview} alt='Preview' /> : null}
         </div>
         {/* <ProfilePicture profilePhotoUrl={profilePhotoUrl}/> */}
       </div>

@@ -58,6 +58,7 @@ function UserInfoHeader() {
                 </div>
               </div>
       
+              <p className="username-tag">{`@${user.username}`}</p>
               <div className="user-profile-info-container">
                 <div className="username-container">
                   <h2 className="profile-username">{username}</h2>
