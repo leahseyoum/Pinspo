@@ -5,7 +5,8 @@ class Pin < ApplicationRecord
     # validate :image_attached?
     # validate :caption_too_long?
 
-    has_many :comments
+    has_many :comments,
+    dependent: :destroy
 
     belongs_to :user,
         foreign_key: :user_id,
