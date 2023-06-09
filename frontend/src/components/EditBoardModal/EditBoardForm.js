@@ -85,6 +85,7 @@ function EditBoardForm({ board, closeModal}) {
             <label>
                 Name:
                 <input
+                className="edit-board-name"
                 type="text"
                 value={name}
                 onChange={(event) => setName(event.target.value)}
@@ -93,6 +94,7 @@ function EditBoardForm({ board, closeModal}) {
             <label>
                 Description:
                 <input
+                className="edit-board-description"
                 type="text"
                 value={description}
                 onChange={(event) => setDescription(event.target.value)}

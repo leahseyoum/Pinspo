@@ -92,6 +92,7 @@ function ProfileButton() {
             </div>
           </div>
           <li>
+            <p className="currently-in">More Options</p>
             <button className='logout-button' onClick={logout}>Log Out</button>
           </li>
         </ul>

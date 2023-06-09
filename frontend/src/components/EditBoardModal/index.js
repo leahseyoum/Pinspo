@@ -12,7 +12,8 @@ function EditBoardModal({board}) {
 
 
     return (
-        <>
+        <>  
+                <p className="currently-in">Board Options</p>
                 <button className='edit-board-button' onClick={() => {setShowModal(true)}}>Edit Board</button>
             {showModal && (
                 <Modal onClose={closeModal}>

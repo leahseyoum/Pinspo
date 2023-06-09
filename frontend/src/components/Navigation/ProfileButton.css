@@ -22,7 +22,7 @@
     font-size: 14px;
     z-index: 1;
     width: 230px;
-    height: 130px;
+    height: 160px;
   }
 
   .profile-dropdown  li {
@@ -112,8 +112,6 @@
   }
 
   .logout-button {
-    margin-top: 10px;
-    margin-left: 70px;
     font-weight: 550;
     cursor: pointer;
   }

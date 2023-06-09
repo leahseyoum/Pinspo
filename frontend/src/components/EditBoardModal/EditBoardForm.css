@@ -1,7 +1,7 @@
 .edit-board-form {
     overflow: hidden;
     width: 700px;
-    height: 400px;
+    height: 450px;
     position: relative
 }
 
@@ -25,8 +25,8 @@
     margin-left: 10px;
   }
 
-  .edit-board-form input[type="text"] {
-    border: none;
+  .edit-board-name {
+    /* border: none; */
     border-radius: 12px;
     background-color: #f5f5f5;
     padding: 10px;
@@ -34,8 +34,23 @@
     font-size: 16px;
     color: #222;
     height: 30px;
-    width: 95%;
+    width: 93%;
     margin-left: 10px;
+    border: 2px solid rgb(193, 193, 193);
+  }
+
+  .edit-board-description {
+    /* border: none; */
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    padding: 10px;
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #222;
+    height: 60px;
+    width: 93%;
+    margin-left: 10px;
+    border: 2px solid rgb(193, 193, 193);
   }
   
   .edit-board-form button:hover {

@@ -17,6 +17,7 @@
   right: 0;
   padding-top: 10px;
   padding-bottom: 10px;
+  box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.005)
 }
 
 .left-nav {
