@@ -9,9 +9,14 @@
 }
 
 .preview-container {
-    /* width: 250px; */
-    height: 150px;
+    /* max-height: 200px;
     overflow: hidden;
+    border: 1px solid #ccc; */
+}
+
+.edit-preview-image {
+    max-height: 200px;
+    max-width: 200px
 }
 
 .edit-user-form div {
