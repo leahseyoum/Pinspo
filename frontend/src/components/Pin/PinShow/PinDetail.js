@@ -9,6 +9,7 @@ import EditPinModal from '../../EditPinModal';
 import {GrLink} from 'react-icons/gr';
 import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
 import { displayPin } from '../../../store/pins';
+import CommentContainer from '../../Comments/CommentContainer';
 import UserProfileImage from '../../UserProfile/UserProfileImage';
 import './PinDetail.css';
 
@@ -130,7 +131,10 @@ function PinDetail() {
               )}
             </div>
 
-
+              <div className='comment-section'>
+                
+                <CommentContainer pin={pin2} user={user}/>
+              </div>
               
             
             </div>

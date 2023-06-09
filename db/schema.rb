@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_07_163917) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_09_042913) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -62,6 +62,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_163917) do
     t.index ["user_id"], name: "index_boards_on_user_id"
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "description", null: false
+    t.bigint "commentor_id", null: false
+    t.bigint "pin_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["commentor_id"], name: "index_comments_on_commentor_id"
+    t.index ["pin_id"], name: "index_comments_on_pin_id"
+  end
+
   create_table "pins", force: :cascade do |t|
     t.string "title", null: false
     t.string "caption"
@@ -89,5 +99,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_07_163917) do
   add_foreign_key "board_pins", "boards", on_delete: :cascade
   add_foreign_key "board_pins", "pins"
   add_foreign_key "boards", "users"
+  add_foreign_key "comments", "pins"
+  add_foreign_key "comments", "users", column: "commentor_id"
   add_foreign_key "pins", "users"
 end

@@ -7,6 +7,7 @@ import usersReducer from './users';
 import boardsReducer from './boards';
 import boardPinReducer from './boardPins';
 
+
 const rootReducer = combineReducers({
   session: sessionReducer,
   pins: pinsReducer,
