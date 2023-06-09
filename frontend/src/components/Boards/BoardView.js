@@ -65,6 +65,7 @@ const BoardView = ({board}) => {
             <div
               className='board'
               onClick={() =>
+                
                 history.push({ pathname: `/boards/${board.id}`, state: { board: board } })
               }
             >

@@ -15,7 +15,6 @@ function ProfileButton() {
   const [profilePhoto, setProfilePhoto] = useState(currentUser.profilePhoto);
 
   useEffect(() => {
-    console.log('in fethc profile')
     const fetchProfilePhoto = async () => {
       if (currentUser) {
         try {
@@ -32,11 +31,6 @@ function ProfileButton() {
     fetchProfilePhoto();
   }, [currentUserProfilePhoto]);
   
-  
-  useEffect(() => {
-    console.log(user, 'user')
-    console.log(profilePhoto, 'profile photo')
-  }, [user])
 
   const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false);

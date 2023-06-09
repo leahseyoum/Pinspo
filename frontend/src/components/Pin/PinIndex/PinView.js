@@ -10,7 +10,7 @@ import AddPinToBoardDropdown from "../../AddPinBoard/AddPinBoard";
 
 
 
-function PinIndex({ pin, board }) {
+function PinIndex({ pin }) {
   const dispatch = useDispatch();
   const history = useHistory();
 
@@ -33,12 +33,12 @@ function PinIndex({ pin, board }) {
         // <Link to={{pathname:`/pins/${pin.id}`, state: { board }}} style={{ textDecoration: 'none', color: 'black' }} className="pin-wrapper" onClick={handleClick} >
           <div className='pin' >
             <div className="pin-image" >
-              <img src={pin.image} alt={pin.title}  onClick={()=> history.push(`pins/${pin.id}`) }/>
+              <img src={pin.image} alt={pin.title}  onClick={()=> history.replace(`/pins/${pin.id}`) }/>
               <div className="pin-hover" >
-                <AddPinToBoardDropdown className="pin-view-dropdown" pin={pin} user={user} board={board}/>
+                <AddPinToBoardDropdown className="pin-view-dropdown" pin={pin} user={user} />
               </div>
             </div>
-            <div className="pin-text" onClick={()=> history.push(`pins/${pin.id}`) }>
+            <div className="pin-text" onClick={()=> history.replace(`/pins/${pin.id}`) }>
               <h3 className="pin-title" >{pin.title}</h3>
               <UserProfileImage pin={pin}/>
             </div>

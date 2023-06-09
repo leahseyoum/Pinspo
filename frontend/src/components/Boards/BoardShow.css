@@ -16,6 +16,11 @@
     
 }
 
+.board-description {
+    width: 700px;
+    text-align: center;
+}
+
 .edit-board-title {
     display: flex;
 }
@@ -36,7 +41,36 @@
 
 
 .board__pins {
-    display: flex;
+    /* display: flex;
     align-items: center;
+    justify-content: center; */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 10px;
     justify-content: center;
+    align-items: center;
 }
+
+@media screen and (max-width: 1300px) {
+    .board__pins {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 1200px) {
+    .board__pins {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 800px) {
+    .board__pins {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 500px) {
+    .board__pins {
+      grid-template-columns: 1fr;
+    }
+  }

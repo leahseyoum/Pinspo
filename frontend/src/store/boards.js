@@ -28,10 +28,12 @@ export const displayBoards = (userId) => async dispatch => {
     return response;
 }
 
-export const displayBoard = (boardId) => async dispatch => {
-    const response = await csrfFetch(`/api/board/${boardId}`);
-    const data = await response.json();
-    dispatch(retrieveBoard(data));
+export const displayBoard = (userId, boardId) => async dispatch => {
+    const response = await csrfFetch(`/api/users/${userId}/boards/${boardId}`);
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(retrieveBoard(data));
+    }
     return response;
 }
 

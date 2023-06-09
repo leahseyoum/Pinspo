@@ -6,8 +6,6 @@ import PinIndex from "../Pin/PinIndex/PinView";
 import CreateBoardModal from "../CreateBoardModal";
 
 function CreatedPage() {
-    
-   
     const currentUser = useSelector(state => state.session.user);
     const [pins, setPins] = useState([]);
 

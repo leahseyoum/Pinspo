@@ -1,7 +1,6 @@
 import React from 'react'
 import './UserProfilePhoto.css'
 const ProfilePicture = (imageUrl) => {
-    console.log(imageUrl)
     return (
       <div className='profile-image-container'>
         <img src={imageUrl} alt="user profile" />
