@@ -42,8 +42,10 @@ function Pins() {
   //     </div>
    
   // )
+  
   return (
     <div className="pins">
+      {console.log(isLoading)}
       {isLoading ? ( // Render spinner while loading
         <Spinner />
       ) : (

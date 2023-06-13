@@ -24,9 +24,6 @@ function EditUserForm() {
     setEmail(currentUser.email);
   }, [currentUser.username, currentUser.email, currentUser.profilePhoto]);
 
-  useEffect(() => {
-    console.log(profilePhoto)
-  }, [profilePhoto]);
 
   const dispatch = useDispatch();
 
@@ -105,11 +102,11 @@ function EditUserForm() {
       
       <div className='edit-errors-container'>
         <ul className="edit-errors">
-          {console.log(errors[0])}
+          
          { errors[0] && 
             errors[0].map((error, index) => (
               <>
-              {console.log.error}
+             
               <li key={index}>{error}</li>
               </>
             ))}

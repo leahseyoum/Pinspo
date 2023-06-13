@@ -80,6 +80,7 @@ function CreateBoardForm({closeModal}) {
                 <input
                 className='create-board-input'
                 type="text"
+                placeholder='Like "Travel Destinations" or "Recipes to Make"'
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 />

@@ -12,6 +12,7 @@ import EditUserForm from "./components/UserProfile/EditUserForm";
 import BoardIndex from "./components/Boards/BoardsIndex";
 import BoardShow from "./components/Boards/BoardShow";
 import SearchPins from "./components/SearchBar/SearchIndex";
+import UsersShowPage from "./components/UsersShow/ShowPage";
 
 function App() {
 
@@ -19,6 +20,9 @@ function App() {
     <>
       <Navigation />
         <Switch>
+          <Route path='/users/:userId'>
+            <UsersShowPage/>
+          </Route>
           <Route path='/search/:query'>
             <SearchPins/>
           </Route>

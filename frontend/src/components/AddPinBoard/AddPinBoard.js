@@ -1,8 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { createSave, deleteSave } from '../../store/boardPins';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { displayBoards } from '../../store/boards';
+import AddPinBoardModal from './AddPinBoardModal';
+import { IoIosArrowDown } from 'react-icons/io';
 import './AddPinBoard.css';
 
 
@@ -11,9 +13,12 @@ function AddPinToBoardDropdown({ user, pin }) {
   const [boards, setBoards] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState(pin.board ? pin.board.id : '');
   const [saved, setSaved] = useState(pin.boards && selectedBoardId === pin.board.id ? true : false);
+  const [showMenu, setShowMenu] = useState(false);
   const dispatch = useDispatch();
   const boardsObj = useSelector(state => state.boards);
   const finalBoards = Object.values(boardsObj);
+
+  
 
   // fetch boards data from the server when the component mounts
   useEffect(() => {
@@ -47,25 +52,8 @@ function AddPinToBoardDropdown({ user, pin }) {
 }, [selectedBoardId, pin.id]);
   
   
-  async function handleFormSubmit(event) {
+  function handleFormSubmit(event) {
     event.preventDefault();
-    try {
-      if (!saved) {
-        const response = await dispatch(createSave(selectedBoardId, pinId));
-        if (response.ok) {
-          setSaved(true);
-        }
-      } else {
-        // const boardPin = await getBoardPinId({boardId: selectedBoardId, pinId: pinId});
-        // console.log(boardPin)
-        const response = await dispatch(deleteSave(selectedBoardId, pinId));
-        if (response.ok) {
-          setSaved(false);
-        }
-      }
-    } catch (error) {
-      console.error(error);
-    }
   }
   
   
@@ -78,45 +66,39 @@ function AddPinToBoardDropdown({ user, pin }) {
   if (!pin) {
     return null;
   }
+
+  const openMenu = () => {
+    if (showMenu) return;
+    setShowMenu(true);
+  };
+
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
+
   
-  
-  // return (
-  //   <>
-  //      <form className='select-board-form' id="hihi" onSubmit={handleFormSubmit}>
-  //         <div className='new-pin-nav-container'>
-  //         <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
-  //           <option value="" disabled hidden>Select a Board</option>
-  //               { finalBoards.map(board => (
-  //                 {if (board.userId === currentUser.id) {
-  //                   <option key={board.id} value={board.id}>{board.name}</option>
-  //                 }}
-  //               ))}
-  //           </select>
-  //               <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>{saved ? "Saved" : "Save"}</button>
-  //           </div>
-  //       </form>
-  //   </>
-  // );
   return (
     <>
-      <form className='select-board-form' id="hihi" onSubmit={handleFormSubmit}>
-        <div className='new-pin-nav-container'>
-          <select className={className} value={selectedBoardId} onChange={handleBoardChange}>
-            <option value="" disabled hidden>Select a Board</option>
-            {finalBoards.map(board => {
-              if (board.userId === currentUser.id) {
-                return <option key={board.id} value={board.id}>{board.name}</option>;
-              }
-              return null;
-            })}
-          </select>
-          <button className={`show-save-button ${saved ? "saved-mode" : "unsaved-mode"}`}>
-            {saved ? "Saved" : "Save"}
+      <form className="select-board-form" id="hihi" onSubmit={handleFormSubmit}>
+        <div className="new-pin-nav-container">
+          <button className='select-board-button'onClick={openMenu}>Select a board</button>
+          <IoIosArrowDown onClick={openMenu} className='board-select-icon'/>
+          <button className={`show-save-button ${saved ? 'saved-mode' : 'unsaved-mode'}`}>
+            {saved ? 'Saved' : 'Save'}
           </button>
         </div>
       </form>
+      {showMenu && (
+        <AddPinBoardModal
+          finalBoards={finalBoards}
+          closeMenu={closeMenu}
+          currentUser={currentUser}
+          pin={pin}
+        />
+      
+      )}
     </>
-  );
+  );  
   
 }
 

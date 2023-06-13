@@ -12,7 +12,6 @@ function SearchPins() {
     const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
     const query = useParams();
-    console.log(query)
 
     // useEffect(() => {
     //     if (query.query) {

@@ -4,9 +4,10 @@ import { useState, useEffect } from 'react';
 import {SlOptions} from 'react-icons/sl';
 import { useDispatch } from 'react-redux';
 import { deleteComment } from '../../store/comments';
+import { unstable_renderSubtreeIntoContainer } from 'react-dom';
 
 const SingleComment = ({ comment, pin, user}) => {
-    const [showMenu, setShowMenu] = useState(false);
+    const [showDeleteMenu, setShowDeleteMenu] = useState(false);
     const [commenter, setCommenter] = useState(null);
     const commenterId = comment.commenterId;
     const dispatch = useDispatch();  
@@ -18,14 +19,14 @@ const SingleComment = ({ comment, pin, user}) => {
     }, [commenterId])
 
     const openMenu = () => {
-        if (showMenu) {
-          setShowMenu(false)
+        if (showDeleteMenu) {
+          setShowDeleteMenu(false)
           return
         };
-        setShowMenu(true);
+        setShowDeleteMenu(true);
       };
     
-      const handleDelete = () => {
+    const handleDelete = () => {
         dispatch(deleteComment(pin.id, comment.id))
     }
     const isOwner = commenter?.user.id === user.id
@@ -53,7 +54,7 @@ const SingleComment = ({ comment, pin, user}) => {
                          <SlOptions className="comment-options" />
                     </button>
                 )}
-                {showMenu && (
+                {showDeleteMenu && (
                 <div className='comment-delete-container'>
                     <button className='comment-delete' onClick={handleDelete}>Delete</button>
                 </div>

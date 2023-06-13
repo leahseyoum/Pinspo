@@ -67,9 +67,14 @@ function ProfileButton() {
     <>
       {profilePhoto ? (
         <Link to='/saved'>
-          <div className="image-wrapper-nav">
-            <img className='nav-profile-image' src={profilePhoto} alt='profile-photo' />
+        <div className="profile-button-hover">
+          <div className="image-wrapper-nav-container">
+            <div className="image-wrapper-nav">
+              <img className='nav-profile-image' src={profilePhoto} alt='profile-photo' />
+            </div>
           </div>
+
+        </div>
         </Link>
       ) : (
         <div className="user-icon-container">
@@ -77,15 +82,29 @@ function ProfileButton() {
         </div>
       )}
       <button className="profile-dropdown-icon" onClick={openMenu}>
-        <IoIosArrowDown/>
+        <IoIosArrowDown className="arrow-down"size={20}/>
       </button>
       {showMenu && (
         <ul className="profile-dropdown">
           <li className="currently-in">Currently in</li>
           <div className="carrot-dropdown">
-            <li className="user-icon-container-dropdown">
+            {/* <li className="user-icon-container-dropdown">
               <button onClick={handleClick} className='user-icon-nav-dropdown'>{user?.username[0].toUpperCase()}</button>
-            </li>
+            </li> */}
+            {profilePhoto ? (
+        <Link to='/saved'>
+        <div className="profile-button-hover">
+          <div className="image-wrapper-nav">
+            <img className='nav-profile-image' src={profilePhoto} alt='profile-photo' />
+          </div>
+
+        </div>
+        </Link>
+      ) : (
+        <div className="user-icon-container">
+          <button onClick={handleClick} className='user-icon-nav'>{user?.username[0].toUpperCase()}</button>
+        </div>
+      )}
             <div className="carrot-info">
               <li className="username-top">{user?.username}</li>
               <li>{user?.email}</li>
@@ -93,7 +112,9 @@ function ProfileButton() {
           </div>
           <li>
             <p className="currently-in">More Options</p>
-            <button className='logout-button' onClick={logout}>Log Out</button>
+            <div className="logout-button-container">
+              <button className='logout-button' onClick={logout}>Log Out</button>
+            </div>
           </li>
         </ul>
       )}

@@ -54,6 +54,27 @@
   }
 
   
-  
 
+  .select-board-button {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    text-shadow: 0 0 2px #000;
+  }
+
+  .board-select-icon {
+    color: white;
+    padding-top: 10px;
+    padding-right: 2px;
+    size: 50px;
+  }
+
+  .board-select-icon:hover {
+    background-color: transparent;
+  }
+  
+  
   

@@ -11,6 +11,7 @@ import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
 import { displayPin } from '../../../store/pins';
 import CommentContainer from '../../Comments/CommentContainer';
 import UserProfileImage from '../../UserProfile/UserProfileImage';
+import { Link } from 'react-router-dom';
 import './PinDetail.css';
 
 
@@ -22,6 +23,20 @@ function PinDetail() {
     const [showMenu, setShowMenu] = useState(false);
     const [pinAuthor, setPinAuthor] = useState(null);
     const [pinAuthorId, setPinAuthorId] = useState(null);
+    // const [selectedBoard, setSelectedBoard] = useState(null);
+    // const[boards, setBoards] = useState([]);
+    const dispatch = useDispatch();
+
+  //   useEffect(() => {
+  //     if (user) {
+  //         fetch(`/api/users/${user.id}/boards`)
+  //         .then(response => response.json())
+  //         .then(data => setBoards(data));
+  //     }
+  // }, [user, dispatch]);
+  
+  // const arrayBoards = boards ? Object.values(boards) : [];
+  // const userBoards = arrayBoards.filter((board) => board.userId === user.id)
 
     const openMenu = () => {
       if (showMenu) {
@@ -34,7 +49,6 @@ function PinDetail() {
     
     const { pinId } = useParams();
     const [pin2, setPin2] = useState();
-    const dispatch = useDispatch();
     
     useEffect(() => {
       fetch(`/api/pins/${pinId}`)
@@ -113,14 +127,16 @@ function PinDetail() {
            
             <div className='user-info-display'>
               {pinAuthor && pinAuthor.profilePhoto ? (
-                <div className='user-info-detail-1'>
-                  <div className="image-wrapper-circle">
-                    <img className="profile-tag-image-show" src={pinAuthor.profilePhoto} alt="profile photo" />
+                <Link to={`/users/${pinAuthor.id}`}>
+                  <div className='user-info-detail-1'>
+                    <div className="image-wrapper-circle">
+                      <img className="profile-tag-image-show" src={pinAuthor.profilePhoto} alt="profile photo" />
+                    </div>
+                    <div className="pin-owner-info">
+                      <p className='username-pin-new'>{pinAuthor && pinAuthor.username ? pinAuthor.username : ''}</p>
+                    </div>
                   </div>
-                  <div className="pin-owner-info">
-                    <p className='username-pin-new'>{pinAuthor && pinAuthor.username ? pinAuthor.username : ''}</p>
-                  </div>
-                </div>
+                </Link>
               ) : (
                 <div className='user-info-detail-2'>
                   <div className="circle">{pinAuthor && pinAuthor.username ? pinAuthor.username[0].toUpperCase() : ''}</div>
@@ -162,8 +178,15 @@ function PinDetail() {
               </ul>
             )}
             {pin2? <AddPinToBoardDropdown user={user} pin={pin2} /> : null}
-          
-          {/* <button className="show-save-button">Save</button> */}
+            {/* <div className='new-pin-nav-container'>
+                        <select defaultValue="Select a board" className='new-pin-form-dropdown' onChange={(e) => setSelectedBoard(e.target.value)}>
+                            <option value="Select a board">Select a board</option>
+                            {userBoards.map(board => (
+                                    <option key={board.id} value={board.id}>{board.name}</option>)
+                            )}
+                        </select>
+                        <button className='new-pin-save-button'>Save</button>
+              </div> */}
         </div>
         </div>
       </div>

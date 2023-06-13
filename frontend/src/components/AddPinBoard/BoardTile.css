@@ -1,0 +1,13 @@
+.tile-photo-container {
+    height: 40px;
+    width: 50px;
+    overflow: hidden;
+    background-color: rgb(224, 223, 223);
+    border-radius: 14px;
+}
+
+.tile-photo {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}

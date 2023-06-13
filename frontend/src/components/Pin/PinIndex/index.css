@@ -1,12 +1,13 @@
 .pins { 
     columns: 5;
-    column-gap: 2px; 
-    padding: 70px;
+    column-gap: 5px; 
+    /* padding: 70px; */
+    padding-top: 70px;
     width: 90%;
     margin: 0 auto; 
     margin: 0;
     /* padding: 0; */
-    width: 90%;
+    width: 100%;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -19,7 +20,7 @@
     grid-column: 1;
 }
 
-@media (max-width: 755px) {
+@media (max-width: 260px) {
     .pins{
         column-count: 1;
         column-gap: 10px;
@@ -27,37 +28,51 @@
 }
 
 
-@media (min-width: 756px){
+@media (min-width: 500px){
     .pins{
         column-count: 2;
         column-gap: 10px;
     }
 }
 
-@media (min-width: 908px) {
+@media (min-width: 730px) {
     .pins{
         column-count: 3;
         column-gap: 10px;
     }
 }
 
-@media (min-width: 1160px) {
+@media (min-width: 960px) {
     .pins{
         column-count: 4;
         column-gap: 10px;
     }
 }
 
-@media (min-width: 1412px) {
+@media (min-width: 1190px) {
     .pins{
         column-count: 5;
         column-gap: 10px;
     }
 }
 
-@media (min-width: 1564px) {
+@media (min-width: 1420px) {
     .pins{
         column-count: 6;
+        column-gap: 10px;
+    }
+}
+
+@media(min-width: 1650px) {
+    .pins{
+        column-count: 7;
+        column-gap: 10px;
+    }
+}
+
+@media(min-width: 1780px) {
+    .pins{
+        column-count: 8;
         column-gap: 10px;
     }
 }

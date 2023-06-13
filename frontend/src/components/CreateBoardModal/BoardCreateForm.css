@@ -38,9 +38,9 @@
     height: 30px;
     padding: 10px;
     margin-bottom: 20px;
-    
-    border: none;
-    border-radius: 4px;
+    border: 2px solid rgb(193, 193, 193);
+    background-color: #f5f5f5;
+    border-radius: 8px;
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     font-size: 16px;
     font-family: Helvetica neue;
@@ -76,6 +76,9 @@
     margin-top: 50px;
     margin-left: 80px;
   }
+
+  
+  
 
  
   

@@ -1,10 +1,21 @@
 .profile-dropdown-icon {
+    display: flex;
+    align-items: center;
     background-color: transparent;
     border: none;
     margin-top: 15px;
     font-size: 20px;
     color: #323031; /* set red color for icon */
     cursor: pointer;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+  .profile-dropdown-icon:hover {
+    background-color: rgb(224, 223, 223);
   }
 
   .profile-dropdown {
@@ -26,8 +37,11 @@
   }
 
   .profile-dropdown  li {
+    padding-top: 5px;
     margin-left: 10px;
     padding-bottom: 5px;
+    height: 20px;
+    /* width: 30px; */
   }
 
   .user-icon-nav {
@@ -82,11 +96,17 @@
 
   .carrot-dropdown {
     display: flex;
-    background-color: rgb(223, 222, 222);
+    /* justify-content: center; */
+    align-items: center;
+    /* background-color: rgb(223, 222, 222); */
     width: 90%;
     margin-left: 10px;
     border-radius: 12px;
 
+  }
+
+  .carrot-dropdown:hover {
+    background-color: rgb(223, 222, 222);
   }
 
   .carrot-info {
@@ -109,11 +129,30 @@
   .currently-in {
     font-size: 12px;
     opacity: 0.5;
+    margin-top: 2px;
+  }
+
+  p.currently-in {
+    margin-bottom: 5px;
   }
 
   .logout-button {
+    padding-top: 5px;
     font-weight: 550;
     cursor: pointer;
+  }
+
+  .logout-button-container {
+    /* padding-top: 10px; */
+    padding-bottom: 3px;
+  }
+
+  .logout-button-container:hover {
+    background-color: rgb(223, 222, 222);
+    border-radius: 12px;
+    width: 95%;
+    /* padding-top: 10px; */
+    height: 25px;
   }
 
   .username-top {
@@ -121,15 +160,21 @@
   }
 
   .image-wrapper-nav {
-    width: 40px;
-    height: 40px;
+    width: 45px;
+    height: 45px;
     border-radius: 50%;
     overflow: hidden;
   }
+
+  /* .image-wrapper-nav:hover {
+    border: solid black;
+    border-width: 2px;
+  } */
   
   .nav-profile-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
+
   
