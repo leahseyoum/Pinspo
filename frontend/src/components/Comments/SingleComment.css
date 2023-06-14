@@ -11,6 +11,14 @@
 
 .comment-description {
     font-family: Helvetica neue;
+    max-width: 250px;
+    margin-left: 5px
+}
+
+.comment-description-container {
+    max-height: 100px; /* Adjust the height as needed */
+    overflow-y: auto;
+    max-width: 250px;
 }
 
 .comment-options {
