@@ -82,21 +82,21 @@ function EditUserForm() {
     
 });
 
-  useEffect(() => {
-    const handleClickOutsideForm = (event) => {
-      if (formRef.current && !formRef.current.contains(event.target)) {
-        history.push("/saved");
-      }
-    };
+  // useEffect(() => {
+  //   const handleClickOutsideForm = (event) => {
+  //     if (formRef.current && !formRef.current.contains(event.target)) {
+  //       history.push("/saved");
+  //     }
+  //   };
 
-    document.addEventListener("click", handleClickOutsideForm);
+  //   document.addEventListener("click", handleClickOutsideForm);
 
-    return () => {
-      document.removeEventListener("click", handleClickOutsideForm);
-    };
-  }, [history]);
+  //   return () => {
+  //     document.removeEventListener("click", handleClickOutsideForm);
+  //   };
+  // }, [history]);
 
-
+  
     
   return (
     <form onSubmit={onSubmit} className="edit-user-form" ref={formRef}>

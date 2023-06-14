@@ -78,7 +78,6 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
               </div>
             );
           }
-          // return null;
         })}
         <p className="suggestions">Suggestions</p>
          <div className="select-board-modal-create-board-container">

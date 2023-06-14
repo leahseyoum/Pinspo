@@ -96,7 +96,7 @@ function Navigation() {
           </div>
 
           <div className='linkin-icon'>
-            <a target="_blank" href="">
+            <a target="_blank" href="https://www.linkedin.com/in/leah-seyoum-958288277/">
               <i id="linkedIn" className="fab fa-linkedin"></i>
             </a> 
           </div>
