@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { createSave } from "../../store/boardPins";
 import { deleteSave } from "../../store/boardPins";
@@ -14,6 +14,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
   const [boardSaved, setBoardSaved] = useState({}); // Object to hold saved state for each board
   const stateBoards = useSelector(state => state.boards)
   const dispatch = useDispatch();
+  const [isParentHovered, setIsParentHovered] = useState(false);
 
   useEffect(() => {
     finalBoards.forEach(board => {
@@ -53,9 +54,35 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
     }
   }
 
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const modal = modalRef.current;
+    const modalRect = modal.getBoundingClientRect();
+    const modalLeft = modalRect.left;
+    const modalRight = modalRect.right;
+    const windowWidth = window.innerWidth;
+
+    if (modalRight > windowWidth) {
+      const shiftAmount = modalRight - windowWidth;
+      modal.style.left = `${parseInt(modal.style.left, 10) - shiftAmount}px`;
+    }
+
+    if (modalLeft < 100) {
+      modal.style.left = "50px"; 
+    }
+
+    
+  }, []);
+
   return (
     <>
-      <div className="add-pin-board-modal">
+      <div
+        className={`add-pin-board-modal ${isParentHovered ? 'visible' : ''}`}
+        ref={modalRef}
+        onMouseEnter={() => setIsParentHovered(true)}
+        onMouseLeave={closeMenu}
+      >
         <div className="board-select-modal-header">
           <p className="board-select-header">Save to board</p>
           <button className='board-select-exit-button'onClick={closeMenu}>x</button>

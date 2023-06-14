@@ -1,8 +1,5 @@
 .add-pin-board-modal {
-    position: fixed;
     margin-top: 20px;
-    /* height: auto;
-    width: auto; */
     width: 300px;
     max-height: 80vh;
     overflow-y: auto;
@@ -15,6 +12,10 @@
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
     z-index: 20;
 }
+
+.add-pin-board-modal.visible {
+    opacity: 1;
+  }
 
 .board-save-option {
     display: flex;
@@ -81,8 +82,8 @@
 
 .select-board-modal-create-board-container:hover {
     background-color: rgb(224, 223, 223);
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-radius: 12px;
+    
 }
 
 .select-board-create-board {

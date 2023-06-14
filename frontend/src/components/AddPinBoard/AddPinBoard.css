@@ -72,9 +72,19 @@
     size: 50px;
   }
 
+  
   .board-select-icon:hover {
     background-color: transparent;
   }
-  
+
+  .add-pin-board-modal-parent .add-pin-board-modal {
+    opacity: 1;
+  }
+
+  /* .addpinboardmodal {
+    position: absolute;
+    left: 10%;
+  }
+   */
   
   

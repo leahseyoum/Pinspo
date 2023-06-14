@@ -8,11 +8,11 @@ const BoardTile = ({ board }) => {
   const dispatch = useDispatch();
   const [tilePhoto, setTilePhoto] = useState(null);
 
-  useEffect(() => {
-    if (tilePin) {
-      dispatch(displayPin(tilePin));
-    }
-  }, [dispatch, tilePin]);
+  // useEffect(() => {
+  //   if (tilePin) {
+  //     dispatch(displayPin(tilePin));
+  //   }
+  // }, [dispatch, tilePin]);
 
   useEffect(() => {
     if (tilePin) {
@@ -27,7 +27,9 @@ const BoardTile = ({ board }) => {
   }, [tilePin]);
 
   useEffect(() => {
-    setTilePin(board.pins[0]);
+    if (board.pins[0]) {
+      setTilePin(board.pins[0]);
+    }
   }, [board.pins[0]]);
 
   return (
