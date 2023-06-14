@@ -26,6 +26,16 @@
     margin: 0 auto;
   }
 
+  .no-boards-message {
+    font-size: 30px;
+    color: rgb(62, 62, 62);
+    text-align: center;
+    padding: 20px;
+    font-family: Helvetica neue;
+    font-weight: 800;
+    margin-bottom: 650px;
+  }
+
   @media screen and (max-width: 1200px) {
     .boards-grid {
       grid-template-columns: repeat(2, 1fr);

@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import './EditUserForm.css';
 import { useSubmit } from "../../hooks";
 import ProfilePicture from "./UserProfilePhoto";
+import { setCurrentUser } from "../../store/session";
 
 function EditUserForm() {
     const currentUser = useSelector((state) => state.session.user);
@@ -70,12 +71,14 @@ function EditUserForm() {
 
         if (newPassword.length > 6 && newPassword === confirmPassword) {
           formData.append("user[password]", newPassword);
-      }
+      } 
+        
         return updateUser(formData);
+        
     },
 
     onSuccess:() => {
-        history.push('/saved')},
+        history.push(`/users/${currentUser.id}/saved`)},
     
 });
 

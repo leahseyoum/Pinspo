@@ -2,10 +2,12 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
 import './UserProfileImage.css';
+import { useHistory } from 'react-router-dom';
 
 function UserProfileImage({pin}) {
   const userId = pin?.userId;
   const [user, setUser] = useState(null);
+  const history = useHistory();
   
   useEffect(() => {
      fetch(`/api/users/${userId}`)
@@ -18,7 +20,7 @@ function UserProfileImage({pin}) {
   return (
     <>
       {user && (
-        <div className="profile-tag-container">
+        <div className="profile-tag-container" onClick={() => history.replace(`/users/${pin.userId}/saved`)}>
           <div className="profile-tag-image-container">
             {user.profilePhoto ? (
               <div className="image-wrapper">

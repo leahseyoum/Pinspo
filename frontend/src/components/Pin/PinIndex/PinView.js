@@ -40,8 +40,8 @@ function PinIndex({ pin }) {
             </div>
             <div className="pin-text" onClick={()=> history.replace(`/pins/${pin.id}`) }>
               <h3 className="pin-title" >{pin.title}</h3>
-              <UserProfileImage pin={pin}/>
             </div>
+              <UserProfileImage pin={pin} />
           </div>
         // </Link>
     );

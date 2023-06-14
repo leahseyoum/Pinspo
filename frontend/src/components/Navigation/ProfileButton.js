@@ -15,6 +15,10 @@ function ProfileButton() {
   const [profilePhoto, setProfilePhoto] = useState(currentUser.profilePhoto);
 
   useEffect(() => {
+    setUser(currentUser);
+  }, [currentUser]);
+
+  useEffect(() => {
     const fetchProfilePhoto = async () => {
       if (currentUser) {
         try {
@@ -60,17 +64,18 @@ function ProfileButton() {
   };
 
   const handleClick = (e) => {
-    history.push('/saved');
+    history.push(`/users/${currentUser.id}/saved`);
   };
 
   return (
     <>
-      {profilePhoto ? (
-        <Link to='/saved'>
+    {console.log(user, 'user')}
+      {user?.profilePhoto ? (
+        <Link to={`/users/${currentUser.id}/saved`}>
         <div className="profile-button-hover">
           <div className="image-wrapper-nav-container">
             <div className="image-wrapper-nav">
-              <img className='nav-profile-image' src={profilePhoto} alt='profile-photo' />
+              <img className='nav-profile-image' src={user?.profilePhoto} alt='profile-photo' />
             </div>
           </div>
 
@@ -92,10 +97,10 @@ function ProfileButton() {
               <button onClick={handleClick} className='user-icon-nav-dropdown'>{user?.username[0].toUpperCase()}</button>
             </li> */}
             {profilePhoto ? (
-        <Link to='/saved'>
+        <Link to={`/users/${currentUser.id}/saved`}>
         <div className="profile-button-hover">
           <div className="image-wrapper-nav">
-            <img className='nav-profile-image' src={profilePhoto} alt='profile-photo' />
+            <img className='nav-profile-image' src={user?.profilePhoto} alt='profile-photo' />
           </div>
 
         </div>

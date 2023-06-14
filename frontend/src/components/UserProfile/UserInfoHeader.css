@@ -92,13 +92,14 @@
 .username-container {
     display: flex;
     align-items: center;
+    justify-content: center;
     /* margin-right: 50px; */
 }
 
 .profile-username {
     font-size: 28px;
     font-weight: 600;
-    margin-right: 16px;
+    /* margin-right: 16px; */
 }
 
 .edit-profile-button {
@@ -110,6 +111,7 @@
     background-color: #fff;
     color: #333;
     cursor: pointer;
+    margin-left: 16px;
 }
 
 .user-stats-container {
@@ -158,5 +160,22 @@
     color: gray;
     margin-bottom: 0px;
 }
+
+.user-nav-links-container {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .user-nav-link {
+    font-size: 18px;
+    margin: 0 10px;
+    color: gray;
+    text-decoration: none;
+  }
+  
+  .user-nav-link.active {
+    color: black;
+    font-weight: bold;
+  }
 
 

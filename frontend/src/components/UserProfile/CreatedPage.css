@@ -15,6 +15,30 @@
     transform: translateX(-50%);  */
 }
 
+.no-pins-message {
+  font-size: 30px;
+    color: rgb(62, 62, 62);
+    text-align: center;
+    padding: 20px;
+    font-family: Helvetica neue;
+    font-weight: 800;
+    
+}
+
+.no-pins-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; /* Adjust the height as needed */
+  margin-top: 400px
+}
+
+/* .no-pins-message p {
+  font-size: 18px;
+  text-align: center;
+} */
+
+
 @media screen and (max-width: 1300px) {
     .user-pins {
       grid-template-columns: repeat(4, 1fr);

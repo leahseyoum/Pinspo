@@ -4,38 +4,62 @@ import { useSelector } from "react-redux";
 import "./CreatedPage.css";
 import PinIndex from "../Pin/PinIndex/PinView";
 import CreateBoardModal from "../CreateBoardModal";
+import { useParams } from "react-router-dom";
+import Spinner from "../Spinner/Spinner";
 
 function CreatedPage() {
-    const currentUser = useSelector(state => state.session.user);
-    const [pins, setPins] = useState([]);
+  const userParams = useParams();
+  const userId = parseInt(userParams.userId);
+  const currentUser = useSelector((state) => state.session.user);
+  const [pins, setPins] = useState(null);
+  const [user, setUser] = useState(null);
 
-    useEffect(() => {
+  useEffect(() => {
     if (currentUser) {
-        fetch(`/api/pins/`)
-        .then(response => response.json())
-        .then(data => setPins(data));
+      fetch(`/api/pins/`)
+        .then((response) => response.json())
+        .then((data) => setPins(data));
     }
-    }, [currentUser]);
+  }, [currentUser]);
 
-    const arrayPins = Object.values(pins);
-    const userPins = arrayPins.filter((pin) => pin.userId === currentUser.id)
-   
-    return (
-        <>
-            <div className="created-page-container">
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+      .then((res) => res.json())
+      .then((data) => setUser(data.user));
+  }, []);
+  
+  let arrayPins;
+  let userPins;
+  if (pins) {
+    arrayPins = Object.values(pins);
+    userPins = arrayPins.filter((pin) => pin.userId === userId);
+  }
 
-                <UserInfoHeader/>
-                <div className="user-pins">
-                    {userPins.map((pin) => (
-                            <PinIndex className="pin" key={pin.id} pin={pin} create={'create'}/>
-                    ))}
-                </div>
-                <div className='create-board-pin-container'>
-                    <CreateBoardModal className='create-board-pin'/>
-                </div>
+  return (
+    <>
+      {pins ? (
+        <div className="created-page-container">
+          <UserInfoHeader />
+          {userPins.length > 0 ? (
+            <div className="user-pins">
+              {userPins.map((pin) => (
+                <PinIndex className="pin" key={pin.id} pin={pin} create={'create'} />
+              ))}
             </div>
-        </>
-    )
+          ) : (
+            <div className="no-pins-message">
+              <p>{user?.username} hasn't created any pins yet</p>
+            </div>
+          )}
+          <div className="create-board-pin-container">
+            <CreateBoardModal className="create-board-pin" />
+          </div>
+        </div>
+      ) : (
+        <Spinner />
+      )}
+    </>
+  );
 }
 
 export default CreatedPage;

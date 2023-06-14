@@ -7,10 +7,13 @@ import ProfilePicture from "./UserProfilePhoto";
 import { setCurrentUser } from "../../store/session";
 import { Dispatch } from "react";
 import Spinner from "../Spinner/Spinner";
+import { useParams } from "react-router-dom";
 
 function UserInfoHeader() {
     const currentUser = useSelector(state => state.session.user);
-    // const users = useSelector(state => state.users?.user?.user);
+    const userParams = useParams();
+    const userId = userParams.userId;
+    // console.log(userId)
     const [username, setUsername] = useState(currentUser.username);
     const [email, setEmail] = useState(currentUser.email)
     const [profilePhoto, setProfilePhoto] = useState(currentUser.profilePhoto);
@@ -20,10 +23,10 @@ function UserInfoHeader() {
     const location = useLocation();
     
     useEffect(() => {
-        fetch(`api/users/${currentUser.id}`)
+        fetch(`/api/users/${userId}`)
         .then(res => res.json())
         .then(data => setUser(data.user))
-    }, [currentUser.id])
+    }, [userParams])
     
 
     const handleEditClick = (e) => {
@@ -32,7 +35,7 @@ function UserInfoHeader() {
     }
 
     useEffect(() => {
-        if (user) {
+        if (user?.id === currentUser?.id) {
             setEmail(user.email);
             setUsername(user.username);
             setProfilePhoto(user.profilePhoto)
@@ -45,13 +48,14 @@ function UserInfoHeader() {
     
       
       return (
+        
         <div className="info-container">
           {user ? (
             <>
               <div className="user-profile-header-container">
                 <div className="user-show-profile-pic">
                   {user.profilePhoto ? (
-                    <img className="profile-photo" src={profilePhoto} alt="profile photo" />
+                    <img className="profile-photo" src={user.profilePhoto} alt="profile photo" />
                   ) : (
                     <p className="user-initial">{username[0].toUpperCase()}</p>
                   )}
@@ -61,22 +65,18 @@ function UserInfoHeader() {
               <p className="username-tag">{`@${user.username}`}</p>
               <div className="user-profile-info-container">
                 <div className="username-container">
-                  <h2 className="profile-username">{username}</h2>
-                  <button className="edit-profile-button" onClick={handleEditClick}>
-                    Edit Profile
-                  </button>
+                  <h2 className="profile-username">{user.username}</h2>
+                  {user.id === currentUser.id ? 
+                    <button className="edit-profile-button" onClick={handleEditClick}>
+                      Edit Profile
+                    </button> : null
+                  }
                 </div>
                 <div className="user-nav-links-container">
-                  {/* <a href="/created" className="user-nav-link">
-                    Created
-                  </a>
-                  <a href="/saved" className="user-nav-link">
-                    Saved
-                  </a> */}
-                  <Link to="/created" className={`user-nav-link ${location.pathname === '/created' ? 'active' : ''}`}>
+                  <Link to={`/users/${user.id}/created`} className={`user-nav-link ${location.pathname === `/users/${user.id}/created`? 'active' : ''}`}>
                 Created
               </Link>
-              <Link to="/saved" className={`user-nav-link ${location.pathname === '/saved' ? 'active' : ''}`}>
+              <Link to={`/users/${user.id}/saved`} className={`user-nav-link ${location.pathname === `/users/${user.id}/saved` ? 'active' : ''}`}>
                 Saved
               </Link>
                 </div>

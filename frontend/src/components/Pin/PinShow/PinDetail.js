@@ -127,7 +127,7 @@ function PinDetail() {
            
             <div className='user-info-display'>
               {pinAuthor && pinAuthor.profilePhoto ? (
-                <Link to={`/users/${pinAuthor.id}`}>
+                <Link className='link-user-info' to={`/users/${pinAuthor.id}/saved`}>
                   <div className='user-info-detail-1'>
                     <div className="image-wrapper-circle">
                       <img className="profile-tag-image-show" src={pinAuthor.profilePhoto} alt="profile photo" />
