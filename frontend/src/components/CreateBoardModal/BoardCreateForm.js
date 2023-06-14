@@ -46,7 +46,7 @@ function CreateBoardForm({closeModal}) {
           if (response.ok) {
             dispatch(displayBoards(currentUser.id));
             closeModal();
-            history.push('/saved');
+            // history.push('/saved');
           } else {
             const data = await response.json();
             if (data) {
@@ -61,8 +61,7 @@ function CreateBoardForm({closeModal}) {
 
     const handleCancel = async (event) => {
         event.preventDefault();
-        closeModal();
-          
+        closeModal();   
     }
 
   

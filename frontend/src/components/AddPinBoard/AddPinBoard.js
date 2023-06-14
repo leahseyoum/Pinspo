@@ -13,7 +13,7 @@ function AddPinToBoardDropdown({ user, pin }) {
   const [boards, setBoards] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState(pin.board ? pin.board.id : '');
   const [saved, setSaved] = useState(pin.boards && selectedBoardId === pin.board.id ? true : false);
-  const [showMenu, setShowMenu] = useState(false);
+  const [showBoardMenu, setShowBoardMenu] = useState(false);
   const dispatch = useDispatch();
   const boardsObj = useSelector(state => state.boards);
   const finalBoards = Object.values(boardsObj);
@@ -59,8 +59,8 @@ function AddPinToBoardDropdown({ user, pin }) {
   
   
   const location = useLocation();
-  const className = location.pathname.includes('pin')  ?  'pin-detail-dropdown': 'pin-view-dropdown' ;
-  
+  const className1 = location.pathname.includes('pin')  ?  "select-board-button-show": "select-board-button" ;
+  const className2 = location.pathname.includes('pin') ? 'board-select-icon-show' : 'board-select-icon' ;
   
   
   if (!pin) {
@@ -68,13 +68,16 @@ function AddPinToBoardDropdown({ user, pin }) {
   }
 
   const openMenu = () => {
-    if (showMenu) return;
-    setShowMenu(true);
+    if (showBoardMenu) {
+      setShowBoardMenu(false)
+      return
+    };
+    setShowBoardMenu(true);
   };
 
   const closeMenu = (e) => {
     e.preventDefault()
-    setShowMenu(false);
+    setShowBoardMenu(false);
   };
 
   
@@ -84,14 +87,14 @@ function AddPinToBoardDropdown({ user, pin }) {
     <div className='add-pin-board-modal-parent'>
       <form className="select-board-form" id="hihi" onSubmit={handleFormSubmit}>
         <div className="new-pin-nav-container">
-          <button className='select-board-button'onClick={openMenu}>Select a board</button>
-          <IoIosArrowDown onClick={openMenu} className='board-select-icon'/>
+          <button className={className1} onClick={openMenu}>Select a board</button>
+          <IoIosArrowDown onClick={openMenu} className={className2}/>
           <button className={`show-save-button ${saved ? 'saved-mode' : 'unsaved-mode'}`}>
             {saved ? 'Saved' : 'Save'}
           </button>
         </div>
       </form>
-      {showMenu && (
+      {showBoardMenu && (
         <AddPinBoardModal
           className = 'addpinboardmodal'
           finalBoards={finalBoards}

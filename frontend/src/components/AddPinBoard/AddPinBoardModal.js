@@ -78,6 +78,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
   return (
     <>
       <div
+        
         className={`add-pin-board-modal ${isParentHovered ? 'visible' : ''}`}
         ref={modalRef}
         onMouseEnter={() => setIsParentHovered(true)}
@@ -85,7 +86,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
       >
         <div className="board-select-modal-header">
           <p className="board-select-header">Save to board</p>
-          <button className='board-select-exit-button'onClick={closeMenu}>x</button>
+          <button className='board-select-exit-button' onClick={closeMenu}>x</button>
         </div>
         {finalBoards.map(board => {
           if (board.userId === currentUser.id) {

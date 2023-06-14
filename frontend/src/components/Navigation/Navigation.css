@@ -35,8 +35,9 @@
 }
 
 .pinterest-logo {
-  height: 40px;
-  margin-right: 5px;
+  height: 30px;
+  margin-right: 10px;
+  margin-top: 8px;
 }
 
 .logo-name {
@@ -45,10 +46,10 @@
 }
 
 .logo-header {
-  font-size: 25px;
+  font-size: 20px;
   align-items: center;
   color: #E60023;
-  margin-top: 25px;
+  margin-top: 28px;
   font-family: Helvetica neue;
   font-weight: 450;
 

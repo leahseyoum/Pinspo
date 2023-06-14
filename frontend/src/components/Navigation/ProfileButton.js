@@ -69,7 +69,6 @@ function ProfileButton() {
 
   return (
     <>
-    {console.log(user, 'user')}
       {user?.profilePhoto ? (
         <Link to={`/users/${currentUser.id}/saved`}>
         <div className="profile-button-hover">

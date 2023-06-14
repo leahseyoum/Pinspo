@@ -81,16 +81,21 @@ function PinDetail() {
     }, [pinAuthorId]);
     
     const history = useHistory();
-      const handleClick = () => {
-      history.replace('/index');
+  const handleClick = () => {
+      history.goBack();
    };
     
    useEffect(() => {
     const handleClickOutside = (event) => {
       const container = document.querySelector('.pin-detail');
       const nav = document.querySelector('.nav-bar')
-      if (container && !container.contains(event.target) && !nav.contains(event.target)) {
-        handleClick();
+      const modal = document.querySelector('.add-pin-board-modal')
+      const createBoard = document.querySelector('.create-board-form');
+   
+      if (container && !container.contains(event.target) && !nav.contains(event.target)  && !modal?.contains(event.target) && !createBoard?.contains(event.target)) {
+        
+          handleClick();
+        
       }
     };
 
@@ -104,7 +109,7 @@ function PinDetail() {
   return (
     <div className="pin-show-container">
       <div className='arrow-container'>
-        <FaArrowLeft className="arrow-icon"/>
+        <FaArrowLeft className="arrow-icon" onClick={handleClick}/>
       </div>
       <div className="pin-detail">
 

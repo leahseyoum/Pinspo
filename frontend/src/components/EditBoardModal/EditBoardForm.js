@@ -15,21 +15,6 @@ function EditBoardForm({ board, closeModal}) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const formData = new FormData();
-    //       formData.append('board[name]', name);
-    //       formData.append("board[description]" , description);
-    //       formData.append('board[id]', board.id);
-    //       formData.append('board[userId]', board.userId)
-    //     const response = await dispatch(updateBoard(formData));
-    //     if (response.ok) {
-    //         // console.log('in if')
-    //         // dispatch(displayBoards(currentUser.id))
-    //         closeModal();
-    //         // history.push({pathname: `/boards/${board.id}`, state: { board: board }})
-    //     }
-    //   };
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -63,7 +48,7 @@ function EditBoardForm({ board, closeModal}) {
         
         if (response.ok) {
             closeModal();
-            history.push('/saved')
+            history.push(`/users/${currentUser.id}/saved`)
         }
     }
 

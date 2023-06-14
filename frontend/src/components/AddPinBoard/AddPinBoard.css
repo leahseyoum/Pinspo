@@ -65,11 +65,26 @@
     text-shadow: 0 0 2px #000;
   }
 
+  .select-board-button-show {
+    border: none;
+    background-color: transparent;
+    font-size: 18px;
+    color: rgb(29, 29, 29);
+    font-weight: 500;
+    cursor: pointer;
+  }
+
   .board-select-icon {
     color: white;
-    padding-top: 10px;
+    padding-top: 13px;
     padding-right: 2px;
     size: 50px;
+  }
+
+  .board-select-icon-show {
+    margin-top: 10px;
+    color: rgb(29, 29, 29);
+    padding-right: 2px;
   }
 
   
