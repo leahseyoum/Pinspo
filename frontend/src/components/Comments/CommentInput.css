@@ -4,6 +4,14 @@
     font-size: 25px;
 }
 
+.comment-input-container {
+    width: 98.5%;
+    padding-top: 15px;
+    border-top: 1px solid #ddd;
+    /* margin-right: -40px; */
+    
+  }
+
 
   
   
