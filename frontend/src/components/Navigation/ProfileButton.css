@@ -12,10 +12,13 @@
     display: flex;
     align-items: center;
     border-radius: 50%;
+    margin-bottom: 10px;
+    transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
   }
 
   .profile-dropdown-icon:hover {
     background-color: rgb(224, 223, 223);
+    transform: scale(1.1);
   }
 
   .profile-dropdown {
@@ -62,7 +65,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    /* transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+    margin-left: 2px */
   }
+
+  /* .user-icon-container:hover {
+    width: 47px;
+    height: 40px;
+    transform: scale(1.1);
+  } */
 
   .profile-link {
     text-decoration: none;
@@ -169,8 +180,10 @@
   }
 
   /* .image-wrapper-nav:hover {
-    border: solid black;
-    border-width: 2px;
+    width: 50px;
+    height: 50px;
+    min-width: 50px;
+    min-height: 50px;
   } */
   
   .nav-profile-image {

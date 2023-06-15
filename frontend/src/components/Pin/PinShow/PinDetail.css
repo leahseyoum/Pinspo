@@ -141,7 +141,7 @@
 
   .user-info-display {
     display: flex;
-
+    margin-bottom: 20pc;
   }
 
   .pin-owner-info {

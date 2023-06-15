@@ -42,7 +42,9 @@ function NewPinForm() {
             const formData = new FormData();
             formData.append('pin[title]', title);
             formData.append('pin[caption]', caption);
-            formData.append('pin[link]', link);
+            // if (link) {
+                formData.append('pin[link]', link);
+            // }
             
             if (imageFile) {
                 formData.append('pin[image]', imageFile);
@@ -52,7 +54,7 @@ function NewPinForm() {
 
         onSuccess:(pin) => {
             dispatch(createSave(selectedBoard, pin.payload.id))
-            history.push('/created')},
+            history.push(`/users/${user.id}/created`)},
         
     });
     

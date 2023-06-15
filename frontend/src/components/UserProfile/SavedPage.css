@@ -1,10 +1,22 @@
 .user-pins {
-    margin-top: 450px; 
+    /* margin-top: 50px;  */
     justify-content: center;
     align-items: center;
     display: grid;
     grid-template-columns: repeat(5, 1fr);
 }
+
+.userInfoHeaderContainer {
+    margin-bottom: 20px; /* Add margin bottom for spacing */
+  }
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 

@@ -29,8 +29,9 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
       !targetElement.classList.contains("create-title-container") &&
       !targetElement.classList.contains("create-board-label") &&
       !targetElement.classList.contains("create-board-input") &&
-      !targetElement.classList.contains("create-board-button") ) {
-        // setShowBoardMenu(false);
+      !targetElement.classList.contains("create-board-button") &&
+      !targetElement.classList.contains("select-board-button") ) {
+        setShowBoardMenu(false);
       }
     };
 

@@ -79,7 +79,7 @@ export const updatePin = pin => async(dispatch) => {
 
     if (response.ok) {
         const post = await response.json();
-        dispatch(retrieveSinglePin(pin));
+        dispatch(retrieveSinglePin(post));
     };
 
     return response;

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import {FaArrowLeft} from 'react-icons/fa';
 import {SlOptions} from 'react-icons/sl';
 import EditPinModal from '../../EditPinModal';
-import {GrLink} from 'react-icons/gr';
+import {GrLink, GrStatusDisabledSmall} from 'react-icons/gr';
 import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
 import { displayPin } from '../../../store/pins';
 import CommentContainer from '../../Comments/CommentContainer';
@@ -17,6 +17,7 @@ import './PinDetail.css';
 
 function PinDetail() {
     const [profilePhoto, setProfilePhoto] = useState(null);
+    const storePin = useSelector(state => state.pins.pin);
     // const pin = useSelector(state => state.pins.pin);
     const [showBoardMenu, setShowBoardMenu] = useState(false);
     const user = useSelector(state => state.session.user);
@@ -64,6 +65,12 @@ function PinDetail() {
           console.error('Error fetching pin:', error);
         });
     }, [pinId, dispatch]);
+
+    useEffect(() => {
+      if (storePin) {
+        setPin2(storePin);
+      }
+    }, [storePin]);
     
    const isOwner = user.id === pin2?.userId;
     const link = pin2?.link
@@ -128,29 +135,35 @@ function PinDetail() {
             <div className="show-pin-title">
               <h2 className="show-title">{pin2?.title}</h2>
             </div>
-            <div className="show-pin-caption">
-              <p className="show-caption">{pin2?.caption}</p>
-            </div>
+              <div className="show-pin-caption">
+                <p className="show-caption">{pin2?.caption}</p>
+              </div>
             
            
             <div className='user-info-display'>
               {pinAuthor && pinAuthor.profilePhoto ? (
-                <Link className='link-user-info' to={`/users/${pinAuthor.id}/saved`}>
-                  <div className='user-info-detail-1'>
+                <div className='user-info-detail-1'>
+                  <Link className='link-user-info' to={`/users/${pinAuthor?.id}/saved`}>
                     <div className="image-wrapper-circle">
                       <img className="profile-tag-image-show" src={pinAuthor.profilePhoto} alt="profile photo" />
                     </div>
+                </Link>
+                <Link className='link-user-info' to={`/users/${pinAuthor?.id}/saved`}>
                     <div className="pin-owner-info">
                       <p className='username-pin-new'>{pinAuthor && pinAuthor.username ? pinAuthor.username : ''}</p>
                     </div>
-                  </div>
                 </Link>
+                  </div>
               ) : (
                 <div className='user-info-detail-2'>
-                  <div className="circle">{pinAuthor && pinAuthor.username ? pinAuthor.username[0].toUpperCase() : ''}</div>
-                  <div className="pin-owner-info">
-                    <p>{pinAuthor && pinAuthor.username ? pinAuthor.username : ''}</p>
-                  </div>
+                  <Link className='link-user-info' to={`/users/${pinAuthor?.id}/saved`}>
+                    <div className="circle">{pinAuthor && pinAuthor.username ? pinAuthor.username[0].toUpperCase() : ''}</div>
+                  </Link>
+                  <Link className='link-user-info' to={`/users/${pinAuthor?.id}/saved`}>
+                    <div className="pin-owner-info">
+                      <p>{pinAuthor && pinAuthor.username ? pinAuthor.username : ''}</p>
+                    </div>
+                  </Link>
                 </div>
               )}
             </div>

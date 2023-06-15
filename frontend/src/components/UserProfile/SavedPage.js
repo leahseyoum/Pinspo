@@ -14,7 +14,10 @@ function SavedPage() {
 
     return (
         <>
-            <UserInfoHeader/>
+            <div className="userInfoHeaderContainer">
+                <UserInfoHeader/>
+            </div>
+            
             <div className="save-page-boards-container">
                 <BoardIndex/>
             </div>

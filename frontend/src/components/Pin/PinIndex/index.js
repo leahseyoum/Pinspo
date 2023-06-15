@@ -1,4 +1,4 @@
-// Pins.js
+
 import { useState, useEffect } from 'react';
 import PinIndex from './PinView';
 import './index.css'

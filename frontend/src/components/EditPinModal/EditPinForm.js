@@ -11,7 +11,7 @@ import './EditPinForm.css';
 
 
 function EditPinForm({closeModal}) {
-    
+    const user = useSelector(state => state.session.user);
     const pin = useSelector(state => state.pins.pin);
     const [title, setTitle] = useState('');
     const [caption, setCaption] = useState('');
@@ -63,7 +63,7 @@ function EditPinForm({closeModal}) {
                 const response = await dispatch(updatePin(formData));
                 if (response.ok) {
                     closeModal();
-                    window.location.reload();
+                    // window.location.reload();
                 } else {
                     const responseErrors = await response.json();
                     setErrors(responseErrors)
@@ -82,7 +82,7 @@ function EditPinForm({closeModal}) {
         if (response.ok) {
 
             closeModal();
-            history.push('/created')
+            history.push(`/users/${user.id}/created`)
         }
     }
 
