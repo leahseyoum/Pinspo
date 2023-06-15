@@ -5,6 +5,7 @@ import {SlOptions} from 'react-icons/sl';
 import { useDispatch } from 'react-redux';
 import { deleteComment } from '../../store/comments';
 import { unstable_renderSubtreeIntoContainer } from 'react-dom';
+import { Link } from 'react-router-dom';
 
 const SingleComment = ({ comment, pin, user}) => {
     const [showDeleteMenu, setShowDeleteMenu] = useState(false);
@@ -37,7 +38,7 @@ const SingleComment = ({ comment, pin, user}) => {
                     <img className='nav-profile-image' src={commenter?.user.profilePhoto} alt='profile-photo' />
                 </div>) :
                     (<div className="user-icon-container">
-                        <button  className='user-icon-nav'>{commenter?.user.username[0].toUpperCase()}</button>
+                            <button  className='user-icon-nav'>{commenter?.user.username[0].toUpperCase()}</button>
                     </div>)}
             
                 <div className='comment-user-info'>
