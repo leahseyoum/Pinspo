@@ -91,7 +91,12 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
 
     if (modalRight > windowWidth) {
       const shiftAmount = modalRight - windowWidth;
-      modal.style.left = `${parseInt(modal.style.left, 10) - shiftAmount}px`;
+      console.log(shiftAmount, 'shift amont')
+      // modal.style.left = `${parseInt(modal.style.left, 10) - shiftAmount}px`;
+      // modal.style.right = `${parseInt(modal.style.left, 100) - shiftAmount}px`;
+      // modal.style.left = `${parseInt(modal.style.right) - 230}px`;
+      modal.style.right = `${modalRight - 150}px`;
+      modal.style.left= `${modalLeft - 150}px`;
     }
 
     if (modalLeft < 100) {
