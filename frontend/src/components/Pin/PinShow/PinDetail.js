@@ -109,7 +109,7 @@ function PinDetail() {
   return (
     <div className="pin-show-container">
       <div className='arrow-container'>
-        <FaArrowLeft className="arrow-icon" onClick={handleClick}/>
+        <FaArrowLeft className="arrow-icon"/>
       </div>
       <div className="pin-detail">
 

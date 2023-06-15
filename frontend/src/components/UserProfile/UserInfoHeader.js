@@ -9,6 +9,7 @@ import { Dispatch } from "react";
 import Spinner from "../Spinner/Spinner";
 import { useParams } from "react-router-dom";
 
+
 function UserInfoHeader() {
     const currentUser = useSelector(state => state.session.user);
     const userParams = useParams();
@@ -45,8 +46,12 @@ function UserInfoHeader() {
             setEmail(currentUser.email);
         }
       }, [currentUser, user]);
-    
       
+      const linkStyles = {
+        textDecoration: 'none',
+        color: 'inherit',
+      };
+
       return (
         
         <div className="info-container">
@@ -66,11 +71,13 @@ function UserInfoHeader() {
               <div className="user-profile-info-container">
                 <div className="username-container">
                   <h2 className="profile-username">{user.username}</h2>
+                  <Link to='/edit-user' style={linkStyles}>
                   {user.id === currentUser.id ? 
-                    <button className="edit-profile-button" onClick={handleEditClick}>
+                    <button className="edit-profile-button" >
                       Edit Profile
                     </button> : null
                   }
+                  </Link>
                 </div>
                 <div className="user-nav-links-container">
                   <Link to={`/users/${user.id}/created`} className={`user-nav-link ${location.pathname === `/users/${user.id}/created`? 'active' : ''}`}>

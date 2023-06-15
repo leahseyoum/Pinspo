@@ -66,6 +66,8 @@
   padding: 10px;
   box-sizing: border-box;
   float: left;
+  text-decoration: none;
+  color: inherit;
 }
 
 .board-container img {

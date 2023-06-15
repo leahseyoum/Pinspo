@@ -27,23 +27,30 @@ function PinIndex({ pin }) {
   
   const user = useSelector(state => state.session.user);
 
-  
+  const linkStyles = {
+    textDecoration: 'none',
+    color: 'inherit',
+  };
   
     return (
-        // <Link to={{pathname:`/pins/${pin.id}`, state: { board }}} style={{ textDecoration: 'none', color: 'black' }} className="pin-wrapper" onClick={handleClick} >
+        
           <div className='pin' >
             <div className="pin-image" >
-              <img src={pin.image} alt={pin.title}  onClick={()=> history.replace(`/pins/${pin.id}`) }/>
+              <Link to={`/pins/${pin.id}`} style={linkStyles}>
+                <img src={pin.image} alt={pin.title}/>
+              <div className="pin-text">
+                <h3 className="pin-title" >{pin.title}</h3>
+              </div>
+              </Link>
               <div className="pin-hover" >
                 <AddPinToBoardDropdown className="pin-view-dropdown" pin={pin} user={user} />
               </div>
             </div>
-            <div className="pin-text" onClick={()=> history.replace(`/pins/${pin.id}`) }>
-              <h3 className="pin-title" >{pin.title}</h3>
-            </div>
+            
+          
               <UserProfileImage pin={pin} />
           </div>
-        // </Link>
+       
     );
   }
   

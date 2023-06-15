@@ -61,29 +61,39 @@ function Navigation() {
   const isHomePage = location.pathname === '/index';
   const isCreatePage = location.pathname === '/create';
 
+  const linkStyles = {
+    textDecoration: 'none',
+    color: 'inherit',
+  };
+
   return (
     <div className='nav-bar'>
-      <ul className='left-nav'>
-
-          <div className='nav-logo' onClick={handleClick}>
-            <img className='pinterest-logo' src={pinterestLogo} />
-            <div className="logo-name">
-              <h1 className="logo-header">Pinspo</h1>
+      <Link to='/index' style={linkStyles}>
+        <ul className='left-nav'>
+            <div className='nav-logo'>
+              <img className='pinterest-logo' src={pinterestLogo} />
+              <div className="logo-name">
+                <h1 className="logo-header">Pinspo</h1>
+              </div>
             </div>
-          </div>
-      </ul>
+        </ul>
+      </Link>
       {sessionUser ? 
       <>
+      <Link to='/index' style={linkStyles}>
        <div className="home-button-container">
-          <button className={`home-button ${isHomePage ? 'active' : ''}`} onClick={handleClick}>Home</button>
+          <button className={`home-button ${isHomePage ? 'active' : ''}`} >Home</button>
         </div>
+      </Link>
+      <Link to='/create' style={linkStyles}>
         <div className="create-button-container">
-          <button className={`create-button ${isCreatePage ? 'active' : ''}`} onClick={handleCreateClick}>Create</button>
+          <button className={`create-button ${isCreatePage ? 'active' : ''}`}>Create</button>
           {showMenu && (
         <ul className="create-dropdown-ul">
           <li className='create-new-pin'><button className='create-new-pin-button'onClick={handleCreateClick}>Create New Pin</button></li>
         </ul>)}
         </div>
+      </Link>
         <div className='searchbar-container'>
           <SearchBar/>
           {/* <div className="search-input-box"><input className='searchbar' type="text" placeholder="  Search" /></div> */}

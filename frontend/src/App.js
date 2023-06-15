@@ -20,28 +20,28 @@ function App() {
     <>
       <Navigation />
         <Switch>
-          <Route path='/search/:query'>
+          <Route path ='/search/:query'>
             <SearchPins/>
           </Route>
-          <Route path="/users/:userId/saved">
+          <Route path ="/users/:userId/saved">
             <SavedPage/>
           </Route>
-          <Route path="/users/:userId/created">
+          <Route path ="/users/:userId/created">
             <CreatedPage/>
           </Route>
-          <Route path='/users/:userId/boards'>
+          <Route path ='/users/:userId/boards'>
             <BoardIndex/>
           </Route>
-          <Route path="/boards/:boardId">
+          <Route path ="/boards/:boardId">
             <BoardShow />
           </Route>
-          <Route path='/edit-user'>
+          <Route path ='/edit-user'>
             <EditUserForm/>
           </Route>
           <Route path="/pins/:pinId">
             <PinDetail />
           </Route>
-          <Route path="/create">
+          <Route path ="/create">
             <NewPinForm/>
           </Route>
           <Route path="/index" >

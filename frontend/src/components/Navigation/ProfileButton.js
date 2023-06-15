@@ -63,10 +63,14 @@ function ProfileButton() {
     history.push('/');
   };
 
-  const handleClick = (e) => {
-    history.push(`/users/${currentUser.id}/saved`);
-  };
+  // const handleClick = (e) => {
+  //   history.push(`/users/${currentUser.id}/saved`);
+  // };
 
+  const linkStyles = {
+    textDecoration: 'none',
+    color: 'inherit',
+  };
   return (
     <>
       {user?.profilePhoto ? (
@@ -81,9 +85,11 @@ function ProfileButton() {
         </div>
         </Link>
       ) : (
+        <Link to={`/users/${currentUser.id}/saved`} style={linkStyles}>
         <div className="user-icon-container">
-          <button onClick={handleClick} className='user-icon-nav'>{user?.username[0].toUpperCase()}</button>
+          <button className='user-icon-nav'>{user?.username[0].toUpperCase()}</button>
         </div>
+        </Link>
       )}
       <button className="profile-dropdown-icon" onClick={openMenu}>
         <IoIosArrowDown className="arrow-down"size={20}/>
@@ -105,9 +111,11 @@ function ProfileButton() {
         </div>
         </Link>
       ) : (
+        <Link to={`/users/${currentUser.id}/saved`} style={linkStyles}>
         <div className="user-icon-container">
-          <button onClick={handleClick} className='user-icon-nav'>{user?.username[0].toUpperCase()}</button>
+          <button  className='user-icon-nav'>{user?.username[0].toUpperCase()}</button>
         </div>
+        </Link>
       )}
             <div className="carrot-info">
               <li className="username-top">{user?.username}</li>

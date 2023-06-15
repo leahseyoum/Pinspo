@@ -4,6 +4,7 @@ import { displayPins } from '../../store/pins';
 import { useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const BoardView = ({board}) => {
     const dispatch = useDispatch();
@@ -61,13 +62,10 @@ const BoardView = ({board}) => {
     // )
     return (
         <>
+        <Link className='board-container' to={`/boards/${board.id}`}>
           <div className='board-container'>
             <div
               className='board'
-              onClick={() =>
-                
-                history.push({ pathname: `/boards/${board.id}`, state: { board: board } })
-              }
             >
               <div className='board-grid'>
                 {displayItems.slice(0,3).map(item => (
@@ -83,6 +81,7 @@ const BoardView = ({board}) => {
             </div>
             <h2 className='board-name'>{board.name}</h2>
           </div>
+        </Link>
         </>
       );
 
