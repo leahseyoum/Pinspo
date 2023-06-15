@@ -4,6 +4,7 @@ import { createSave } from "../../store/boardPins";
 import { deleteSave } from "../../store/boardPins";
 import { useDispatch } from "react-redux";
 import {AiOutlinePlus} from 'react-icons/ai';
+import { Link } from "react-router-dom";
 import BoardTile from "./BoardTile";
 import './AddPinBoardModal.css'
 import CreateBoardSelectModal from "./CreateBoardSelectModal";
@@ -106,8 +107,11 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
     
   }, []);
 
-  
-  
+  const linkStyles = {
+    textDecoration: 'none',
+    color: 'inherit'
+  };
+
   return (
     <div className='select-modal-ref' ref={dropdownRef} >
       <div
@@ -125,18 +129,20 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
             const isSaved = boardSaved[board.id] || false;
             return (
               <div className="board-save-option" key={board.id} ref={dropdownRef}>
-                <div className="tile-name-container"ref={dropdownRef}>
-                  <BoardTile board={board} />
-                  <p className="board-select-name" ref={dropdownRef}>{board.name}</p>
+                  <Link to={`/boards/${board.id}`} style={linkStyles}>
+                  <div className="tile-name-container"ref={dropdownRef}>
+                    <BoardTile board={board} />
+                    <p className="board-select-name" ref={dropdownRef}>{board.name}</p>
+                  </div>
+                  </Link>
+                  <button
+                    className={`show-save-button ${isSaved ? "saved-mode" : "unsaved-mode"}`}
+                    onClick={event => handleFormSubmit(event, board.id)}
+                    ref={dropdownRef}
+                  >
+                    {isSaved ? "Saved" : "Save"}
+                  </button>
                 </div>
-                <button
-                  className={`show-save-button ${isSaved ? "saved-mode" : "unsaved-mode"}`}
-                  onClick={event => handleFormSubmit(event, board.id)}
-                  ref={dropdownRef}
-                >
-                  {isSaved ? "Saved" : "Save"}
-                </button>
-              </div>
             );
           }
         })}

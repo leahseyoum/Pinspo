@@ -38,6 +38,8 @@
     font-family: Helvetica neue;
     font-size: 15px;
     margin-left: 5px;
+    text-decoration: 'none';
+    color: 'inherit';
 }
 
 .board-select-modal-header{
