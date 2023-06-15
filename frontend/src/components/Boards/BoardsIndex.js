@@ -61,7 +61,12 @@ function BoardIndex() {
           ))}
         </div>
       ) : (
-        <p className='no-boards-message'>{user?.username} hasn't saved any pins yet</p>
+        <p className='no-boards-message'>
+          {user.id === currentUser.id
+            ? "You haven't saved any pins yet"
+            : `${user?.username} hasn't saved any pins yet`}
+        </p>
+
       )}
     </div>
   );

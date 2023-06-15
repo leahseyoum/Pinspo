@@ -59,11 +59,12 @@
     font-size: 20px;
     border: none;
     background-color: transparent;
-    margin-right: 10px;
-    margin-bottom: 15px;
+    /* margin-right: 10px; */
+    margin-bottom: 40px;
     opacity: 0.5;
     cursor: pointer;
 }
+
 
 .suggestions {
     font-family: Helvetica neue;

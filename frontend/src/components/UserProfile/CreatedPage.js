@@ -48,7 +48,10 @@ function CreatedPage() {
             </div>
           ) : (
             <div className="no-pins-message">
-              <p>{user?.username} hasn't created any pins yet</p>
+              {/* <p>{user?.username} hasn't created any pins yet</p> */}
+              {user.id === currentUser.id
+            ? "You haven't created any pins yet"
+            : `${user?.username} hasn't created any pins yet`}
             </div>
           )}
           <div className="create-board-pin-container">

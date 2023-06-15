@@ -76,8 +76,9 @@ function AddPinToBoardDropdown({ user, pin }) {
   };
 
   const closeMenu = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     setShowBoardMenu(false);
+    // e.stopPropagation();
   };
 
   

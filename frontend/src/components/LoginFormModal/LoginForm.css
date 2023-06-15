@@ -110,8 +110,9 @@ label {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    /* width: 100%; */
+    width: 95%;
     margin-top: 10px;
+    margin-left: 15px;
 }
 
 .close {

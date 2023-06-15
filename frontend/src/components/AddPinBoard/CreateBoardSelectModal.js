@@ -6,7 +6,7 @@ import {AiOutlinePlus} from 'react-icons/ai';
 function CreateBoardSelectModal() {
     const [showModal, setShowModal] = useState(false);
      
-    const closeModal = () => {
+    const closeModal = (e) => {
         setShowModal(false);
      };
 

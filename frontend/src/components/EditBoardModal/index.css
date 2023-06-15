@@ -4,6 +4,7 @@
     border: none;
     font-family: Helvetica neue;
     cursor: pointer;
+    padding: 0px;
 }
 
 .edit-board-button-container {

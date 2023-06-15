@@ -9,7 +9,7 @@ import './AddPinBoardModal.css'
 import CreateBoardSelectModal from "./CreateBoardSelectModal";
 
 const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
-  const [showMenu, setShowMenu] = useState(true);
+  // const [showMenu, setShowMenu] = useState(true);
   const [selectedBoardId, setSelectedBoardId] = useState(pin.board ? pin.board.id : '');
   const [boardSaved, setBoardSaved] = useState({}); // Object to hold saved state for each board
   const stateBoards = useSelector(state => state.boards)

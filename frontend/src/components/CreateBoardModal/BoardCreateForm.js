@@ -59,10 +59,12 @@ function CreateBoardForm({closeModal}) {
       };
       
 
-    const handleCancel = async (event) => {
-        event.preventDefault();
-        closeModal();   
-    }
+    const handleCancel = (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      closeModal();
+    };
+    
 
   
       return (
