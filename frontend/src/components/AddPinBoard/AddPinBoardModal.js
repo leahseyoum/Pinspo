@@ -81,8 +81,8 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
         
         className={`add-pin-board-modal ${isParentHovered ? 'visible' : ''}`}
         ref={modalRef}
-        onMouseEnter={() => setIsParentHovered(true)}
-        onMouseLeave={closeMenu}
+        // onMouseEnter={() => setIsParentHovered(true)}
+        // onMouseLeave={() => setIsParentHovered(true)}
       >
         <div className="board-select-modal-header">
           <p className="board-select-header">Save to board</p>

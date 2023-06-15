@@ -75,15 +75,16 @@ function AddPinToBoardDropdown({ user, pin }) {
     setShowBoardMenu(true);
   };
 
+  const openOpenMenu = () => {
+    setShowBoardMenu(true);
+  }
+
   const closeMenu = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     setShowBoardMenu(false);
-    // e.stopPropagation();
   };
 
-  
-
-  
   return (
     <div className='add-pin-board-modal-parent'>
       <form className="select-board-form" id="hihi" onSubmit={handleFormSubmit}>
