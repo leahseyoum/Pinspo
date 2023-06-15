@@ -76,7 +76,7 @@ function AddPinToBoardDropdown({ user, pin, showBoardMenu, setShowBoardMenu, ope
       <form className="select-board-form" id="hihi" onSubmit={handleFormSubmit} >
         <div className="new-pin-nav-container" >
           <button className={className1} onClick={openMenu ? openMenu : showMenuFunction}>Select a board</button>
-          <IoIosArrowDown  className={className2}/>
+          <IoIosArrowDown  className={className2} onClick={openMenu ? openMenu : showMenuFunction}/>
           <button className={`show-save-button ${saved ? 'saved-mode' : 'unsaved-mode'}`}>
             {saved ? 'Saved' : 'Save'}
           </button>

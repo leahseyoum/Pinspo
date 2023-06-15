@@ -30,7 +30,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
       !targetElement.classList.contains("create-board-label") &&
       !targetElement.classList.contains("create-board-input") &&
       !targetElement.classList.contains("create-board-button") ) {
-        setShowBoardMenu(false);
+        // setShowBoardMenu(false);
       }
     };
 

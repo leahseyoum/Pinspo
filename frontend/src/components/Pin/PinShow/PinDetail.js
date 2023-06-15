@@ -172,7 +172,7 @@ function PinDetail() {
               </a>
             ) : null}
           {isOwner && (
-            <button className='edit-options-button' onClick={openMenu}>
+            <button className='edit-options-button'onClick={openMenu}>
               <SlOptions className="edit-options" />
             </button>
           )}

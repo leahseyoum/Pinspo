@@ -35,8 +35,9 @@ function PinIndex({ pin }) {
       !targetElement.classList.contains("add-pin-board-modal") &&
       !targetElement.classList.contains("create-board-plus") &&
       !targetElement.classList.contains("tile-photo-container") &&
-      !targetElement.classList.contains("tile-photo") &&
+      !targetElement.classList.contains("tile-photo") && 
       !targetElement.closest(`.${modalClassName}`)
+      
      
     ) {
       setShowBoardMenu((prevState) => !prevState);
