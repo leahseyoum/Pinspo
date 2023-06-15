@@ -12,6 +12,7 @@ import { useHistory } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import SearchBar from '../SearchBar/SearchBar';
+import { useLocation } from 'react-router-dom';
 
 function Navigation() {
   const sessionUser = useSelector(state => state.session.user);
@@ -49,13 +50,16 @@ function Navigation() {
 
   const history = useHistory();
   const handleClick = () => {
-    history.push('/index');
+    history.replace('/index');
   };
 
   const handleCreateClick = (e) => {
-    history.push('/create')
+    history.replace('/create')
   }
 
+  const location = useLocation();
+  const isHomePage = location.pathname === '/index';
+  const isCreatePage = location.pathname === '/create';
 
   return (
     <div className='nav-bar'>
@@ -71,10 +75,10 @@ function Navigation() {
       {sessionUser ? 
       <>
        <div className="home-button-container">
-          <button className="home-button" onClick={handleClick}>Home</button>
+          <button className={`home-button ${isHomePage ? 'active' : ''}`} onClick={handleClick}>Home</button>
         </div>
         <div className="create-button-container">
-          <button className="create-button" onClick={handleCreateClick}>Create</button>
+          <button className={`create-button ${isCreatePage ? 'active' : ''}`} onClick={handleCreateClick}>Create</button>
           {showMenu && (
         <ul className="create-dropdown-ul">
           <li className='create-new-pin'><button className='create-new-pin-button'onClick={handleCreateClick}>Create New Pin</button></li>

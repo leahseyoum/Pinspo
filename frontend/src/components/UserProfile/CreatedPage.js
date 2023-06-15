@@ -26,7 +26,7 @@ function CreatedPage() {
     fetch(`/api/users/${userId}`)
       .then((res) => res.json())
       .then((data) => setUser(data.user));
-  }, []);
+  }, [userId]);
   
   let arrayPins;
   let userPins;

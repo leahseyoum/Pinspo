@@ -208,3 +208,12 @@
   font-size: 14px;
 }
 
+.home-button.active,
+.create-button.active {
+  cursor: pointer;
+  color: #fff;
+  background-color: #000;
+  border-radius: 30px;
+  padding: 15px 15px;
+}
+
