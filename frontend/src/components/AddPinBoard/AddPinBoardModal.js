@@ -8,13 +8,39 @@ import BoardTile from "./BoardTile";
 import './AddPinBoardModal.css'
 import CreateBoardSelectModal from "./CreateBoardSelectModal";
 
-const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
-  // const [showMenu, setShowMenu] = useState(true);
+const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoardMenu }) => {
+  
   const [selectedBoardId, setSelectedBoardId] = useState(pin.board ? pin.board.id : '');
   const [boardSaved, setBoardSaved] = useState({}); // Object to hold saved state for each board
   const stateBoards = useSelector(state => state.boards)
   const dispatch = useDispatch();
   const [isParentHovered, setIsParentHovered] = useState(false);
+  
+  const modalRef = useRef(null);
+  
+  const dropdownRef = useRef();
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      const targetElement = event.target;
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target) &&
+      !targetElement.classList.contains("create-board-form") &&
+      !targetElement.classList.contains("create-title-container") &&
+      !targetElement.classList.contains("create-board-label") &&
+      !targetElement.classList.contains("create-board-input") &&
+      !targetElement.classList.contains("create-board-button") ) {
+        setShowBoardMenu(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [setShowBoardMenu]);
+  
+
 
   useEffect(() => {
     finalBoards.forEach(board => {
@@ -54,7 +80,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
     }
   }
 
-  const modalRef = useRef(null);
+  
 
   useEffect(() => {
     const modal = modalRef.current;
@@ -75,31 +101,33 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
     
   }, []);
 
+  
+  
   return (
-    <>
+    <div className='select-modal-ref' ref={dropdownRef} >
       <div
         
         className={`add-pin-board-modal ${isParentHovered ? 'visible' : ''}`}
         ref={modalRef}
-        // onMouseEnter={() => setIsParentHovered(true)}
-        // onMouseLeave={() => setIsParentHovered(true)}
       >
-        <div className="board-select-modal-header">
-          <p className="board-select-header">Save to board</p>
-          <button className='board-select-exit-button' onClick={closeMenu}>x</button>
+        <div className="board-select-modal-header" ref={dropdownRef}>
+          <p className="board-select-header" ref={dropdownRef}>Save to board</p>
+          
+          <button className='board-select-exit-button' onClick={closeMenu} ref={dropdownRef}>x</button>
         </div>
         {finalBoards.map(board => {
           if (board.userId === currentUser.id) {
             const isSaved = boardSaved[board.id] || false;
             return (
-              <div className="board-save-option" key={board.id}>
-                <div className="tile-name-container">
+              <div className="board-save-option" key={board.id} ref={dropdownRef}>
+                <div className="tile-name-container"ref={dropdownRef}>
                   <BoardTile board={board} />
-                  <p className="board-select-name">{board.name}</p>
+                  <p className="board-select-name" ref={dropdownRef}>{board.name}</p>
                 </div>
                 <button
                   className={`show-save-button ${isSaved ? "saved-mode" : "unsaved-mode"}`}
                   onClick={event => handleFormSubmit(event, board.id)}
+                  ref={dropdownRef}
                 >
                   {isSaved ? "Saved" : "Save"}
                 </button>
@@ -110,12 +138,12 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin }) => {
         <p className="suggestions">Suggestions</p>
          <div className="select-board-modal-create-board-container">
                   <button className="select-board-create-board-button">
-                  <CreateBoardSelectModal/>
+                    <CreateBoardSelectModal/>
                   </button>
                   <p className="select-board-create-board">Create Board</p>
           </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -50,7 +50,9 @@
   opacity: 1;
 }
 
-
+.pin-hover.show {
+  opacity: 1;
+}
 
 .save-button {
   position: absolute;

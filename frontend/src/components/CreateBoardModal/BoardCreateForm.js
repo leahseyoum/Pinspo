@@ -16,24 +16,6 @@ function CreateBoardForm({closeModal}) {
     const dispatch = useDispatch();
     const history = useHistory();
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     const formData = new FormData();
-    //       formData.append('board[name]', name);
-    //       formData.append("board[description]" , description);
-    //       formData.append('board[userId]', currentUser.id)
-    //       const response = await dispatch(createBoard(formData));
-    //     if (response.ok) {
-    //         dispatch(displayBoards(currentUser.id))
-    //         closeModal();
-    //         history.push('/saved');
-    //     } else {
-    //         // const data = await response.json();
-    //         // if (data) {
-    //             setErrors(["Title must be between 3 and 30 characters.", "description must be less than 150 characters."]);
-    //         // }
-    //     }
-    //   };
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -46,7 +28,6 @@ function CreateBoardForm({closeModal}) {
           if (response.ok) {
             dispatch(displayBoards(currentUser.id));
             closeModal();
-            // history.push('/saved');
           } else {
             const data = await response.json();
             if (data) {

@@ -18,7 +18,7 @@ import './PinDetail.css';
 function PinDetail() {
     const [profilePhoto, setProfilePhoto] = useState(null);
     // const pin = useSelector(state => state.pins.pin);
-    
+    const [showBoardMenu, setShowBoardMenu] = useState(false);
     const user = useSelector(state => state.session.user);
     const [showMenu, setShowMenu] = useState(false);
     const [pinAuthor, setPinAuthor] = useState(null);
@@ -39,6 +39,7 @@ function PinDetail() {
   // const userBoards = arrayBoards.filter((board) => board.userId === user.id)
 
     const openMenu = () => {
+      console.log('inside')
       if (showMenu) {
         setShowMenu(false)
         return
@@ -105,6 +106,10 @@ function PinDetail() {
       document.removeEventListener('click', handleClickOutside);
     };
   }, [handleClick]);
+
+  const showMenuFunction = (e) => {
+    setShowBoardMenu(!showBoardMenu);
+  }
   
   return (
     <div className="pin-show-container">
@@ -115,13 +120,11 @@ function PinDetail() {
 
         <div className="show-image-container">
           <img className="show-image" src={pin2?.image} alt={pin2?.title} />
-          {/* <img className="show-image" src={pin.image } alt={pin.title} /> */}
+          
         </div>
         <div className="show-details-container">
           <div className="show-details">
-            {/* <div className="pin-owner-info">
-                        <p>{user.username}</p>
-                    </div> */}
+            
             <div className="show-pin-title">
               <h2 className="show-title">{pin2?.title}</h2>
             </div>
@@ -159,9 +162,7 @@ function PinDetail() {
               
             
             </div>
-          {/* <div className="dropdown-container">
-              <AddPinToBoardDropdown user={user} pin={pin2 ? pin2 : pin} />
-          </div> */}
+          
           
 
         <div className="save-button-container">
@@ -182,16 +183,7 @@ function PinDetail() {
                 </li>
               </ul>
             )}
-            {pin2? <AddPinToBoardDropdown user={user} pin={pin2} /> : null}
-            {/* <div className='new-pin-nav-container'>
-                        <select defaultValue="Select a board" className='new-pin-form-dropdown' onChange={(e) => setSelectedBoard(e.target.value)}>
-                            <option value="Select a board">Select a board</option>
-                            {userBoards.map(board => (
-                                    <option key={board.id} value={board.id}>{board.name}</option>)
-                            )}
-                        </select>
-                        <button className='new-pin-save-button'>Save</button>
-              </div> */}
+            {pin2? <AddPinToBoardDropdown user={user} pin={pin2} showMenuFunction={showMenuFunction} showBoardMenu={showBoardMenu} setShowBoardMenu={setShowBoardMenu}/> : null}
         </div>
         </div>
       </div>
