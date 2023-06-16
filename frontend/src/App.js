@@ -6,7 +6,6 @@ import PinDetail from "./components/Pin/PinShow/PinDetail";
 import SplashPage from "./components/SplashPage";
 import NewPinForm from "./components/Pin/NewPin/NewPinForm";
 import CreatedPage from "./components/UserProfile/CreatedPage";
-import SavedPage from "./components/UserProfile/SavedPage";
 import SplashOrHome from "./components/SplashOrHome";
 import EditUserForm from "./components/UserProfile/EditUserForm";
 import BoardIndex from "./components/Boards/BoardsIndex";
@@ -24,7 +23,7 @@ function App() {
             <SearchPins/>
           </Route>
           <Route path ="/users/:userId/saved">
-            <SavedPage/>
+            <CreatedPage/>
           </Route>
           <Route path ="/users/:userId/created">
             <CreatedPage/>

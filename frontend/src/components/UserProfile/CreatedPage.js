@@ -6,8 +6,13 @@ import PinIndex from "../Pin/PinIndex/PinView";
 import CreateBoardModal from "../CreateBoardModal";
 import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
+import SavedPage from "./SavedPage";
+import { useLocation } from "react-router-dom";
 
 function CreatedPage() {
+  const location = useLocation();
+  const path = location.pathname;
+  
   const userParams = useParams();
   const userId = parseInt(userParams.userId);
   const currentUser = useSelector((state) => state.session.user);
@@ -37,29 +42,37 @@ function CreatedPage() {
 
   return (
     <>
-      {pins ? (
-        <div className="created-page-container">
-          <UserInfoHeader />
-          {userPins.length > 0 ? (
-            <div className="user-pins">
-              {userPins.map((pin) => (
-                <PinIndex className="pin" key={pin.id} pin={pin} create={'create'} />
-              ))}
+      <UserInfoHeader />
+      {path.includes("created") ? (
+        pins ? (
+          <div className="created-page-container">
+            {userPins.length > 0 ? (
+              <div className="user-pins">
+                {userPins.map((pin) => (
+                  <PinIndex
+                    className="pin"
+                    key={pin.id}
+                    pin={pin}
+                    create={"create"}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="no-pins-message">
+                {user.id === currentUser.id
+                  ? "You haven't created any pins yet"
+                  : `${user?.username} hasn't created any pins yet`}
+              </div>
+            )}
+            <div className="create-board-pin-container">
+              <CreateBoardModal className="create-board-pin" />
             </div>
-          ) : (
-            <div className="no-pins-message">
-              {/* <p>{user?.username} hasn't created any pins yet</p> */}
-              {user.id === currentUser.id
-            ? "You haven't created any pins yet"
-            : `${user?.username} hasn't created any pins yet`}
-            </div>
-          )}
-          <div className="create-board-pin-container">
-            <CreateBoardModal className="create-board-pin" />
           </div>
-        </div>
+        ) : (
+          <Spinner />
+        )
       ) : (
-        <Spinner />
+        <SavedPage />
       )}
     </>
   );
