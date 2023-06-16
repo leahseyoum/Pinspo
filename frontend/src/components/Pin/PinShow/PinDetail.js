@@ -24,23 +24,11 @@ function PinDetail() {
     const [showMenu, setShowMenu] = useState(false);
     const [pinAuthor, setPinAuthor] = useState(null);
     const [pinAuthorId, setPinAuthorId] = useState(null);
-    // const [selectedBoard, setSelectedBoard] = useState(null);
-    // const[boards, setBoards] = useState([]);
+    
     const dispatch = useDispatch();
 
-  //   useEffect(() => {
-  //     if (user) {
-  //         fetch(`/api/users/${user.id}/boards`)
-  //         .then(response => response.json())
-  //         .then(data => setBoards(data));
-  //     }
-  // }, [user, dispatch]);
-  
-  // const arrayBoards = boards ? Object.values(boards) : [];
-  // const userBoards = arrayBoards.filter((board) => board.userId === user.id)
 
     const openMenu = () => {
-      console.log('inside')
       if (showMenu) {
         setShowMenu(false)
         return
@@ -192,7 +180,7 @@ function PinDetail() {
           {showMenu && (
               <ul className="edit-link">
                 <li>
-                  <EditPinModal pin={pin2}/>
+                  <EditPinModal pin={pin2} openMenu={openMenu}/>
                 </li>
               </ul>
             )}

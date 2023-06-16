@@ -31,26 +31,6 @@ function EditPinForm({closeModal}) {
     const pinId = useParams()
     
 
-    // const handleSubmit = async (event) => {
-    //     event.preventDefault();
-    //     if (pin) {
-    //         const formData = new FormData();
-    //           formData.append('pin[title]', title);
-    //           formData.append("pin[caption]" , caption);
-    //           formData.append("pin[link]" , link);
-    //           formData.append('pin[id]', pinId.pinId);
-    //         const response = await dispatch(updatePin(formData));
-
-    //         if (response.ok) {
-    //             closeModal();
-    //             // history.push(`/pins/${pin.id}`);
-    //             window.location.reload();
-    //         }
-    //     }
-
-
-    //   };
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         if (pin) {
@@ -71,7 +51,33 @@ function EditPinForm({closeModal}) {
            
         }
     };
-
+    
+      
+    // const handleSubmit = async (event) => {
+    //     event.preventDefault();
+    //     if (pin) {
+    //       const formData = new FormData();
+    //       formData.append('pin[id]', pinId.pinId);
+    //       formData.append('pin[title]', title);
+      
+    //       if (caption !== "") {
+    //         formData.append('pin[caption]', caption);
+    //       }
+      
+    //       if (link !== "") {
+    //         formData.append('pin[link]', link);
+    //       }
+      
+    //       const response = await dispatch(updatePin(formData));
+    //       if (response.ok) {
+    //                         closeModal();
+    //                     } else {
+    //                         const responseErrors = await response.json();
+    //                         setErrors(responseErrors)
+    //                     }
+    //     }
+    //   };
+      
     
     
 

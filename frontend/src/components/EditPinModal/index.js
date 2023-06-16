@@ -2,11 +2,12 @@ import EditPinForm from './EditPinForm';
 import React, { useState } from 'react';
 import { Modal } from '../../context/Modal';
 
-function EditPinModal({pin}) {
+function EditPinModal({pin, openMenu}) {
     const [showModal, setShowModal] = useState(false);
 
      const closeModal = () => {
         setShowModal(false);
+        openMenu();
      };
 
 
