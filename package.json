@@ -4,7 +4,8 @@
     "@material-ui/core": "^4.12.4",
     "aws-amplify": "^5.1.4",
     "react-dropzone": "^14.2.3",
-    "react-masonry-css": "^1.0.16"
+    "react-masonry-css": "^1.0.16",
+    "swiper": "^9.4.1"
   },
   "name": "pinterest_clone",
   "description": "This README would normally document whatever steps are necessary to get the application up and running.",

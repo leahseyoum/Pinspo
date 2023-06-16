@@ -1,0 +1,174 @@
+.splash-photo-0 {
+    position: absolute;
+    top: -20px;
+    right: 750px;
+}
+
+.splash-photo-1 {
+    position: absolute;
+    top: 347px;
+    right: 750px;
+}
+
+.splash-photo-2 {
+    position: absolute;
+    top: 115px;
+    right: 500px;
+}
+
+.splash-photo-3 {
+    position: absolute;
+    top: 482px;
+    right: 500px;
+
+}
+
+.splash-photo-4 {
+    position: absolute;
+    top: 240px;
+    right: 250px;
+}
+
+.splash-photo-5 {
+    position: absolute;
+    top: 607px;
+    right: 250px;
+}
+
+.splash-photo-6 {
+    position: absolute;
+    top: 380px;
+    right: 0px;
+}
+
+.splash-photo-7 {
+    position: absolute;
+    top: 240px;
+    right: -250px;
+}
+
+.splash-photo-8 {
+    position: absolute;
+    top: 607px;
+    right: -250px;
+}
+
+.splash-photo-9 {
+    position: absolute;
+    top: 115px;
+    right: -500px;
+}
+
+.splash-photo-10 {
+    position: absolute;
+    top: 482px;
+    right: -500px;
+}
+
+
+.splash-photo-11 {
+    position: absolute;
+    top: -20px;
+    right: -750px;
+}
+
+.splash-photo-12 {
+    position: absolute;
+    top: 347px;
+    right: -750px;
+}
+
+
+.shot-words{
+    color: #afeeee;
+}
+
+.journey-words{
+    color: #ff7f50
+}
+
+.art-words{
+    color: var(--red);
+}
+
+.super-words{
+    color: #468499
+}
+
+.hidden-arrow{
+    transition: 60ms;
+    opacity: 0;
+}
+
+.first-page-arrow {
+    cursor: pointer;
+    background: #e60023;
+    border-radius: 50%;
+    margin: 68px;
+    height: 50px;
+    width: 50px;
+    animation-name: bouncing-arrow;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    position: absolute;
+    top: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-page-arrow:hover{
+    cursor: pointer;
+}
+
+.first-page-arrow >i {
+    right: 15px;
+    bottom: 25px;
+    color: white;
+    position: absolute;
+    -webkit-text-stroke: 1px white;
+}
+
+.shot-arrow {
+    background-color: #afeeee;
+}
+.journey-arrow {
+    background-color: #ff7f50;
+}
+.art-arrow {
+    background-color: var(--red);
+}
+.super-arrow {
+    background-color: #468499;
+}
+
+@keyframes bouncing-arrow {
+    0% {
+        transform: translateY(0)
+    }
+
+    20% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(0);
+    }
+
+    40% {
+        transform: translateY(-20px);
+    }
+
+    60% {
+        transform: translateY(-10px);
+    }
+
+    80% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}

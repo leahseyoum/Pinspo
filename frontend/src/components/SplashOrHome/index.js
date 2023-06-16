@@ -1,6 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import Splash from "../SplashPage";
+import Splash from "../Splash";
 import Pins from "../Pin/PinIndex";
 
 

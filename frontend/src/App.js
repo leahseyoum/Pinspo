@@ -3,7 +3,6 @@ import { Route, Switch} from "react-router-dom";
 import Navigation from "./components/Navigation";
 import Pins from "./components/Pin/PinIndex"
 import PinDetail from "./components/Pin/PinShow/PinDetail";
-import SplashPage from "./components/SplashPage";
 import NewPinForm from "./components/Pin/NewPin/NewPinForm";
 import CreatedPage from "./components/UserProfile/CreatedPage";
 import SplashOrHome from "./components/SplashOrHome";
