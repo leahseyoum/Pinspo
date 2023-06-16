@@ -8,6 +8,7 @@ import { useParams } from "react-router-dom";
 import Spinner from "../Spinner/Spinner";
 import SavedPage from "./SavedPage";
 import { useLocation } from "react-router-dom";
+import UsersCreateButton from "./UsersCreateButton";
 
 function CreatedPage() {
   const location = useLocation();
@@ -58,11 +59,14 @@ function CreatedPage() {
                 ))}
               </div>
             ) : (
-              <div className="no-pins-message">
-                {user.id === currentUser.id
-                  ? "You haven't created any pins yet"
-                  : `${user?.username} hasn't created any pins yet`}
-              </div>
+              <>
+                <div className="no-pins-message">
+                  {user.id === currentUser.id
+                    ? "You haven't created any pins yet"
+                    : `${user?.username} hasn't created any pins yet`}
+                  <UsersCreateButton/>
+                </div>
+              </>
             )}
             <div className="create-board-pin-container">
               <CreateBoardModal className="create-board-pin" />

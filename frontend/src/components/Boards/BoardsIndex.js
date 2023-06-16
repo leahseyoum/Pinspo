@@ -6,6 +6,7 @@ import { displayBoards } from '../../store/boards';
 import BoardView from './BoardView';
 import { useParams } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
+import MoreIdeasButton from '../UserProfile/MoreIdeas';
 
 function BoardIndex() {
   const userParams = useParams();
@@ -61,12 +62,14 @@ function BoardIndex() {
           ))}
         </div>
       ) : (
-        <p className='no-boards-message'>
-          {user?.id === currentUser?.id
-            ? "You haven't saved any pins yet"
-            : `${user?.username} hasn't saved any pins yet`}
-        </p>
-
+        <div className='no-saved-pins-user'>
+          <p className='no-boards-message'>
+            {user?.id === currentUser?.id
+              ? "You haven't saved any pins yet"
+              : `${user?.username} hasn't saved any pins yet`}
+          </p>
+          <MoreIdeasButton/>
+        </div>
       )}
     </div>
   );

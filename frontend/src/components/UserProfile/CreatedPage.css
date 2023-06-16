@@ -28,10 +28,11 @@
 
 .no-pins-message {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 200px; /* Adjust the height as needed */
-  margin-top: 400px
+  margin-top: 495px
 }
 
 /* .no-pins-message p {

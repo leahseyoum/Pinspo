@@ -1,9 +1,14 @@
+import { Link } from "react-router-dom";
+import './MoreIdeas.css';
+
 const MoreIdeasButton = () => {
     return (
-        <>
-            <div className="more-ideas-button-container">
-                <button>More Ideas</button>
-            </div>
+        <> 
+            <Link to={`/index`}>
+                <div className="more-ideas-button-container">
+                    <p className="more-ideas">Find Inspiration</p>
+                </div>
+            </Link>
         </>
     )
 }

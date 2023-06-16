@@ -1,0 +1,23 @@
+.more-ideas-link {
+    text-decoration: none;
+  }
+  
+  .more-ideas-button-container {
+    background-color: #ccc;
+    border-radius: 24px;
+    padding: 15px;
+    display: inline-block;
+    background-color: rgb(241, 241, 241);
+  }
+  
+  .more-ideas {
+    color: #333;
+    margin: 0;
+    font-family: Helvetica neue;
+    font-size: 18px;
+    font-weight: 600;
+  }
+  
+  .spacing-div {
+    margin-top: 40px;
+  }
