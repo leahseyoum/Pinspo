@@ -22,9 +22,15 @@
     margin-top: 20px;
     display: flex;
     justify-content: flex-end;
-    margin-right: 5px;
+    margin-right: 8px;
     cursor: pointer;
     /* margin-bottom: 100px; */
+  }
+
+  .new-pin-nav-container-show {
+    position: fixed;
+    top: 20px;
+    right: 10px;
   }
   
   .new-pin-form-dropdown {

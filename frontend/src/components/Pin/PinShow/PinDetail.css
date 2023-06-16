@@ -76,9 +76,11 @@
     position: absolute;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: flex-end;
+    /* width: 50%; */
     top: 20px;
-    right: 10px;
+    /* right: 10px; */
+    /* right: -150px; */
   }
 
   .arrow-container {
@@ -178,8 +180,8 @@
 
   .edit-options-button {
     width: 40px;
-    margin-top: 30px;
-    margin-right: 100px;
+    margin-top: 11px;
+    /* margin-right: 150px; */
     border: none;
     background-color: transparent;
     cursor: pointer;
@@ -188,8 +190,15 @@
 
   .edit-options {
     /* margin-left: 200px; */
-    font-size: 20px;
+    font-size: 25px;
     
+  }
+
+  .edit-options:hover {
+    background-color: rgb(223, 222, 222);
+    /* height: 30px;
+    width: 30px; */
+    border-radius: 50%;
   }
 
 
@@ -217,12 +226,12 @@
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
     background-color: white;
-    margin-right: 250px;
+    /* margin-right: 250px; */
   }
 
   .arrow-link {
     margin-top: 30px;
-    margin-left: 50px;
+    margin-left: 25px;
   }
 
   a:active {

@@ -55,15 +55,15 @@ function EditPinForm({closeModal}) {
         event.preventDefault();
         if (pin) {
             const formData = new FormData();
-            formData.append('pin[title]', title);
-            formData.append('pin[caption]', caption);
-            formData.append('pin[link]', link);
             formData.append('pin[id]', pinId.pinId);
+            formData.append('pin[title]', title);
+            formData.append('pin[link]', link);
+            formData.append('pin[caption]', caption);   
+            
             
                 const response = await dispatch(updatePin(formData));
                 if (response.ok) {
                     closeModal();
-                    // window.location.reload();
                 } else {
                     const responseErrors = await response.json();
                     setErrors(responseErrors)

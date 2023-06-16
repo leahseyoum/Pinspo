@@ -57,6 +57,7 @@ function AddPinToBoardDropdown({ user, pin, showBoardMenu, setShowBoardMenu, ope
   const location = useLocation();
   const className1 = location.pathname.includes('pin')  ?  "select-board-button-show": "select-board-button" ;
   const className2 = location.pathname.includes('pin') ? 'board-select-icon-show' : 'board-select-icon' ;
+  const className3 = location.pathname.includes('pin') ? 'new-pin-nav-container-show' : 'new-pin-nav-container';
   
   
   if (!pin) {
@@ -74,7 +75,7 @@ function AddPinToBoardDropdown({ user, pin, showBoardMenu, setShowBoardMenu, ope
   return (
     <div className='add-pin-board-modal-parent' >
       <form className="select-board-form" id="hihi" onSubmit={handleFormSubmit} >
-        <div className="new-pin-nav-container" >
+        <div className={className3} >
           <button className={className1} onClick={openMenu ? openMenu : showMenuFunction}>Select a board</button>
           <IoIosArrowDown  className={className2} onClick={openMenu ? openMenu : showMenuFunction}/>
           <button className={`show-save-button ${saved ? 'saved-mode' : 'unsaved-mode'}`}>
