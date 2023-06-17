@@ -94,8 +94,8 @@ const Splash = () => {
                     
                 </div>
                 <div className="one-and-half-text-container">
-                    <h1>Search for an inspiration</h1>
-                    <p>What do you want to try next? Think of something you're into-like "sunset" - and see what you find.</p>
+                    <h1>See it, make it, try it, do it</h1>
+                    <p>The best part of Pinspo is discovering new things and ideas from people around the world.</p>
                 </div>
             </section>
             <section className="second-page">
@@ -104,7 +104,7 @@ const Splash = () => {
                     <DiscoverPinsContainer photoNumber={28} />
                 </div>
                 <div className="second-page-text-container">
-                    <p>Sign up to get your ideas</p>
+                    <p className="signup-message">Join to Discover Fresh Inspiration</p>
                 </div>
                 <div onClick={handleArrow} className={`second-page-arrow splash-arrow`}>
                     <i className="fa-solid fa-chevron-up fa-lg"></i>

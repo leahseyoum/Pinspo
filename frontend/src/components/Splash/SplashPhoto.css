@@ -95,6 +95,23 @@
     color: #468499
 }
 
+.travel-words {
+    color: rgb(255, 106, 0);
+}
+
+.inspiration-words {
+    color: #E60023;
+    
+}
+
+.delicious-words {
+    color: rgb(0, 87, 128);
+}
+
+.home-words {
+    color: #f483f6;
+}
+
 .hidden-arrow{
     transition: 60ms;
     opacity: 0;
@@ -131,7 +148,7 @@
 }
 
 .shot-arrow {
-    background-color: #afeeee;
+    background-color: #ed5cef;
 }
 .journey-arrow {
     background-color: #ff7f50;

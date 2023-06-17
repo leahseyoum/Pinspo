@@ -1,6 +1,6 @@
 export const splashInfo = [
     {
-        "title": "Inspiration",
+        "title": "inspiration",
         "photoUrls": [
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/ocean/ocean-1.jpg",
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/ocean/ocean-2.jpg",
@@ -18,7 +18,7 @@ export const splashInfo = [
         ]
     },
     {
-        "title": "super roadster",
+        "title": "delicious recipe",
         "photoUrls": [
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/car/car-1.jpg",
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/car/car-2.jpg",
@@ -36,7 +36,7 @@ export const splashInfo = [
         ]
     },
     {
-        "title": "art of shapes",
+        "title": "home decor idea",
         "photoUrls": [
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/architect/architecture-1.jpg",
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/architect/architecture-2.jpg",
@@ -54,7 +54,7 @@ export const splashInfo = [
         ]
     },
     {
-        "title": "journey to wonderland",
+        "title": "travel destination",
         "photoUrls": [
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/travel/travel-1.jpg",
             "https://interestin-seeds.s3.us-west-1.amazonaws.com/travel/travel-2.jpg",

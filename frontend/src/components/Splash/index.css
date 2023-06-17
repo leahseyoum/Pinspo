@@ -33,6 +33,7 @@
   font-weight: 600;
   text-align: center;
   box-sizing: border-box;
+  font-family: Helvetica neue;
 }
 
 .splash-idea-text{
@@ -178,7 +179,7 @@
 }
 
 .sunset-3 {
-  width: 164px;
+  width: 178px;
   height: 258px;
   border-radius: 40px;
   position: relative;
@@ -219,14 +220,12 @@
 }
 
 .one-and-half-text-container>h1 {
-  /* width: 450px; */
   font-size: 60px;
   font-weight: bold;
   color: rgb(195, 25, 82);
-  /* line-height: 1.3; */
-  /* padding-bottom: 20px; */
   box-sizing: border-box;
-
+  font-family: Helvetica neue;
+  width: 600px;
 }
 .one-and-half-text-container>p{
   max-width: 400px;
@@ -236,7 +235,7 @@
   text-align: center;
   margin-top: 16px;
   box-sizing: border-box;
-  
+  font-family: Helvetica neue;
 }
 .second-page{
   height: 100vh;
@@ -412,4 +411,8 @@
 .sign-up-window{
   min-height: 400px;
       padding: 20px 10px 24px;
+}
+
+.signup-message {
+  font-family: Helvetica neue;
 }
