@@ -45,7 +45,10 @@ function PinDetail() {
         .then(res => res.json())
         .then(data => {
           setPin2(data);
-          dispatch(displayPin(pinId));
+
+          if (pinId) {
+            dispatch(displayPin(pinId));
+          }
           setPinAuthorId(data.userId);
           
         })
@@ -55,7 +58,7 @@ function PinDetail() {
     }, [pinId, dispatch]);
 
     useEffect(() => {
-      if (storePin.id === parseInt(pinId)) {
+      if (pinId && storePin?.id === parseInt(pinId)) {
         console.log(pinId, 'pinId')
         console.log(storePin.id, 'storepin id')
         setPin2(storePin);

@@ -117,7 +117,7 @@
   }
 
   .carrot-dropdown:hover {
-    background-color: rgb(223, 222, 222);
+   background-color:  rgb(223 222 222 / 47%);
   }
 
   .carrot-info {
@@ -159,7 +159,7 @@
   }
 
   .logout-button-container:hover {
-    background-color: rgb(223, 222, 222);
+    background-color:  rgb(223 222 222 / 47%);
     border-radius: 12px;
     width: 95%;
     /* padding-top: 10px; */

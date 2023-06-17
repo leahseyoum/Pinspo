@@ -21,11 +21,11 @@
     align-items: center;
     padding-left: 10px;
     padding-right: 10px;
-    padding-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .board-save-option:hover {
-    background-color: rgb(224, 223, 223);
+    background-color:  rgb(223 222 222 / 47%);
     border-radius: 12px;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .select-board-modal-create-board-container:hover {
-    background-color: rgb(224, 223, 223);
+    background-color:  rgb(223 222 222 / 47%);
     border-radius: 12px;
     
 }

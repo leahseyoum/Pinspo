@@ -4,6 +4,7 @@
     overflow: hidden;
     background-color: rgb(224, 223, 223);
     border-radius: 14px;
+    margin-top: 5px;
 }
 
 .tile-photo {

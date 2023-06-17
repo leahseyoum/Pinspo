@@ -113,6 +113,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
     color: 'inherit'
   };
 
+  
   return (
     <div className='select-modal-ref' ref={dropdownRef} >
       <div
@@ -154,6 +155,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
                   </button>
                   <p className="select-board-create-board">Create Board</p>
           </div>
+         
       </div>
     </div>
   );
