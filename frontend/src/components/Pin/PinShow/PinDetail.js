@@ -38,7 +38,7 @@ function PinDetail() {
 
     
     const { pinId } = useParams();
-    const [pin2, setPin2] = useState();
+    const [pin2, setPin2] = useState(null);
     
     useEffect(() => {
       fetch(`/api/pins/${pinId}`)
@@ -55,7 +55,9 @@ function PinDetail() {
     }, [pinId, dispatch]);
 
     useEffect(() => {
-      if (storePin) {
+      if (storePin.id === parseInt(pinId)) {
+        console.log(pinId, 'pinId')
+        console.log(storePin.id, 'storepin id')
         setPin2(storePin);
       }
     }, [storePin]);

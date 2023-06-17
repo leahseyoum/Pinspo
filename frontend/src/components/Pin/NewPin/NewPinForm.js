@@ -6,12 +6,9 @@ import { createPin } from "../../../store/pins"
 import DragDropFile from './DragAndDrop';
 import { useInput, useSubmit } from '../../../hooks';
 import { useHistory } from 'react-router-dom';
-import AddPinToBoardDropdown from '../../AddPinBoard/AddPinBoard';
 import { FormErrors, Input, TextArea } from '../../Forms';
-import BoardShow from '../../Boards/BoardShow';
 import { createSave } from '../../../store/boardPins';
-
-
+import DropZone from './DragAndDrop';
 
 function NewPinForm() {
     const dispatch = useDispatch();
@@ -23,7 +20,8 @@ function NewPinForm() {
     const [imageFile, setImageFile] = useState(null)
     const [imageUrl, setImageUrl] = useState(null);
     const [selectedBoard, setSelectedBoard] = useState('');
-    const[boards, setBoards] = useState([])
+    const[boards, setBoards] = useState([]);
+    const [imageData, setImageData] = useState(null);
     
     useEffect(() => {
         if (user) {
@@ -46,8 +44,9 @@ function NewPinForm() {
                 formData.append('pin[link]', link);
             // }
             
-            if (imageFile) {
-                formData.append('pin[image]', imageFile);
+            if (imageData) {
+                
+                formData.append('pin[image]', imageData);
             }
             return createPin(formData);
         },
@@ -92,18 +91,18 @@ function NewPinForm() {
                     </div>
                     <div className='new-pin-form-body-container'>
                         <div class="dropzone">
-                            {/* <DragDropFile onChange={handleFileChange}/> */}
+                            
                             <div className='dashed'>
-                              {/* <DragDropFile onChange={handleFileChange}/> */}
-                              { preview ? <img className='preview-image' src={preview} alt='Preview' /> : null}
                               
-                                <Input 
+                              {/* { preview ? <img className='preview-image' src={preview} alt='Preview' /> : null} */}
+                              
+                                {/* <Input 
                                   label="Click to upload"
                                   class= 'photo-input'
                                   type="file" 
                                   onChange={handleFileChange} 
-                              />
-                              {/* <input id="imageInput" type="file" onChange={handleFileChange} /> */}
+                              /> */}
+                                <DropZone setImageData={setImageData}/>
                             </div>
 
                          </div> 

@@ -1,0 +1,38 @@
+#drop-target {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    /* border: 2px dashed gray; */
+    text-align: center;
+    /* padding-top: 80px; */
+    cursor: pointer;
+    font-family: Helvetica neue;
+    font-weight: 500;
+    
+  }
+  
+  #drop-target.hover {
+    background-color: lightgray;
+  }
+
+  .uploaded-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .drag-and-drop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: rgba(86, 86, 86, 0.885);
+  }
+  
+  .upload-icon {
+    font-size: 30px;
+    color: white;
+  }
+  

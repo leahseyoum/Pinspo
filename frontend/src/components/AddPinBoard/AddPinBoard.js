@@ -10,6 +10,7 @@ import './AddPinBoard.css';
 
 function AddPinToBoardDropdown({ user, pin, showBoardMenu, setShowBoardMenu, openMenu, showMenuFunction }) {
   
+  
   const currentUser = useSelector(state => state.session.user)
   const [boards, setBoards] = useState([]);
   const [selectedBoardId, setSelectedBoardId] = useState(pin.board ? pin.board.id : '');
