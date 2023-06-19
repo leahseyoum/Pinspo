@@ -68,6 +68,7 @@ function Navigation() {
 
   return (
     <div className='nav-bar'>
+      {sessionUser ? 
       <Link to='/index' style={linkStyles}>
         <ul className='left-nav'>
             <div className='nav-logo'>
@@ -77,7 +78,18 @@ function Navigation() {
               </div>
             </div>
         </ul>
-      </Link>
+      </Link> 
+      :
+      <ul className='left-nav'>
+      <div className='nav-logo'>
+        <img className='pinterest-logo' src={pinterestLogo} />
+        <div className="logo-name">
+          <h1 className="logo-header">Pinspo</h1>
+        </div>
+      </div>
+    </ul>
+      
+    } 
       {sessionUser ? 
       <>
       <Link to='/index' style={linkStyles}>
