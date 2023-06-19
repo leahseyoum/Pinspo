@@ -41,90 +41,92 @@ opacity: 0;
     animation-name: slideout;
 }
 
-img{
+/* img{
     height: 100%;
     width: 100%;
     border-radius: 16px;
-}
+} */
+
+
 
 .splash-photo-0 {
     position: absolute;
     top: -20px;
-    right: 750px;
+    right: 650px;
 }
 
 .splash-photo-1 {
     position: absolute;
-    top: 347px;
-    right: 750px;
+    top: 297px;
+    right: 650px;
 }
 
 .splash-photo-2 {
     position: absolute;
-    top: 115px;
-    right: 500px;
+    top: 135px;
+    right: 375px;
 }
 
 .splash-photo-3 {
     position: absolute;
-    top: 482px;
-    right: 500px;
+    top: 452px;
+    right: 375px;
 
 }
 
 .splash-photo-4 {
     position: absolute;
     top: 240px;
-    right: 250px;
+    right: 100px;
 }
 
 .splash-photo-5 {
     position: absolute;
-    top: 607px;
-    right: 250px;
+    top: 557px;
+    right: 100px;
 }
 
 .splash-photo-6 {
     position: absolute;
     top: 380px;
-    right: 0px;
+    right: -85px;
 }
 
 .splash-photo-7 {
     position: absolute;
     top: 240px;
-    right: -250px;
+    right: -350px;
 }
 
 .splash-photo-8 {
     position: absolute;
-    top: 607px;
-    right: -250px;
+    top: 557px;
+    right: -350px;
 }
 
 .splash-photo-9 {
     position: absolute;
     top: 115px;
-    right: -500px;
+    right: -620px;
 }
 
 .splash-photo-10 {
     position: absolute;
-    top: 482px;
-    right: -500px;
+    top: 432px;
+    right: -620px;
 }
 
 
 .splash-photo-11 {
     position: absolute;
     top: -20px;
-    right: -750px;
+    right: -885px;
 }
 
 .splash-photo-12 {
     position: absolute;
-    top: 347px;
-    right: -750px;
+    top: 300px;
+    right: -885px;
 }
 
 @keyframes slidein {
@@ -154,11 +156,17 @@ img{
 .show-photo {
     animation-duration: 10s;
     animation-name: slidein;
+    height: 300px;
+    width: 250px;
+    border-radius: 16px;
 }
 
 .leaving-photo {
     animation-duration: 6s;
     animation-name: slideout;
+    height: 300px;
+    width: 240px;
+    border-radius: 16px;
 }
 
 @keyframes slideout {

@@ -17,6 +17,12 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
   const dispatch = useDispatch();
   const [isParentHovered, setIsParentHovered] = useState(false);
   
+
+
+
+  
+
+  
   const modalRef = useRef(null);
   
   const dropdownRef = useRef();
@@ -94,9 +100,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
     if (modalRight > windowWidth) {
       const shiftAmount = modalRight - windowWidth;
       
-      // modal.style.left = `${parseInt(modal.style.left, 10) - shiftAmount}px`;
-      // modal.style.right = `${parseInt(modal.style.left, 100) - shiftAmount}px`;
-      // modal.style.left = `${parseInt(modal.style.right) - 230}px`;
+      
       modal.style.right = `${modalRight - 150}px`;
       modal.style.left= `${modalLeft - 150}px`;
     }
@@ -120,6 +124,7 @@ const AddPinBoardModal = ({ finalBoards, closeMenu, currentUser, pin, setShowBoa
         
         className={`add-pin-board-modal ${isParentHovered ? 'visible' : ''}`}
         ref={modalRef}
+        
       >
         <div className="board-select-modal-header" ref={dropdownRef}>
           <p className="board-select-header" ref={dropdownRef}>Save to board</p>
