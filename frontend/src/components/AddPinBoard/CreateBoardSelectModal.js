@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Modal } from '../../context/Modal';
 import {AiOutlinePlus} from 'react-icons/ai';
 
-function CreateBoardSelectModal() {
+function CreateBoardSelectModal( ) {
     const [showModal, setShowModal] = useState(false);
      
     const closeModal = (e) => {

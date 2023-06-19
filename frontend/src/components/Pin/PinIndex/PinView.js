@@ -17,8 +17,7 @@ function PinIndex({ pin }) {
   const openMenu = (event) => {
     const modalClassName = 'board-select-modal-header';
     const targetElement = event.target;
-    console.log('here')
-    console.log(event.target, 'openMenu pin view')
+   
     if (
       !targetElement.classList.contains('board-select-modal-header') &&
       !targetElement.classList.contains("board-save-option") &&

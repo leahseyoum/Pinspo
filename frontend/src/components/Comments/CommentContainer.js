@@ -48,7 +48,7 @@ const CommentContainer = ({ pin, user }) => {
           <div ref={commentsContainerRef} />
         </div>
 
-        <div className='comment-input-container'>
+       <div className='comment-input-container'>
         <CommentInput pin={pin} user={user} />
       </div>
       </div>

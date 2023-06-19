@@ -51,7 +51,11 @@ function SearchPins() {
             <PinIndex className="pin" key={pin.id} pin={pin} />
           ))
         ) : (
-          <p className='search-no-results-message'>No results found, try something else!</p>
+          <div className='search-no-results-container'>
+          <div className='search-no-results-message-container'>
+            <p className='search-no-results-message'>No results found for "{query.query}", try something else!</p>
+          </div>
+        </div>
         )}
       </div>
     );
