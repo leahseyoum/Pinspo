@@ -18,9 +18,7 @@ function Pins() {
       .then(data => setPins(data));
   }, []);
 
-  // useEffect(() => {
-  //   dispatch(displayPins());
-  // }, [])
+  
   useEffect(() => {
     dispatch(displayPins())
       .then(() => setIsLoading(false)) 
@@ -32,20 +30,9 @@ function Pins() {
   
   const arrayPins = Object.values(pins)
   
-  
-
-  // return (
-  //    <div className="pins">
-  //     {arrayPins.map(pin => (
-  //         <PinIndex className="pin" key={pin.id} pin={pin} />
-  //     ))}
-  //     </div>
-   
-  // )
-  
   return (
     <div className="pins">
-      {isLoading ? ( // Render spinner while loading
+      {isLoading ? ( 
         <Spinner />
       ) : (
         arrayPins.map(pin => (

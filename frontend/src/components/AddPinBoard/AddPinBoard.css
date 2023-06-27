@@ -99,7 +99,10 @@
   /* .addpinboardmodal {
     position: absolute;
     z-index: 900;
+  }
+  
+  .add-pin-board-modal-parent {
+    position: relative;
+    z-index: 999;
   } */
-  
-  
    

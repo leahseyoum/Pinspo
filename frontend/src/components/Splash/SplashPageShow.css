@@ -52,81 +52,81 @@ opacity: 0;
 .splash-photo-0 {
     position: absolute;
     top: -20px;
-    right: 650px;
+    right: 700px;
 }
 
 .splash-photo-1 {
     position: absolute;
     top: 297px;
-    right: 650px;
+    right: 700px;
 }
 
 .splash-photo-2 {
     position: absolute;
     top: 135px;
-    right: 375px;
+    right: 425px;
 }
 
 .splash-photo-3 {
     position: absolute;
     top: 452px;
-    right: 375px;
+    right: 425px;
 
 }
 
 .splash-photo-4 {
     position: absolute;
     top: 240px;
-    right: 100px;
+    right: 150px;
 }
 
 .splash-photo-5 {
     position: absolute;
     top: 557px;
-    right: 100px;
+    right: 150px;
 }
 
 .splash-photo-6 {
     position: absolute;
     top: 380px;
-    right: -85px;
+    right: -125px;
 }
 
 .splash-photo-7 {
     position: absolute;
     top: 240px;
-    right: -350px;
+    right: -400px;
 }
 
 .splash-photo-8 {
     position: absolute;
     top: 557px;
-    right: -350px;
+    right: -400px;
 }
 
 .splash-photo-9 {
     position: absolute;
     top: 115px;
-    right: -620px;
+    right: -670px;
 }
 
 .splash-photo-10 {
     position: absolute;
     top: 432px;
-    right: -620px;
+    right: -670px;
 }
 
 
 .splash-photo-11 {
     position: absolute;
     top: -20px;
-    right: -885px;
+    right: -935px;
 }
 
 .splash-photo-12 {
     position: absolute;
     top: 300px;
-    right: -885px;
+    right: -935px;
 }
 
 @keyframes slidein {

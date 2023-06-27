@@ -40,9 +40,8 @@ function NewPinForm() {
             const formData = new FormData();
             formData.append('pin[title]', title);
             formData.append('pin[caption]', caption);
-            // if (link) {
-                formData.append('pin[link]', link);
-            // }
+            formData.append('pin[link]', link);
+         
             
             if (imageData) {
                 

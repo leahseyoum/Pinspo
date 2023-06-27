@@ -1,5 +1,4 @@
 import SignupForm from "../SignupFormModal/SignupForm"
-// import logo from "../../assets/image/logo3.png"
 import pinterestLogo from '../../assets/pinterestLogo.png'
 
 const SplashSignUp = (props)=> {

@@ -1,27 +1,149 @@
 # Pinspo
-Pinspo is a full-stack web application that is a clone of Pinterest, a social media platform where users can share and discover ideas, inspiration, and interests by creating, saving, and organizing pins on themed boards.
+### Background
+Pinspo is a full-stack web clone of the popular social media site Pinterest, a platform where users can share and discover ideas, by creating, saving, and organizing pins on themed boards.
 
 [Live Link](https://pinspo.onrender.com)
 
-## Technology 
+## Technologies
+- React and JavaScript frontend with CSS3 styling and Redux state
+- Ruby on Rails, PostgresSQL backend
+- AWS for hosting recipe images and Active Storage for using images in app
+- Webpack to bundle and transpile the source code
+- npm to manage project dependencies
 
-### Frontend
-- React
-- Redux
-### Backend
-- Ruby on Rails 
-- PostgresSQL
+## Functionality & MVPs
+In Pinspo, users can:
 
-## Features
+- View Pins and Boards:
+   - Browse and view pins and boards created by themselves and other users. This allows users to discover and explore a wide range of content shared on the platform.
 
-1. User Authentication and Authorization - Users can create an account, log in, and log out of the application. Each user's data is securely stored in the backend and they can only perform actions that they are authorized to do.
+   ![image name]()
 
-2. View Pins and Boards - Users can browse and view pins and boards created by themselves and other users.
+- Create Pins and Boards:
+   - Create new pins and boards, which can include images, descriptions, and links. Pins can be organized into boards, serving as collections for users to save and categorize their favorite pins.
 
-3. Create Pins and Boards - Users can create new pins and boards, which can include images, descriptions, and links. Pins can be organized into boards, which act as collections for users to save and organize their pins.
+   ![image name]()
 
-4. Edit Pins and Boards - Users can edit their own pins and boards, allowing them to update descriptions, change images, and add or remove pins.
+- Edit/Delete Pins and Boards:
+   - Edit their own pins and boards, providing the flexibility to update descriptions, change images, and add or remove pins. This allows users to refine and enhance their content over time.
 
-5. Delete Pins and Boards - Users can delete their own pins and boards, allowing them to remove content that they no longer wish to have on the platform.
+    ![image name]()
 
-6. Search Pins and Boards - Users can search for specific pins and boards using keywords, allowing them to find content that is relevant to their interests.
+- Search Pins:
+   - Search for specific pins using keywords, enabling users to find content that aligns with their interests. This search functionality enhances the user experience by facilitating the discovery of relevant and engaging content.
+
+    ![image name]()
+- Comments
+   - Engage in interactive discussions by adding, editing, or deleting comments on pins. This feature enables users to interact with other users and provide feedback, opinions, or ask questions related to a pin.
+
+   ![image name]()
+
+## Implementation Highlights
+
+The SplashPageShow component uses the useEffect hook to handle the automatic photo transition on the Pinspo splash page. When the shouldShow prop changes, it sets up an interval that increments the currentPhoto state every 250 milliseconds. It clears the interval and resets the currentPhoto state when the component is unmounted or when the shouldShow prop changes.
+
+<h5 a><strong><code>SplashPageShow.js</code></strong></h5>
+
+```Javascript
+const SplashPageShow = (props) => {
+    const { title, photoUrls, shouldShow, shouldLeave, handleArrow } = props
+    
+    const [currentPhoto, setCurrentPhoto] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentPhoto((prevPhoto) => prevPhoto + 1)
+        }, 250);
+
+        return () => {
+            setCurrentPhoto(0);
+            clearInterval(interval)
+        }
+    }, [shouldShow])
+
+    return (
+        <div className='splash-changing-category-container'>
+            <div className={`splash-prompt-container ${shouldShow ? "show-page" : shouldLeave ? "leaving-page" : "hidden-page"}`}>
+                <div className={`${title.split(" ")[0]}-words`}>
+                    {title}
+                </div>
+            </div>
+        
+            <div className={`splash-photo-container ${shouldShow ? "show-page" : shouldLeave ? "leaving-page" : "hidden-page"}`}>
+                {
+                    photoUrls.map((photoUrl, i) =>
+                    <SplashPhoto photoUrl={photoUrl}
+                        key={i}
+                        photoId={i}
+                        stationaryPhoto={false}
+                        showPhoto={i < currentPhoto}
+                    />
+                    )
+                }
+            </div>
+            <div onClick={handleArrow} className={`${title.split(" ")[0]}-arrow first-page-arrow splash-arrow ${shouldShow ? "show-arrow" : "hidden-arrow"}`}>
+                <i className="fa-solid fa-chevron-down fa-lg"></i>
+            </div>
+        </div>
+    )
+}
+
+```
+
+The BoardIndex component returns JSX elements based on the current state. If loading is true, it renders a Spinner component to indicate that the data is being fetched. If there are boards and the boards array is not empty, it renders a div with a class name of boards-grid and maps over the boards array to render individual BoardView components.
+
+<h5 a><strong><code>BoardsIndex.js</code></strong></h5>
+
+```Javascript
+function BoardIndex() {
+  const userParams = useParams();
+  const userId = parseInt(userParams.userId);
+  const dispatch = useDispatch();
+  const currentUser = useSelector(state => state.session.user);
+  const [boards, setBoards] = useState([]);
+  const [numBoards, setNumBoards] = useState(0);
+  const newBoard = useSelector(state => state.boards);
+  const [loading, setLoading] = useState(true); 
+
+  useEffect(() => {
+    if (userId) {
+      dispatch(displayBoards(userId))
+      .then(response => response.json())
+      .then(data => {
+          setBoards(data);
+          setNumBoards(data.length);
+          setLoading(false);
+      });
+    }
+  }, [dispatch, userId, newBoard]);
+
+  useEffect(() => {
+    fetch(`/api/users/${userId}`)
+    .then(res => res.json())
+    .then(data => setUser(data.user))
+  }, [])
+
+  return (
+    <div className='boards-container'>
+      {loading ? (
+        <Spinner /> 
+      ) : boards && boards.length > 0 ? (
+        <div className='boards-grid'>
+          {boards.map(board => (
+            <BoardView board={board} className='board' key={board.id} />
+          ))}
+        </div>
+      ) : (
+        <div className='no-saved-pins-user'>
+          <p className='no-boards-message'>
+            {user?.id === currentUser?.id
+              ? "You haven't saved any pins yet"
+              : `${user?.username} hasn't saved any pins yet`}
+          </p>
+          <MoreIdeasButton/>
+        </div>
+      )}
+    </div>
+  );
+}
+```

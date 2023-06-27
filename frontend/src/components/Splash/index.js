@@ -77,17 +77,20 @@ const Splash = () => {
                     <div className="one-and-half-picture-box">
                         <div className="img-container-1">
                             <img className="sunset-1" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_1.jpg" alt="sunset-1" />
+                            <p className="text-1">Cozy reading nooks with a view</p>
                         </div>
                         <div className="img-container-2">
                              <img className="sunset-2" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_2.jpg" alt="sunset-2" />
+                             <p className="text-2">Bohemian-inspired outdoor spaces</p>
                         </div>
                         <div className="img-container-3">
                             <img className="sunset-3" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_3.jpg" alt="sunset-3" />
+                            <p className="text-3">DIY flower arrangements for every season</p>
                         </div>
                         <div className="img-container-4">
                             
                             <img className="sunset-4" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_4.jpg" alt="sunset-4" />
-                                                        
+                            <p className="text-4">Minimalist home office setup</p>
                         </div>
                         
                     </div>

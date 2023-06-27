@@ -26,7 +26,7 @@ const SplashPageShow = (props) => {
                     {title}
                 </div>
             </div>
-
+        
             <div className={`splash-photo-container ${shouldShow ? "show-page" : shouldLeave ? "leaving-page" : "hidden-page"}`}>
                 {
                     photoUrls.map((photoUrl, i) =>

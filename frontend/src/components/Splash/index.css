@@ -97,7 +97,7 @@
   height: 100vh;
   width: 100%;
   top: 100vh;
-  background: rgb(255, 253, 146);
+  background: rgb(198, 249, 250);
   z-index: 60;
   display: flex;
   flex-direction: row;
@@ -130,14 +130,16 @@
 .img-container-1{
   top: 0px;
   right: 15px;
+  width: 225px;
   box-sizing: border-box;
-  position:absolute;
+ 
+  position: relative;
   display: block;
  
 }
 
 .sunset-1{
-  width: 178px;
+  width: 225px;
   height: 218px;
   border-radius: 40px;
   position: relative;
@@ -148,9 +150,10 @@
   max-height: none;
 }
 
+
 .img-container-2 {
-  top: 150px;
-  right: 250px;
+  top: 370px;
+  right: 400px;
   box-sizing: border-box;
   position: absolute;
   display: block;
@@ -158,8 +161,8 @@
 }
 
 .sunset-2 {
-  width: 204px;
-  height: 285px;
+  width: 170px;
+  height: 200px;
   border-radius: 40px;
   position: relative;
   overflow: hidden;
@@ -170,8 +173,8 @@
 }
 
 .img-container-3 {
-  top: 360px;
-  right: 0px;
+  top: 430px;
+  right: -130px;
   box-sizing: border-box;
   position: absolute;
   display: block;
@@ -179,7 +182,7 @@
 }
 
 .sunset-3 {
-  width: 178px;
+  width: 210px;
   height: 258px;
   border-radius: 40px;
   position: relative;
@@ -210,6 +213,50 @@
   
 }
 
+p.text-1 {
+  position: absolute;
+  color:white;
+  font-family: Helvetica neue;
+  font-size: 28px;
+  top: 10%;
+  left: 5%;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p.text-2 {
+  position: absolute;
+  top: 30%;
+  left: 5%;
+  color:white;
+  font-family: Helvetica neue;
+  font-size: 20px;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p.text-3 {
+  top: 30%;
+  left: 5%;
+  position: absolute;
+  color:white;
+  font-family: Helvetica neue;
+  font-size: 24px;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p.text-4 {
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  color:white;
+  font-family: Helvetica neue;
+  font-size: 35px;
+  font-weight: 500;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
 .one-and-half-text-container {
   display: flex;
   flex-direction: column;
@@ -222,14 +269,14 @@
 .one-and-half-text-container>h1 {
   font-size: 60px;
   font-weight: bold;
-  color: rgb(195, 25, 82);
+  color: rgb(14 109 120);
   box-sizing: border-box;
   font-family: Helvetica neue;
   width: 600px;
 }
 .one-and-half-text-container>p{
   max-width: 400px;
-  color: rgb(195, 25, 82);
+  color: rgb(14 109 120);
   font-size: 24px;
   word-spacing: 3px;
   text-align: center;
