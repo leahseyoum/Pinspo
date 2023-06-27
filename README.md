@@ -17,8 +17,6 @@ In Pinspo, users can:
 - View Pins and Boards:
    - Browse and view pins and boards created by themselves and other users. This allows users to discover and explore a wide range of content shared on the platform.
 
-   ![image name]()
-
 - Create Pins and Boards:
    - Create new pins and boards, which can include images, descriptions, and links. Pins can be organized into boards, serving as collections for users to save and categorize their favorite pins.
 
@@ -26,8 +24,6 @@ In Pinspo, users can:
 
 - Edit/Delete Pins and Boards:
    - Edit their own pins and boards, providing the flexibility to update descriptions, change images, and add or remove pins. This allows users to refine and enhance their content over time.
-
-    ![image name]()
 
 - Search Pins:
    - Search for specific pins using keywords, enabling users to find content that aligns with their interests. This search functionality enhances the user experience by facilitating the discovery of relevant and engaging content.

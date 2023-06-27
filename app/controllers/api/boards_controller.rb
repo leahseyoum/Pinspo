@@ -49,7 +49,7 @@ class Api::BoardsController < ApplicationController
 
     def update
         @board = Board.find(board_params[:id])
-        if @board.user_id === current_user.id && @board.update(board_params)
+        if @board.update(board_params)
             render :show
         else
             render json:@board.errors.full_messages, status: 422     
