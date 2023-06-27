@@ -20,7 +20,7 @@ In Pinspo, users can:
 - Create Pins and Boards:
    - Create new pins and boards, which can include images, descriptions, and links. Pins can be organized into boards, serving as collections for users to save and categorize their favorite pins.
 
-   ![image name]()
+   ![image name](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExb2thNWd6YWlxYTIwam9oZnN0bWliNmYwaXZ5Zmp3bm0xN3IzaDFrcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/dVwrH4rXop8y7bCnRx/giphy.gif)
 
 - Edit/Delete Pins and Boards:
    - Edit their own pins and boards, providing the flexibility to update descriptions, change images, and add or remove pins. This allows users to refine and enhance their content over time.
@@ -28,11 +28,11 @@ In Pinspo, users can:
 - Search Pins:
    - Search for specific pins using keywords, enabling users to find content that aligns with their interests. This search functionality enhances the user experience by facilitating the discovery of relevant and engaging content.
 
-    ![image name]()
+    ![image name](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeGVrN3BhajRzc2EzN3RwcjAwMnlsOWNidW5sdGdrbXJkczdtem1zMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/iKy3EN3kB6A5R0kU90/giphy.gif)
 - Comments
    - Engage in interactive discussions by adding, editing, or deleting comments on pins. This feature enables users to interact with other users and provide feedback, opinions, or ask questions related to a pin.
 
-   ![image name]()
+   ![image name](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExYjA5MTQyMnBnNTR0Z3I3Y2pydnl0Z2IxaTJwZW1jcjhleGs5Yjh5MCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/WvRHG1vL4wffhndrMd/giphy.gif)
 
 ## Implementation Highlights
 
