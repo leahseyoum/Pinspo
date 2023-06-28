@@ -14,7 +14,6 @@ function UserInfoHeader() {
     const currentUser = useSelector(state => state.session.user);
     const userParams = useParams();
     const userId = userParams.userId;
-    // console.log(userId)
     const [username, setUsername] = useState(currentUser.username);
     const [email, setEmail] = useState(currentUser.email)
     const [profilePhoto, setProfilePhoto] = useState(currentUser.profilePhoto);

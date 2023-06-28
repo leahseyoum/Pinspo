@@ -59,8 +59,6 @@ function PinDetail() {
 
     useEffect(() => {
       if (pinId && storePin?.id === parseInt(pinId)) {
-        console.log(pinId, 'pinId')
-        console.log(storePin.id, 'storepin id')
         setPin2(storePin);
       }
     }, [storePin]);
