@@ -46,9 +46,12 @@
     border-radius: 24px;
 }
 
-label {
+label.signup-email, label.signup-username, label.signup-password, label.signup-confirm-password {
     font-family: helvetica neue;
     font-weight: 150;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
 
 .signup-errors {

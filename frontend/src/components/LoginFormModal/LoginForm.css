@@ -30,6 +30,8 @@ label {
 
 .login-credentiallabel, .login-passwordlabel{
     font-weight: 150;
+    display: flex;
+    justify-content: center;
 }
 
 
