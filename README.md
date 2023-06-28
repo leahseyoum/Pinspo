@@ -1,6 +1,6 @@
 # Pinspo
 ### Background
-x
+
 Pinspo is a full-stack web clone of the popular social media site Pinterest, a platform where users can share and discover ideas by creating, saving, and organizing pins on themed boards.
 
 Check out the [live site](https://pinspo.onrender.com)
