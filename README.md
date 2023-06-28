@@ -1,13 +1,13 @@
 # Pinspo
 ### Background
-Pinspo is a full-stack web clone of the popular social media site Pinterest, a platform where users can share and discover ideas, by creating, saving, and organizing pins on themed boards.
+Pinspo is a full-stack web clone of the popular social media site Pinterest, a platform where users can share and discover ideas by creating, saving, and organizing pins on themed boards.
 
 [Live Link](https://pinspo.onrender.com)
 
 ## Technologies
 - React and JavaScript frontend with CSS3 styling and Redux state
 - Ruby on Rails, PostgresSQL backend
-- AWS for hosting recipe images and Active Storage for using images in app
+- AWS for hosting pin images and Active Storage for using images in app
 - Webpack to bundle and transpile the source code
 - npm to manage project dependencies
 

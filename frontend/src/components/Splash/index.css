@@ -97,7 +97,7 @@
   height: 100vh;
   width: 100%;
   top: 100vh;
-  background: rgb(198, 249, 250);
+  background: rgb(200, 247, 246);
   z-index: 60;
   display: flex;
   flex-direction: row;
@@ -128,8 +128,8 @@
 }
 
 .img-container-1{
-  top: 0px;
-  right: 15px;
+  top: -50px;
+  right: 75px;
   width: 225px;
   box-sizing: border-box;
  
@@ -140,8 +140,8 @@
 
 .sunset-1{
   width: 225px;
-  height: 218px;
-  border-radius: 40px;
+  height: 235px;
+  border-radius: 50px;
   position: relative;
   overflow: hidden;
   max-width: none;
@@ -152,8 +152,7 @@
 
 
 .img-container-2 {
-  top: 370px;
-  right: 400px;
+  top: 225px;
   box-sizing: border-box;
   position: absolute;
   display: block;
@@ -161,9 +160,9 @@
 }
 
 .sunset-2 {
-  width: 170px;
-  height: 200px;
-  border-radius: 40px;
+  width: 165px;
+  height: 173px;
+  border-radius: 50px;
   position: relative;
   overflow: hidden;
   max-width: none;
@@ -173,8 +172,8 @@
 }
 
 .img-container-3 {
-  top: 430px;
-  right: -130px;
+  top: 400px;
+  right: 70px;
   box-sizing: border-box;
   position: absolute;
   display: block;
@@ -182,9 +181,9 @@
 }
 
 .sunset-3 {
-  width: 210px;
-  height: 258px;
-  border-radius: 40px;
+  width: 225px;
+  height: 235px;
+  border-radius: 50px;
   position: relative;
   overflow: hidden;
   max-width: none;
@@ -194,17 +193,17 @@
 }
 
 .img-container-4 {
-  top: 88px;
-  right: 90px;
+  top: -50px;
+  right: -100px;
   box-sizing: border-box;
   position: absolute;
   display: block;
 }
 
 .sunset-4 {
-  width: 298px;
-  height: 456px;
-  border-radius: 40px;
+  width: 400px;
+  height: 420px;
+  border-radius: 50px;
   position: relative;
   overflow: hidden;
   object-fit: cover;
@@ -213,12 +212,35 @@
   
 }
 
+.img-container-5 {
+  top: 430px;
+  left: -30px;
+  box-sizing: border-box;
+  position: absolute;
+  display: block;
+  z-index: 20
+}
+
+.sunset-5 {
+    width: 225px;
+    height: 235px;
+    border-radius: 50px;
+    position: relative;
+    overflow: hidden;
+    max-width: none;
+    object-fit: cover;
+    max-width: none;
+    max-height: none;
+    z-index: 20
+  
+}
+
 p.text-1 {
   position: absolute;
   color:white;
   font-family: Helvetica neue;
-  font-size: 28px;
-  top: 10%;
+  font-size: 25px;
+  top: 50%;
   left: 5%;
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
@@ -226,22 +248,22 @@ p.text-1 {
 
 p.text-2 {
   position: absolute;
-  top: 30%;
-  left: 5%;
+  top: 45%;
+  left: 10%;
   color:white;
   font-family: Helvetica neue;
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 p.text-3 {
-  top: 30%;
+  top: 50%;
   left: 5%;
   position: absolute;
   color:white;
   font-family: Helvetica neue;
-  font-size: 24px;
+  font-size: 25px;
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
@@ -252,9 +274,21 @@ p.text-4 {
   left: 5%;
   color:white;
   font-family: Helvetica neue;
-  font-size: 35px;
+  font-size: 40px;
   font-weight: 500;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+p.text-5 {
+  position: absolute;
+    top: 50%;
+    left: 5%;
+    color: white;
+    font-family: Helvetica neue;
+    font-size: 25px;
+    font-weight: 500;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    z-index: 30;
 }
 
 .one-and-half-text-container {
@@ -304,6 +338,9 @@ p.text-4 {
   width: 100vw;
   background: rgba(0, 0, 0, 0.3);
   z-index: 26;
+  /* background-image: url("https://pinspo-seeds.s3.us-west-1.amazonaws.com/pinspo-splashpage-img.png");
+  background-repeat: no-repeat;
+  background-size: cover; */
 }
 
 .second-page-photo-background {

@@ -76,21 +76,26 @@ const Splash = () => {
                 <div className="one-and-half-picture-container">
                     <div className="one-and-half-picture-box">
                         <div className="img-container-1">
-                            <img className="sunset-1" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_1.jpg" alt="sunset-1" />
-                            <p className="text-1">Cozy reading nooks with a view</p>
+                            <img className="sunset-1" src="https://pinspo-seeds.s3.us-west-1.amazonaws.com/second+page+splash/austin-wilcox-tWbn0j8c0ic-unsplash.jpg" alt="sunset-1" />
+                            <p className="text-1">Everyday makeup look</p>
                         </div>
                         <div className="img-container-2">
-                             <img className="sunset-2" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_2.jpg" alt="sunset-2" />
-                             <p className="text-2">Bohemian-inspired outdoor spaces</p>
+                             <img className="sunset-2" src="https://pinspo-seeds.s3.us-west-1.amazonaws.com/second+page+splash/inside-weather-Uxqlfigh6oE-unsplash.jpg" alt="sunset-2" />
+                             <p className="text-2">Minimalist Design</p>
                         </div>
                         <div className="img-container-3">
-                            <img className="sunset-3" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_3.jpg" alt="sunset-3" />
-                            <p className="text-3">DIY flower arrangements for every season</p>
+                            <img className="sunset-3" src="https://pinspo-seeds.s3.us-west-1.amazonaws.com/second+page+splash/luismi-sanchez-HYRbs2k30IE-unsplash.jpg" alt="sunset-3" />
+                            <p className="text-3">My Dream vacation</p>
                         </div>
                         <div className="img-container-4">
                             
-                            <img className="sunset-4" src="https://interestin-seeds.s3.us-west-1.amazonaws.com/sunset/sunset_4.jpg" alt="sunset-4" />
-                            <p className="text-4">Minimalist home office setup</p>
+                            <img className="sunset-4" src="https://pinspo-seeds.s3.us-west-1.amazonaws.com/second+page+splash/max-saeling-AxXT3kFd_Gg-unsplash.jpg" alt="sunset-4" />
+                            <p className="text-4">Homemade pizza dough</p>
+                        </div>
+                        <div className="img-container-5">
+                            
+                            <img className="sunset-5" src="https://pinspo-seeds.s3.us-west-1.amazonaws.com/second+page+splash/spacejoy-IH7wPsjwomc-unsplash.jpg" alt="sunset-4" />
+                            <p className="text-5">Scandinavian home office setup</p>
                         </div>
                         
                     </div>
