@@ -3,7 +3,7 @@
 
 Pinspo is a full-stack web clone of the popular social media site Pinterest, a platform where users can share and discover ideas by creating, saving, and organizing pins on themed boards.
 
-Check out the [live site](https://pinspo.onrender.com)
+Check out the [live site](https://pinspo-8e2f26124196.herokuapp.com/)
 
 ## Technologies
 - React and JavaScript frontend with CSS3 styling and Redux state
